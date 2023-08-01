@@ -10,7 +10,25 @@ let categoryColorPick;
 let selectCategory;
 let subtasks = [];
 
-/** Onload Array */
+/** Overwrite backend server with empty Array */
+async function pushEmptyArray() {
+    users = [];
+    await setItem('users', JSON.stringify(users));
+}
+
+/** Saves the currentUser data to local storage. */
+function saveCurrentUserToLocalStorage(currentUser) {
+    let currentUserAsText = JSON.stringify(currentUser);
+    localStorage.setItem('currentUser', currentUserAsText);
+}
+
+/** Loads the currentUser data from local storage. */
+function loadCurrentUserFromLocalStorage() {
+    let currentUserAsText = localStorage.getItem('currentUser');
+    currentUser = JSON.parse(currentUserAsText);
+}
+
+/** Onload Array user */
 async function loadUsers() {
     try {
         users = JSON.parse(await getItem('users'));
@@ -20,26 +38,7 @@ async function loadUsers() {
     }
 }
 
-/** Saves the currentUser data to local storage. */
-function saveCurrentUserToLocalStorage(currentUser) {
-    let currentUserAsText = JSON.stringify(currentUser);
-    localStorage.setItem('currentUser', currentUserAsText);
-}
-
-/**
-* Loads the currentUser data from local storage.
-*/
-function loadCurrentUserFromLocalStorage() {
-    let currentUserAsText = localStorage.getItem('currentUser');
-    currentUser = JSON.parse(currentUserAsText);
-}
-// !!Test
-async function pushEmptyArray() {
-    users = [];
-    await setItem('users', JSON.stringify(users));
-}
-
-/**Onload Array addTask */
+/** Onload Array addTask */
 async function loadSupportArraysAddTask() {
     try {
         category = JSON.parse(await getItem('category'));
@@ -54,7 +53,6 @@ async function loadSupportArraysAddTask() {
  * 
  * @param {string} key 
  * @param {*} value 
- * @returns 
  */
 async function setItem(key, value) {
     const payload = { key, value, token: STORAGE_TOKEN };
