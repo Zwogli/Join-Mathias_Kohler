@@ -17,7 +17,7 @@
 <!-- login style -->
   <link rel="stylesheet" href="./style/style.css">
   <link rel="stylesheet" href="./style/login.css">
-  <link rel="stylesheet" href=".style/fonts/fonts.css">
+  <link rel="stylesheet" href="./style/fonts/fonts.css">
 
 <!-- javascript -->
   <script src="./js/backend.js"></script>
@@ -28,14 +28,14 @@
 <body onload="initSignUp()" class="o-flow-h">
 
   <main class="main">
-    <img class="logo" src="../img/logoBig.png" alt="join logo">
+    <img class="logo" src="./assets/img/logoBig.png" alt="join logo">
 
     <!-- return false =>  prevents the page from reloading-->
     <form onsubmit="userSignUp(); return false" class="form form-SignIn">
       <img onclick="window.location.href= './index.html'" class="return-black cursor-p img-16"
-        src="../img/arrow_left.png" alt="arrow left black">
+        src="./assets/img/arrow_left.png" alt="arrow left black">
       <img onclick="window.location.href= './index.html'" class="return-blue cursor-p img-24"
-        src="../img/arrow_left_blue.png" alt="arrow left blue">
+        src="./assets/img/arrow_left_blue.png" alt="arrow left blue">
       <h1 class="form-headline cursor-d ta-c fs-61 fw-700">Sign in</h1>
       <div class="border"></div>
 
@@ -55,7 +55,6 @@
       </section>
     </form>
 
-    <!-- todo rework -->
     <div id="msg-box" class="msg-box"></div>
 
   </main>
