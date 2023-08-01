@@ -15,8 +15,8 @@
   <link rel="mask-icon" href="./assets/favicon/safari-pinned-tab.svg" color="#5bbad5" />
 
 <!-- templates header, nav, help, legal-->
+  <script src="./templates/headerNav/headerNav.js"></script>  
   <link rel="stylesheet" href="./templates/headerNav/headerNav.css">
-  <script src="./templates/headerNav/headerNav.js"></script>
 
 <!-- summary style -->
   <link rel="stylesheet" href="./style/style.css">
@@ -24,12 +24,12 @@
   <link rel="stylesheet" href="./style/fonts/fonts.css">
 
 <!-- javascript -->
-  <script src="./js/backend.js"></script>
   <script src="./js/guestUserData.js"></script>
+  <script src="./js/backend.js"></script>
   <script src="./js/script.js"></script>
-  <script src="./js/login/login.js"></script>
-  <script src="./js/summary/summary.js"></script>
-  <script src="./js/summary/summaryTemplates.js"></script>
+  <script src="./js/login.js"></script>
+  <script src="./js/summary.js"></script>
+  <script src="./js/summaryTemplates.js"></script>
 
 </head>
 
@@ -64,7 +64,7 @@
 
         <div onclick="location.href='./board.html';" class="summary-infos-tasks-deadline hover grid4">
           <div class="summary-infos-tasks-deadline-priority">
-            <img class="img-priority" src="../img/urgent.png" alt="prio">
+            <img class="img-priority" src="./assets/img/urgent.png" alt="prio">
             <div class="ta-c">
               <span id="number-of-urgent-tasks" class="fs-47 fw-600">0</span>
               <p class="fs-16 fw-400">Urgent</p>
@@ -78,14 +78,14 @@
         </div>
 
         <div onclick="location.href='./board.html';" class="summary-infos-tasks-progress-card hover grid5">
-          <img class="img-progress" src="../img/pencil.svg" alt="pencil">
+          <img class="img-progress" src="./assets/img/pencil.svg" alt="pencil">
           <div class="ta-c">
             <span id="summary-infos-tasks-progress-card-todo-amount" class="fs-64 fw-600">0</span>
             <p class="fs-21 fw-400">To-do</p>
           </div>
         </div>
         <div onclick="location.href='./board.html';" class="summary-infos-tasks-progress-card hover grid6">
-          <img class="img-progress" src="../img/check.svg" alt="check">
+          <img class="img-progress" src="./assets/img/check.svg" alt="check">
           <div class="ta-c">
             <span id="summary-infos-tasks-progress-card-Done-amount" class="fs-64 fw-600">0</span>
             <p class="fs-21 fw-400">Done</p>
