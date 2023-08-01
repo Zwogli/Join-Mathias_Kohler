@@ -1,6 +1,4 @@
 body {
-    margin: 0;
-    font-family: 'Inter';
     font-style: normal;
     background: #F5F5F5;
     user-select: none;
@@ -177,7 +175,6 @@ textarea {
     color: white;
 }
 
-
 .addtask-prio-bnt-medium.active {
     background-color: #ffac04;
     box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px;
@@ -258,7 +255,6 @@ textarea {
     cursor: text;
 }
 
-
 .addtask-gendrop-coll {
     overflow: hidden;
     transition: all 100ms ease-in;
@@ -313,7 +309,6 @@ textarea {
     position: absolute;
     top: 0;
     right: 0;
-    /* transform: translate(-50%, 50%); */
 }
 
 .addtask-id-contact {
@@ -357,7 +352,6 @@ textarea {
     position: absolute;
     top: 0;
     right: 0;
-    /* translate: -100% -50%; */
 }
 
 .contact-list {
@@ -544,7 +538,6 @@ textarea {
     }
 
     .addtask-create-bnt:hover {
-        /* border: 1px solid #28aae2; */
         background-color: #28aae2;
         box-shadow: 0px 20px 20px -10px #babdbd;
     }
