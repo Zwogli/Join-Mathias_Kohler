@@ -21,7 +21,7 @@ async function userLogin(){
     }
     await setItem('currentUser', JSON.stringify({'currentUser':i}));
     console.log('geschafft')
-    window.location.href = '../summary/summary.html';
+    window.location.href = './summary.html';
   }else{
     msgBox.innerHTML = generateHtmlWrongLogin();
   }
@@ -32,7 +32,7 @@ async function userLogin(){
  */
 async function userGuest(){
   await setItem('currentUser', JSON.stringify({'currentUser':''}));
-  window.location.href = "../summary/summary.html"
+  window.location.href = "./summary.html"
 }
 
 /**
@@ -71,5 +71,5 @@ function remember(){
 /**this function clear array "currentUser" and navigate to index.html*/
 async function logout(){
   await setItem('currentUser', JSON.stringify({'currentUser':''}));
-  window.location.href = '../index.html';
+  window.location.href = './index.html';
 }

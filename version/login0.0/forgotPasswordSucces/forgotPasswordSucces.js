@@ -23,5 +23,5 @@ function initMsg(){
 }
 
 function loadNewPasswordHtml(){
-  window.location.href = "../login/newPassword.html";
+  window.location.href = "./newPassword.html";
 }

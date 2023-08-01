@@ -14,7 +14,7 @@ function initNewPassword(){
     console.log(requestEmail);
     confirmPassword();
   }else{
-    window.location.href='../index.html?msg=Email does not exist';
+    window.location.href='./index.html?msg=Email does not exist';
   }
 }
 
@@ -43,21 +43,8 @@ async function confirmPassword(){
 
 /**Generate message */
 function confirmMsg(){
-  window.location.href='../index.html?msg=You reset your password';
-  // setTimeout(() => {
-  //   window.location.href='..index.html'
-  // }, 1000);
+  window.location.href='./index.html?msg=You reset your password';
 }
-
-// function wrongPasswordInput(){
-//   let newPassword = document.getElementById('new-password');
-//   let confirmPassword = document.getElementById('confirm-password');
-
-//   newPassword.value = '';
-//   confirmPassword.value = '';
-//   window.location.href='newPassword.html?msg=Make sure the second password you typed matches the first.';
-// }
-
 
 /**generate Feedback succes password change*/
 function msgSuccesfullPasswordChange(){

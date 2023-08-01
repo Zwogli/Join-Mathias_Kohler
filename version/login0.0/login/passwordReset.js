@@ -26,7 +26,7 @@ async function confirmPassword(){
           users[i]=user;
           await setItem('users', JSON.stringify(users));
           resetEmail = localStorage.setItem('requestEmail', '');
-          window.location.href='../index.html?succsess=password';
+          window.location.href='./index.html?succsess=password';
           console.log(users, resetEmail);
       }
   }

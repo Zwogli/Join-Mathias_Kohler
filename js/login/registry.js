@@ -20,7 +20,7 @@ async function userSignUp() {
 	if (users.length === 0) {
 		setSignedUpUserAsFirstContact(name, email);
 		pushUserArray(name, email, password);
-		window.location.href = '../index.html?msg=You have successfully registered.';
+		window.location.href = './index.html?msg=You have successfully registered.';
 	} else {
 		checkEmailSignUp(name, email, password);
 	}
@@ -69,7 +69,6 @@ async function checkEmailAvailable(name, email, password) {
 	if (EmailIsAvailable === true) {
 		errorBox('signUpEmail', 'signUpEmail-label')
 		EmailIsAvailable = false;
-		// window.location.href = 'signUp.html?msg=Email already exists.';
 	} else {
 		EmailIsAvailable = false;
 		setSignedUpUserAsFirstContact(name, email);
@@ -114,15 +113,8 @@ async function pushUserArray(name, email, password) {
 		]
 	});
 	await setItem('users', JSON.stringify(users));
-	window.location.href = '../index.html?msg=You have successfully registered.';
+	window.location.href = './index.html?msg=You have successfully registered.';
 }
-/* Backup
-async function pushUserArray(name, email, password) {
-	users.push({ name: name.value, email: email.value, password: password.value, contacts, tasks });
-	await setItem('users', JSON.stringify(users));
-	window.location.href = '../index.html?msg=You have successfully registered.';
-}
-*/
 
 function renderDate() {
 	let dateToday = new Date();

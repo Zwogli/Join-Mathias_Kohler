@@ -54,10 +54,8 @@ async function checkUserInput(user, userEmail, userPassword, i) {
     while (user != users[i]) {
       i++;
     }
-    //!!Test
     saveCurrentUserToLocalStorage(i);
-    // await setItem('currentUser', JSON.stringify(i));
-    window.location.href = '../summary/summary.html';
+    window.location.href = './summary.html';
   } else {
     await errorBox('loginEmail', 'loginEmail-label')
     await errorBox('loginPassword', 'loginPassword-label')
@@ -66,11 +64,8 @@ async function checkUserInput(user, userEmail, userPassword, i) {
 
 /**Guest log in*/
 async function userGuest() {
-  // currentUser.push({currentUser: ''});
-  //!!Test
   saveCurrentUserToLocalStorage('');
-  // await setItem('currentUser', JSON.stringify(''));
-  window.location.href = "../summary/summary.html"
+  window.location.href = "./summary.html"
 }
 
 /**this function check the remember checkbox and save in the local storage
@@ -107,11 +102,8 @@ function remember() {
 
 /**this function clear array "currentUser" and navigate to index.html*/
 async function logout() {
-  // currentUser.push({currentUser: ''});
-  //!!Test
   saveCurrentUserToLocalStorage('');
-  // await setItem('currentUser', JSON.stringify(''));
-  window.location.href = '../index.html';
+  window.location.href = './index.html';
 }
 
 /**Show hide message */
