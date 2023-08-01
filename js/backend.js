@@ -1,35 +1,26 @@
-// implement mini-backend.js before srcipt.js
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
-const STORAGE_TOKEN = 'JJER0W91PS930CDVAOULS02PWMPNBAIWOL417IW7';
+// const STORAGE_TOKEN = 'JJER0W91PS930CDVAOULS02PWMPNBAIWOL417IW7'; GroupWork Token
+const STORAGE_TOKEN = 'ZP64ZO1L6D9X2EI7HGPY16UYRDDGTVIKBDPF9AU8';
 
 let users = [];
-// !!Test
-// let currentUser = [];
 let contacts = [];
 let tasks = [];
 let category = [];
 let categoryColorPick;
 let selectCategory;
 let subtasks = [];
-// let subtasksChecked = [];   //Save temporary
 
-
-/**Onload Array */
+/** Onload Array */
 async function loadUsers() {
     try {
         users = JSON.parse(await getItem('users'));
-        // currentUser = JSON.parse(await getItem('currentUser'));
-        // !!Test
         loadCurrentUserFromLocalStorage()
-        // category = JSON.parse(await getItem('category'));
     } catch (e) {
         console.error('Loading error:', e);
     }
 }
-// !!Test
-/**
-* Saves the currentUSer data to local storage.
-*/
+
+/** Saves the currentUser data to local storage. */
 function saveCurrentUserToLocalStorage(currentUser) {
     let currentUserAsText = JSON.stringify(currentUser);
     localStorage.setItem('currentUser', currentUserAsText);
