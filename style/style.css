@@ -321,18 +321,18 @@ button {
 }
 
 .cancel-icon {
-	background-image: url(../img/cancel.png);
+	background-image: url(./assets/img/cancel.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	transition: 100ms ease-in-out;
 }
 
 .light-btn:hover .cancel-icon {
-	background-image: url(../img/cancelHover.png);
+	background-image: url(./assets/img/cancelHover.png);
 }
 
 .light-btn:active .cancel-icon {
-	background-image: url(../img/cancelActive.png);
+	background-image: url(./assets/img/cancelActive.png);
 }
 
 /* ===icons=== */

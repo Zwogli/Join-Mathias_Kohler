@@ -114,17 +114,17 @@ Board
 
 .board-column-header-add-btn {
 	cursor: pointer;
-	background-image: url(../img/plus-btn-Default.png);
+	background-image: url(./assets/img/plus-btn-Default.png);
 	background-repeat: no-repeat;
 	background-position: center;
 }
 
 .board-column-header-add-btn:hover {
-	background-image: url(../img/plus-btn-hover.png);
+	background-image: url(./assets/img/plus-btn-hover.png);
 }
 
 .board-column-header-add-btn:active {
-	background-image: url(../img/plus-btn-active.png);
+	background-image: url(./assets/img/plus-btn-active.png);
 }
 
 .board-column-content {
@@ -360,19 +360,19 @@ Overlay
 	background: #FFFFFF;
 	border: 1px solid #2A3647;
 	border-radius: 10px 0px 0px 10px;
-	background-image: url(../img/delete.png);
+	background-image: url(./assets/img/delete.png);
 	background-repeat: no-repeat;
 	background-position: center;
 }
 
 .btn-animation-invert:hover {
 	border: 1px solid #29ABE2;
-	background-image: url(../img/delete-hover.png);
+	background-image: url(./assets/img/delete-hover.png);
 }
 
 .btn-animation-invert:active {
 	border: 1px solid #091931;
-	background-image: url(../img/delete-active.png);
+	background-image: url(./assets/img/delete-active.png);
 }
 
 .btn-edit {
@@ -503,7 +503,7 @@ Overlay
 .select-task-contacts {
 	padding: 13px 21px;
 	cursor: pointer;
-	background-image: url(../img/dropdown.svg);
+	background-image: url(./assets/img/dropdown.svg);
 	background-repeat: no-repeat;
 	background-position: 95%;
 }
@@ -526,7 +526,7 @@ Overlay
 }
 
 .assigned-edit-contact-new {
-	background-image: url(../img/contactsaddtask.svg);
+	background-image: url(./assets/img/contactsaddtask.svg);
 	background-repeat: no-repeat;
 	background-position: 95%;
 }
