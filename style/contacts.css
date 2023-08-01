@@ -302,18 +302,18 @@ Contact Details
     height: 50px;
     border-radius: 10px;
     border: unset;
-    background-image: url(./assets/img/editBtn_mobile.svg);
+    background-image: url(../assets/img/editBtn_mobile.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
 }
 
 #contact-details-edit-mobile:hover {
-    background-image: url(./assets/img/editBtn_mobile_hover.svg);
+    background-image: url(../assets/img/editBtn_mobile_hover.svg);
 }
 
 #contact-details-edit-mobile:active {
-    background-image: url(./assets/img/editBtn_mobile_active.svg);
+    background-image: url(../assets/img/editBtn_mobile_active.svg);
 }
 
 #contact-delete-mobile {
@@ -321,16 +321,16 @@ Contact Details
     height: 40px;
     border-radius: 10px;
     border: unset;
-    background-image: url(./assets/img/deleteBtn_mobile.svg);
+    background-image: url(../assets/img/deleteBtn_mobile.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
 }
 
 #contact-delete-mobile:hover {
-    background-image: url(./assets/img/deleteBtn_mobile_hover.svg);
+    background-image: url(../assets/img/deleteBtn_mobile_hover.svg);
 }
 
 #contact-delete-mobile:active {
-    background-image: url(./assets/img/deleteBtn_mobile_active.svg);
+    background-image: url(../assets/img/deleteBtn_mobile_active.svg);
 }

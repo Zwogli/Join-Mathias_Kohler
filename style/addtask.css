@@ -513,11 +513,11 @@ textarea {
     }
 
     .addtask-clear-bnt:hover .cancel-icon {
-        background-image: url(./assets/img/cancelHover.png);
+        background-image: url(../assets/img/cancelHover.png);
     }
 
     .addtask-clear-bnt:active .cancel-icon {
-        background-image: url(./assets/img/cancelActive.png);
+        background-image: url(../assets/img/cancelActive.png);
     }
 
     .addtask-create {

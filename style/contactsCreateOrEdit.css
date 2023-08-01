@@ -89,16 +89,16 @@ input[type=number] {
 }
 
 input[type=email] {
-    background-image: url(./assets/img/emailInput.png);
+    background-image: url(../assets/img/emailInput.png);
 }
 
 input[type=name] {
-    background-image: url(./assets/img/nameInput.png);
+    background-image: url(../assets/img/nameInput.png);
 }
 
 input[type=tel],
 input[type=number] {
-    background-image: url(./assets/img/phoneInput.png);
+    background-image: url(../assets/img/phoneInput.png);
 }
 
 /* Remove Arrows/Spinners for Chrome, Safari, Edge, Opera */
