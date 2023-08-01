@@ -7,11 +7,11 @@ let activeContactIndex;
  * Initializes contacts by loading user data, initializing header navigation and rendering the contact list.
  */
 async function initContacts() {
+    await initHeaderNav();
     await loadUserData();
     setActiveUser();
     setCategories();
 
-    await initHeaderNav();
     activateNavSection('nav-contacts');
     changeContentOnWindowSize();
 
