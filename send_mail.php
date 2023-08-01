@@ -3,7 +3,7 @@
 ########### CONFIG ###############
 
 $recipient = $_REQUEST["requesterEmail"]; #fill with user email 'requesterEmail'
-$redirect = '/login/forgotPassword.html?msg=An email has been send to you.'; #loading file after email send
+$redirect = '/login/passwordRequest.html?msg=An email has been send to you.'; #loading file after email send
 
 ########### CONFIG END ###########
 
