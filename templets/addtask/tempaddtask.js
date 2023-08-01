@@ -40,9 +40,9 @@ let lastClickedImage = null;
 let priority;
 
 const buttons = [
-    { id: "addtask-prio-bnt-urgent", img: "/img/prio-urgent.svg", activeImg: "/img/urgent-white.svg" },
-    { id: "addtask-prio-bnt-medium", img: "/img/prio-medium.svg", activeImg: "/img/medium-white.svg" },
-    { id: "addtask-prio-bnt-low", img: "/img/prio-low.svg", activeImg: "/img/low-white.svg" },
+    { id: "addtask-prio-bnt-urgent", img: "./assets/img/prio-urgent.svg", activeImg: "/img/urgent-white.svg" },
+    { id: "addtask-prio-bnt-medium", img: "./assets/img/prio-medium.svg", activeImg: "/img/medium-white.svg" },
+    { id: "addtask-prio-bnt-low", img: "./assets/img/prio-low.svg", activeImg: "/img/low-white.svg" },
 ];
 //mark
 function setActiveButton(buttonId) {

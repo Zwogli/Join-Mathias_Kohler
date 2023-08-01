@@ -22,8 +22,6 @@
 
 	<script src="/templets/addTaskTemplates.js"></script>
 
-	<script src="test.js"></script>
-
 </head>
 
 <body id="body" onload="initAddTask();" onclick="closeMenu()">
@@ -52,15 +50,15 @@
 				<div class="addtask-prio-whichBnt addtask-flex-moba center-stuff">
 					<button class="addtask-prio-bnt addtask-prio-bnt-urgent addtask-genimput center-stuff fs-16 fw-400"
 						id="addtask-prio-bnt-urgent" onclick="setActiveButton(0)">Urgent <img class="addtask-prio-img"
-							id="addtask-prio-bnt-urgent-img" src="../img/prio-urgent.svg"></button>
+							id="addtask-prio-bnt-urgent-img" src="./assets/img/prio-urgent.svg"></button>
 
 					<button class="addtask-prio-bnt addtask-prio-bnt-medium addtask-genimput center-stuff fs-16 fw-400"
 						id="addtask-prio-bnt-medium" onclick="setActiveButton(1);">Medium <img class="addtask-prio-img"
-							id="addtask-prio-bnt-medium-img" src="../img/prio-medium.svg"></button>
+							id="addtask-prio-bnt-medium-img" src="./assets/img/prio-medium.svg"></button>
 
 					<button class="addtask-prio-bnt addtask-prio-bnt-low addtask-genimput center-stuff fs-16 fw-400"
 						id="addtask-prio-bnt-low" onclick="setActiveButton(2);">Low <img class="addtask-prio-img"
-							id="addtask-prio-bnt-low-img" src="../img/prio-low.svg"></button>
+							id="addtask-prio-bnt-low-img" src="./assets/img/prio-low.svg"></button>
 				</div>
 
 			</div>
@@ -71,7 +69,7 @@
 				<div id="mail-selection" class="addtask-gendrop-coll collapsible inline-img">
 
 					<div class="select-task-category-img img-44">
-						<img id="mail-img-dropdown" src="../img/dropdown.svg" alt="drop down">
+						<img id="mail-img-dropdown" src="./assets/img/dropdown.svg" alt="drop down">
 					</div>
 
 					<div class="select-task-category paddings" id="currentItem"
@@ -93,18 +91,8 @@
 						<div class="addtask-item paddings" id="contact-1" style="position: relative;"
 							onclick="newInput('new-mail');">
 							Invite new contact <div class="select-task-category-img-2"> <img
-									src="/img/contactsaddtask.svg" alt=""></div>
+									src="./assets/img/contactsaddtask.svg" alt=""></div>
 						</div>
-
-
-
-						<!-- <div id="dropNum(assigned)">
-							
-							<div class="addtask-item paddings addtask-id" onclick="assignedToCheckbox(id)">Someone
-								<div class="addtask-checkbox "> <div class="addtask-checkbox-active"></div></div>
-							</div>
-							
-						</div> -->
 					</div>
 				</div>
 			</div>

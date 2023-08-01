@@ -2,16 +2,15 @@
  * Initializes the board by loading user data, initializing header navigation and rendering the board columns.
  */
 async function initBoard() {
+    await initHeaderNav();
     await loadUserData();
     setActiveUser();
     setCategories();
-    await initHeaderNav();
     media();
     activateNavSection('nav-board');
     renderBoardColumns();
     enableMobileDragAndDrop();
 }
-
 
 /**
  * This function renders the four board-columns. 

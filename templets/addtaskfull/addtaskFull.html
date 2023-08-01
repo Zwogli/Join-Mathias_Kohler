@@ -41,16 +41,16 @@
 					<button class="addtask-prio-bnt addtask-prio-bnt-urgent addtask-genimput center-stuff fs-16 fw-400"
 						id="addtask-prio-bnt-urgent" onclick="setActiveButton(0), givebntid(0)">Urgent <img
 							class="addtask-prio-img" id="addtask-prio-bnt-urgent-img"
-							src="../img/prio-urgent.svg"></button>
+							src="./assets/img/prio-urgent.svg"></button>
 
 					<button class="addtask-prio-bnt addtask-prio-bnt-medium addtask-genimput center-stuff fs-16 fw-400"
 						id="addtask-prio-bnt-medium" onclick="setActiveButton(1), givebntid(1)">Medium <img
 							class="addtask-prio-img" id="addtask-prio-bnt-medium-img"
-							src="../img/prio-medium.svg"></button>
+							src="./assets/img/prio-medium.svg"></button>
 
 					<button class="addtask-prio-bnt addtask-prio-bnt-low addtask-genimput center-stuff fs-16 fw-400"
 						id="addtask-prio-bnt-low" onclick="setActiveButton(2), givebntid(2)">Low <img
-							class="addtask-prio-img" id="addtask-prio-bnt-low-img" src="../img/prio-low.svg"></button>
+							class="addtask-prio-img" id="addtask-prio-bnt-low-img" src="./assets/img/prio-low.svg"></button>
 				</div>
 
 			</div>
@@ -72,7 +72,7 @@
 						onclick="doNotClose(event)">
 
 						<div class="select-task-category-img img-44">
-							<img id="category-img-dropdown" src="../img/dropdown.svg" alt="drop down">
+							<img id="category-img-dropdown" src="./assets/img/dropdown.svg" alt="drop down">
 						</div>
 
 
@@ -114,7 +114,7 @@
 					onclick="doNotClose(event)">
 
 					<div class="select-task-category-img img-44">
-						<img id="mail-img-dropdown" src="../img/dropdown.svg" alt="drop down">
+						<img id="mail-img-dropdown" src="./assets/img/dropdown.svg" alt="drop down">
 					</div>
 
 					<div class="select-task-category paddings" id="currentItem"
@@ -134,7 +134,7 @@
 						<div class="addtask-item contact-list paddings" id="contact-1" style="position: relative;"
 							onclick="newInput('new-mail');">
 							Invite new contact
-							<img src="/img/contactsaddtask.svg" alt="">
+							<img src="./assets/img/contactsaddtask.svg" alt="">
 						</div>
 
 					</div>
@@ -151,12 +151,12 @@
 					class="addtask-genimput addtask-subtasks-textarea" placeholder="Add new subtask"></textarea>
 
 				<div class="selection-img">
-					<img id="subtask-img-add" src="../img/plus.svg" alt="add">
+					<img id="subtask-img-add" src="./assets/img/plus.svg" alt="add">
 
 					<!-- change add-img remove & add d-none -->
 					<div id="subtask-img-activ" class="selection-img selection-img-activ d-none">
-						<img onclick="cancelSection('subtask')" class="px-5" src="../img/cancel.png" alt="cancel">
-						<img onclick="saveNewCategory('subtask')" class="border px-5" src="../img/check-black.svg"
+						<img onclick="cancelSection('subtask')" class="px-5" src="./assets/img/cancel.png" alt="cancel">
+						<img onclick="saveNewCategory('subtask')" class="border px-5" src="./assets/img/check-black.svg"
 							alt="check">
 					</div>
 
@@ -174,7 +174,7 @@
 	</div>
 
 	<div id="addtask-create-task" class="addtask-create-task pos-a d-none">
-		Task added to board <img src="/img/boardNav.png" alt="" srcset="">
+		Task added to board <img src="./assets/img/boardNav.png">
 	</div>
 </body>
 
