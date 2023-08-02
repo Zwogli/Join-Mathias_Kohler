@@ -20,7 +20,7 @@ async function userSignUp() {
 	if (users.length === 0) {
 		setSignedUpUserAsFirstContact(name, email);
 		pushUserArray(name, email, password);
-		window.location.href = './index.html?msg=You have successfully registered.';
+		linkToUrl('index.html?msg=You have successfully registered.');
 	} else {
 		checkEmailSignUp(name, email, password);
 	}
@@ -113,7 +113,7 @@ async function pushUserArray(name, email, password) {
 		]
 	});
 	await setItem('users', JSON.stringify(users));
-	window.location.href = './index.html?msg=You have successfully registered.';
+	linkToUrl('index.html?msg=You have successfully registered.');
 }
 
 function renderDate() {

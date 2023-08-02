@@ -14,7 +14,7 @@ function initNewPassword(){
     console.log(requestEmail);
     confirmPassword();
   }else{
-    window.location.href='./index.html?msg=Email does not exist';
+    linkToUrl('index.html?msg=Email does not exist');
   }
 }
 
@@ -43,7 +43,7 @@ async function confirmPassword(){
 
 /**Generate message */
 function confirmMsg(){
-  window.location.href='./index.html?msg=You reset your password';
+  linkToUrl('index.html?msg=You reset your password');
 }
 
 /**generate Feedback succes password change*/

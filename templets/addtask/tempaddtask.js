@@ -237,9 +237,7 @@ function newInput(section) {
         document.getElementById('color-pick').classList.remove('d-none');
     }
     else if (section === 'new-mail') {
-        window.location.href = './contacts.html';
-        // Figma Version
-        // removeHTMLSubtaskImg();
+        linkToUrl('contacts.html');
     }
     else if (section === 'subtask') {
         setHTMLSubtaskImg();

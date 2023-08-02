@@ -21,6 +21,7 @@
 
 <!-- javascript -->
   <script src="./js/backend.js"></script>
+  <script src="./js/script.js"></script>
   <script src="./js/login.js"></script>
   <script src="./js/registry.js"></script>
 </head>
@@ -32,9 +33,9 @@
 
     <!-- return false =>  prevents the page from reloading-->
     <form onsubmit="userSignUp(); return false" class="form form-SignIn">
-      <img onclick="window.location.href= './index.html'" class="return-black cursor-p img-16"
+      <img onclick="linkToUrl('index.html')" class="return-black cursor-p img-16"
         src="./assets/img/arrow_left.png" alt="arrow left black">
-      <img onclick="window.location.href= './index.html'" class="return-blue cursor-p img-24"
+      <img onclick="linkToUrl('index.html')" class="return-blue cursor-p img-24"
         src="./assets/img/arrow_left_blue.png" alt="arrow left blue">
       <h1 class="form-headline cursor-d ta-c fs-61 fw-700">Sign in</h1>
       <div class="border"></div>

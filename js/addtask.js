@@ -119,7 +119,7 @@ async function addTask() {
         await keyframe();
         activeUser.tasks.push(newTask);
         await saveUserData();
-        window.location.href = './board.html';
+        linkToUrl('board.html');
     }
 }
 
@@ -196,9 +196,7 @@ function newInput(section) {
         document.getElementById('category-selection').classList.add('height-46');
     }
     else if (section === 'new-mail') {
-        window.location.href = './contacts.html';
-        // Figma Version
-        // removeHTMLSubtaskImg();
+        linkToUrl('contacts.html');
     }
     else if (section === 'subtask') {
         setHTMLSubtaskImg();

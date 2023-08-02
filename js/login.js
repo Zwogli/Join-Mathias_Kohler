@@ -55,7 +55,7 @@ async function checkUserInput(user, userEmail, userPassword, i) {
       i++;
     }
     saveCurrentUserToLocalStorage(i);
-    window.location.href = './summary.html';
+    linkToUrl('summary.html');
   } else {
     await errorBox('loginEmail', 'loginEmail-label')
     await errorBox('loginPassword', 'loginPassword-label')
@@ -65,7 +65,7 @@ async function checkUserInput(user, userEmail, userPassword, i) {
 /**Guest log in*/
 async function userGuest() {
   saveCurrentUserToLocalStorage('');
-  window.location.href = "./summary.html"
+  linkToUrl('summary.html');
 }
 
 /**this function check the remember checkbox and save in the local storage
@@ -103,7 +103,7 @@ function remember() {
 /**this function clear array "currentUser" and navigate to index.html*/
 async function logout() {
   saveCurrentUserToLocalStorage('');
-  window.location.href = './index.html';
+  linkToUrl('index.html');
 }
 
 /**Show hide message */

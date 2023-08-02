@@ -70,3 +70,10 @@ function setMinDate(inputID) {
 function screenWidthIsAtMost(screenWidth) {
   return window.matchMedia(`(max-width: ${screenWidth})`).matches;
 }
+
+/** Open the new url into the window
+ * @param {String} url - URL adress
+ */
+function linkToUrl(url){
+  window.location.href = `./${url}`;
+}
