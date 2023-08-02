@@ -109,7 +109,6 @@ nav {
 	justify-content: flex-start;
 	align-items: center;
 	list-style: none;
-	cursor: pointer;
 }
 
 .n-nav-ul-li:hover {
@@ -253,7 +252,6 @@ Media Query
   ---------------------------------------------------*/
 	.overlay {
 		margin: unset;
-		/* padding: 10% 10% 0 10%; */
 		padding: 35px 30px 0 30px;
 		overflow-y: auto;
 		top: 80px;
@@ -288,8 +286,4 @@ Media Query
 	.overlay-h1 h1 {
 		font-size: 40px;
 	}
-}
-
-.d-none {
-	display: none;
 }
