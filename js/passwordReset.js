@@ -11,7 +11,7 @@ function initNewPassword(){
   let checkedUser = users.find(users => users.email.toLowerCase() == requestEmail.toLowerCase()); //tolowerCase = checks case-insensitive
   
   if (checkedUser) {
-    console.log(requestEmail);
+    // console.log(requestEmail);
     confirmPassword();
   }else{
     linkToUrl('index.html?msg=Email does not exist');

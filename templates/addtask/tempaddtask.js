@@ -444,57 +444,6 @@ function checkboxSwitch(id) {
 
 
 async function trueFalesTranslater(params) {
-
     const activeList = document.querySelectorAll('.addtask-id-contact');
-    console.log(activeList)
+    // console.log(activeList);
 }
-
-/*
-function assignedToCheckbox(id) {
-
-            document.getElementById(id).classList.toggle("collapsed");
-    
-        } else if (dropMaster === 'mail-selection') {
-            document.getElementById("mail-selection").classList.toggle("collapsed");
-        }
-
-}
-
-
-
-
-function dropSelectValue(params) {
-    if (params === "category-1") {
-        console.log("id")
-    }
-    if (condition) {
-
-    }
-    if (condition) {
-
-    }
-
-
-}
-
-function dropdownValueCheck() {
-    let dropNameQuery = document.querySelectorAll("[id*=dropNum]")
-    const dropNameArray = [];
-
-    dropNameQuery.forEach((element) => {
-        const dropNameMatch = element.id.match(/\((.*)\)/);
-        const dropName = dropNameMatch[1];
-        dropNameArray.push(dropName);
-    });
-
-    for (let inum = 0; inum < 3; inum++) {
-        let apiOutPutElements = document.getElementById("dropNum(" + dropNameArray[inum] + ")")
-        let childElements = apiOutPutElements.querySelectorAll(".addtask-id");
-        console.log(apiOutPutElements)
-        for (let index = 1; index < childElements.length; index++) {
-            childElements[index].setAttribute("id", dropNameArray[inum] + "-" + index);
-            childElements[index].setAttribute("onclick", "dropSelectValue("+"'" + dropNameArray[inum] + "-" + index + "'" + ")");
-        }
-    }
-}
-*/

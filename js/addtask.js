@@ -83,7 +83,7 @@ function toggleActive(dropMaster) {
 async function keyframe() {
     document.getElementById("addtask-create-task").classList.remove("d-none");
     await new Promise(resolve => setTimeout(resolve, 1000));
-    console.log("Delayed for 1 second.");
+    // console.log("Delayed for 1 second.");
     document.getElementById("addtask-create-task").classList.add("d-none");
 }
 
@@ -115,7 +115,6 @@ async function addTask() {
         description.value.trim() !== '' &&
         dueDate.value.trim() !== ''
     ) {
-        console.log("true XD")
         await keyframe();
         activeUser.tasks.push(newTask);
         await saveUserData();
