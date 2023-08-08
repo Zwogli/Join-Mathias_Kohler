@@ -251,22 +251,11 @@ async function saveNewCategory(section) {
         let inputValue = document.getElementById('new-category');
         if (categoryColorPick !== undefined && inputValue.value !== '') {
             category.push({ name: inputValue.value, color: categoryColorPick });
-            // Save backend
-            // await setItem('category', JSON.stringify(category));
-            // await saveUserData();
             document.getElementById('category-selection').classList.remove('height-46');
             resetCetegory(inputValue);
             renderCategory();
         }
     }
-    // Figma Version
-    // else if (section === 'new-mail' ) {
-    //     let inputValue = document.getElementById('new-mail').value; 
-
-    //     assignedTo.push(inputValue);
-    // Save backend
-    // await setItem('assignedTo', JSON.stringify(assignedTo));
-    // }
     else if (section === 'subtask') {
         initSubtask();
     }
