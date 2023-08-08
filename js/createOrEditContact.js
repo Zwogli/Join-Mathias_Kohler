@@ -14,8 +14,7 @@ function openCreateContactOverlay() {
 }
 
 
-/**
- * Renders the headline for the create contact overlay.
+/** Renders the headline for the create contact overlay.
  */
 function renderCreateContactHeadline() {
     document.getElementById('create-or-edit-contact-headline').classList = 'header-headline cursor-d mt-12 mb-12';
@@ -25,11 +24,10 @@ function renderCreateContactHeadline() {
 }
 
 
-/**
- * Renders the icon for the create contact overlay.
+/** Renders the icon for the create contact overlay.
  */
 function renderCreateContactIcon() {
-    document.getElementById('create-or-edit-contact-icon-container').innerHTML = '<img src="../img/emptyImg.png">';
+    document.getElementById('create-or-edit-contact-icon-container').innerHTML = '<img src="./assets/img/emptyImg.png">';
 }
 
 
