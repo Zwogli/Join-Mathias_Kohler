@@ -211,7 +211,7 @@ function givebntid(bntId) {
 
 function resetbnts(bntIdis) {
     const bntis = document.querySelector('.addtask-prio-bnt.active');
-    if (bntis === null || bntis === undefined) { console.log("Try chatch E") } else {
+    if (bntis === null || bntis === undefined) { /*console.log("Try chatch E")*/ } else {
         letbntimgis = bntis.id + "-img"
         document.getElementById(letbntimgis).src = buttons[bntIdis].img
         document.getElementById(bntis.id).classList.remove('active');

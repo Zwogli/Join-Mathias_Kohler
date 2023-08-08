@@ -33,7 +33,7 @@ function renderBoardCardOverlay(task) {
     document.getElementById('dueDate').innerHTML = task.dueDate;
     document.getElementById('prio-container-board').classList = `prio-container-board bg-${getPriorityAsString(task.prio).toLowerCase()} ml-25`;
     document.getElementById('priority').innerHTML = getPriorityAsString(task.prio);
-    document.getElementById('priority-icon').src = `../img/prio-${task.prio}_white.svg`;
+    document.getElementById('priority-icon').src = `./assets/img/prio-${task.prio}_white.svg`;
     document.getElementById('assignedTo').innerHTML = renderAssignedContactsForOverlay(task);
     if (task.subtasks.length) {
         renderSubtaskCheckboxes(task);
