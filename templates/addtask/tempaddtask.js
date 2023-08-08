@@ -1,3 +1,16 @@
+let lastClickedImage = null;
+let priority;
+let minwidth = window.matchMedia('(min-width: 900px)');
+let bntIdis = 1;
+const buttons = [
+    { id: "addtask-prio-bnt-urgent", img: "./assets/img/prio-urgent.svg", activeImg: "./assets/img/urgent-white.svg" },
+    { id: "addtask-prio-bnt-medium", img: "./assets/img/prio-medium.svg", activeImg: "./assets/img/medium-white.svg" },
+    { id: "addtask-prio-bnt-low", img: "./assets/img/prio-low.svg", activeImg: "./assets/img/low-white.svg" },
+];
+
+/** Catch window sice */
+window.addEventListener('resize', media);
+
 /**init onload functions */
 async function initAddTask() {
     await loadUserData();
@@ -10,9 +23,7 @@ async function initAddTask() {
     giveContactListId();
 }
 
-window.addEventListener('resize', media);
-let minwidth = window.matchMedia('(min-width: 900px)')
-
+/** Manage window sice */
 function media() {
     const imposter = document.getElementById("imposter");
     const amogus = document.getElementById("amogus");
@@ -24,6 +35,9 @@ function media() {
     }
 }
 
+/** Fill selected container abot window sice
+ * @param {ID} destination - container id
+ */
 function moveContent(destination) {
     const container = document.getElementById(destination);
 
@@ -36,15 +50,9 @@ function moveContent(destination) {
     container.appendChild(subtasks);
 }
 
-let lastClickedImage = null;
-let priority;
-
-const buttons = [
-    { id: "addtask-prio-bnt-urgent", img: "./assets/img/prio-urgent.svg", activeImg: "./assets/img/urgent-white.svg" },
-    { id: "addtask-prio-bnt-medium", img: "./assets/img/prio-medium.svg", activeImg: "./assets/img/medium-white.svg" },
-    { id: "addtask-prio-bnt-low", img: "./assets/img/prio-low.svg", activeImg: "./assets/img/low-white.svg" },
-];
-//mark
+/** Toggle btn 1 of 3
+ * @param {ID} buttonId - select btn id
+ */
 function setActiveButton(buttonId) {
     const selectedButton = buttons.find((button) => button.id === buttons[buttonId].id);
     priority = buttonId;
@@ -68,6 +76,9 @@ function setActiveButton(buttonId) {
     });
 }
 
+/** Toggle section category
+ * @param {*} dropMaster 
+ */
 function toggleActive(dropMaster) {
     if (dropMaster === 'category-selection') {
         document.getElementById("category-selection").classList.toggle("collapsed");
@@ -204,11 +215,16 @@ async function resetSubtasks() {
     renderSubtaskArray();
 }
 
-let bntIdis = 1;
+/** Catch btn id
+ * @param {Number} bntId - select btn with number
+ */
 function givebntid(bntId) {
     bntIdis = bntId
 }
 
+/** Load btn img and remove class
+ * @param {Number} bntIdis - select btn with number
+ */
 function resetbnts(bntIdis) {
     const bntis = document.querySelector('.addtask-prio-bnt.active');
     if (bntis === null || bntis === undefined) { /*console.log("Try chatch E")*/ } else {
@@ -218,7 +234,6 @@ function resetbnts(bntIdis) {
     }
 }
 
-//mark
 /**Reset all inputs */
 async function resetInputFields() {
     document.getElementById('task-title').value = '';
@@ -257,6 +272,9 @@ function cancelSection(section) {
     }
 }
 
+/** Fill section category
+ * @param {Number} i 
+ */
 function selectedCategory(i) {
     let showSelectedCategory = document.getElementById('selected-element');
 
@@ -293,22 +311,11 @@ async function saveNewCategory(section) {
         let inputValue = document.getElementById('new-category');
         if (categoryColorPick !== undefined && inputValue.value !== '') {
             category.push({ name: inputValue.value, color: categoryColorPick });
-            // Save backend
-            // await setItem('category', JSON.stringify(category));
-            // await saveUserData();
             document.getElementById('category-selection').classList.remove('height-46');
             resetCetegory(inputValue);
             renderCategory();
         }
     }
-    // Figma Version
-    // else if (section === 'new-mail' ) {
-    //     let inputValue = document.getElementById('new-mail').value; 
-
-    //     assignedTo.push(inputValue);
-    // Save backend
-    // await setItem('assignedTo', JSON.stringify(assignedTo));
-    // }
     else if (section === 'subtask') {
         initSubtask();
     }
@@ -354,9 +361,6 @@ async function renderContacts() {
         contactList.innerHTML += /*html*/`
         <div class="addtask-item paddings pos-re" onclick="checkboxSwitch(id)">${contact}
             <input id="contact-checkbox${i}" type="checkbox">
-        <!-- <div id="addtask-checkbox${i}" class="addtask-checkbox"> 
-                <div id="addtask-checkbox-active${i}" class="addtask-checkbox-active"></div>
-            </div> -->
 		</div>
         `;
     }
@@ -436,12 +440,6 @@ function giveContactListId(params) {
         currentElement.setAttribute('id', `contact-${index}`);
     }
 }
-
-
-function checkboxSwitch(id) {
-
-}
-
 
 async function trueFalesTranslater(params) {
     const activeList = document.querySelectorAll('.addtask-id-contact');
