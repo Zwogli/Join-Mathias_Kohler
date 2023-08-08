@@ -80,7 +80,7 @@ function renderCard(task) {
                 <div class="assigned-contacts">
                     ${renderAssignedContacts(task)}
                 </div>
-                <img src="../img/prio-${task.prio}.svg">
+                <img src="./assets/img/prio-${task.prio}.svg">
             </div>
         </div>
     `;
