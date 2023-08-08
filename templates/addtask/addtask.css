@@ -59,8 +59,34 @@ Global Elements
     top: 12px;
 }
 
+@media (max-width: 1300px) {
+    .addtask-create {
+        position: unset;
+        top: unset;
+        right: unset;
+        width: unset;
+        height: unset;
+        background: unset;
+        border-radius: unset;
+    }
+    .addtask-flex-moba {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+}
+
+@media (min-width: 1300px) {
+    .lobby {
+        width: 130%;
+    }
+}
+
 @media (max-width: 900px) {
     .d-nonemax1300 {
+        display: none;
+    }
+    .hide{
         display: none;
     }
 
@@ -118,6 +144,9 @@ Global Elements
     .d-nonemin1300 {
         display: none;
     }
+    /* .d-nonemax1300 {
+        display: none;
+    } */
 
     .addtask-tasktitle {
         order: 1;
@@ -237,18 +266,5 @@ Global Elements
 
     .addtask-subtasks {
         display: unset;
-    }
-}
-
-@media (max-width: 1300px) {
-    .addtask-flex-moba {
-        display: flex;
-        flex-wrap: wrap;
-    }
-}
-
-@media (min-width: 1300px) {
-    .lobby {
-        width: 130%;
     }
 }
