@@ -38,8 +38,8 @@
   <script src="./js/dragAndDrop.js"></script>
   <script src="./js/search.js"></script>
   <script src="./js/login.js"></script>
-  <script src="./templets/addtask/tempaddtask.js"></script>
-  <script src="./templets/addtask/templates.js"></script>
+  <script src="./templates/addtask/tempaddtask.js"></script>
+  <script src="./templates/addtask/templates.js"></script>
 
 <body id="body" onload="initBoard()">
 
@@ -49,7 +49,7 @@
         onclick="closeAddTaskOverlay(); closeBoardCardOverlay(); closeDropDown('assigned-edit-dropdown');">
 
         <article id="add-task-card" class="add-task-card d-none" onclick="doNotClose(event)">
-            <div w3-include-html="/templets/addtaskfull/addtaskFull.html" style="order: 1;"></div>
+            <div w3-include-html="./templates/addtaskfull/addtaskFull.html" style="order: 1;"></div>
 
             <div class="close-add-task-card" onclick="closeAddTaskOverlay()">
                 <img src="./assets/img/close.png">
@@ -103,7 +103,7 @@
 
         <article id="board-edit" class="board-card d-none" style="flex-direction: unset; gap: 18px;"
             onclick="doNotClose(event)">
-            <div w3-include-html="/templets/addtask/addtask.html" style="order: 1; float: left;"></div>
+            <div w3-include-html="./templates/addtask/addtask.html" style="order: 1; float: left;"></div>
 
             <div style="order: 2; float: right; ">
                 <div class="card-close" onclick="closeBoardCardOverlay()">
