@@ -6,8 +6,8 @@ Overlays
  * @param {string} columnID - The ID of the board-column.
  */
 async function openAddTaskOverlay(columnID = "board-column-todo") {
-  // freezeBackground("overlay-fullscreen");
-  //renderAddTaskCard();
+  freezeBackground("overlay-fullscreen");
+  // renderAddTaskCard();
   showElement("add-task-card");
   showElement("addtask-create");
   slideInOverlay("add-task-card");
