@@ -1,6 +1,6 @@
 let lastClickedImage = null;
 let priority;
-let minwidth = window.matchMedia('(min-width: 900px)');
+let minwidth = window.innerWidth; //window.matchMedia('(min-width: 900px)');
 let bntIdis = 1;
 const buttons = [
     { id: "addtask-prio-bnt-urgent", img: "./assets/img/prio-urgent.svg", activeImg: "./assets/img/urgent-white.svg" },
@@ -8,19 +8,18 @@ const buttons = [
     { id: "addtask-prio-bnt-low", img: "./assets/img/prio-low.svg", activeImg: "./assets/img/low-white.svg" },
 ];
 
-/** Catch window sice */
-window.addEventListener('resize', media);
+
 
 /**init onload functions */
 async function initAddTask() {
     await loadUserData();
     await initHeaderNav();
-    media();
     setMinDate('date');
     // dropdownValueCheck(); 
     renderCategory();
     await renderContacts();
     giveContactListId();
+    // media();
 }
 
 /** Manage window sice */
@@ -28,7 +27,7 @@ function media() {
     const imposter = document.getElementById("imposter");
     const amogus = document.getElementById("amogus");
 
-    if (minwidth.matches) {
+    if (minwidth > 900) {
         moveContent("imposter");
     } else {
         moveContent("amogus");
@@ -49,6 +48,9 @@ function moveContent(destination) {
     container.appendChild(duedate);
     container.appendChild(subtasks);
 }
+
+/** Catch window sice */
+window.addEventListener('resize', media);
 
 /** Toggle btn 1 of 3
  * @param {ID} buttonId - select btn id
