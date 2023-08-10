@@ -9,8 +9,8 @@ function generateHTMLNewCategory() {
   <input id="new-category" class="new-category select-task-category paddings" type="name" placeholder="New category name">
   <label for="new-category" id="color-selected" class="color-cicle img-20"></label>
   <div class="selection-img selection-img-activ">
-    <img onclick="cancelSection('category')" class="img-24 px-5" src="../img/clear.svg" alt="cancel">
-    <img onclick="saveNewCategory('category')" class="border img-24 px-5" src="../img/check-black.svg" alt="check">
+    <img onclick="cancelSection('category')" class="img-24 px-5" src="./assets/img/clear.svg" alt="cancel">
+    <img onclick="saveNewCategory('category')" class="border img-24 px-5" src="./assets/img/check-black.svg" alt="check">
   </div>
   `;
 }
@@ -21,7 +21,7 @@ function generateHTMLSelectCategory() {
 	selectField.innerHTML = /*html*/`
 
   <div class="select-task-category-img img-44">
-    <img id="category-img-dropdown" src="../img/dropdown.svg" alt="drop down">
+    <img id="category-img-dropdown" src="./assets/img/dropdown.svg" alt="drop down">
   </div>
 
   <div class="select-task-category" id="currentItem">
