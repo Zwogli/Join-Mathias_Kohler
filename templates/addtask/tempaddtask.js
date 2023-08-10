@@ -50,7 +50,9 @@ function moveContent(destination) {
 }
 
 /** Catch window sice */
-window.addEventListener('resize', media);
+setTimeout(() => {
+    window.addEventListener('resize', media);
+}, 100);
 
 /** Toggle btn 1 of 3
  * @param {ID} buttonId - select btn id
