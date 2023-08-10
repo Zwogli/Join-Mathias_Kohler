@@ -291,16 +291,26 @@ function addColorCategory(id) {
 async function renderContacts() {
     let contactList = document.getElementById('apicontact-list');
     let contactsArray = activeUser.contacts;
+    let addTaskContactIndex = localStorage.getItem("addTaskContactIndex");
 
     for (let i = 0; i < contactsArray.length; i++) {
         const contact = contactsArray[i].name;
 
+        if(addTaskContactIndex == i){
+            contactList.innerHTML += /*html*/`
+            <label for="contact-checkbox${i}" class="addtask-item contact-list paddings pos-re" onclick="checkboxSwitch(id)">${contact}
+                <input id="contact-checkbox${i}" type="checkbox" checked>
+            </label>
+            `;
+        }else{
         contactList.innerHTML += /*html*/`
         <label for="contact-checkbox${i}" class="addtask-item contact-list paddings pos-re" onclick="checkboxSwitch(id)">${contact}
             <input id="contact-checkbox${i}" type="checkbox">
 		</label>
         `;
+        }
     }
+    addTaskContactIndex = undefined;
 }
 
 /**Save checked Contacts */
@@ -313,7 +323,11 @@ async function saveCheckedContacts() {
             contacts.push(contact);
         }
     }
+    if(activContactForAssignTo = !undefined){
+        checkSelectedEmail();
+    }
 }
+
 
 /**Save & load subtasks */
 function initSubtask() {
@@ -376,9 +390,4 @@ function giveContactListId(params) {
         const currentElement = childElements[index - 2];
         currentElement.setAttribute('id', `contact-${index}`);
     }
-}
-
-
-function checkboxSwitch(id) {
-
 }

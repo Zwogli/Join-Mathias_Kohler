@@ -43,5 +43,3 @@ function changeContentOnWindowSize() {
 }
 
 window.onresize = changeContentOnWindowSize;
-
-

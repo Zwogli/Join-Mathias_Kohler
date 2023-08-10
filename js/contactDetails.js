@@ -13,7 +13,7 @@ function showContactDetails(contactIndex, justEdited = false) {
             showElement('contacts-info-container');
             removeElement('contacts-list-container');
         }
-        renderContactDetails(contact);
+        renderContactDetails(contact, contactIndex);
         showOverlay('contact-details-overlay');
     }, 220);
 }
@@ -75,9 +75,10 @@ function getActiveContact() {
  * Renders the details of the given contact in the contact details container.
  * @param {Object} contact - The contact to render details for.
  */
-function renderContactDetails(contact) {
+function renderContactDetails(contact, contactIndex) {
     renderContactDetailsIcon(contact);
     renderContactDetailsName(contact);
+    renderContactsAddTask(contactIndex);
     renderContactDetailsEmail(contact);
     renderContactDetailsPhone(contact);
 }
@@ -101,6 +102,16 @@ function renderContactDetailsIcon(contact) {
 function renderContactDetailsName(contact) {
     const nameElement = document.getElementById('contact-details-name');
     nameElement.innerHTML = contact.name;
+}
+
+function renderContactsAddTask(contactIndex){
+    const linkElement = document.getElementById('link-addTask');
+    linkElement.innerHTML = `
+    <div class="contact-addTask fs-16 fw-400" onclick="manageContactToAddTask(${contactIndex})">
+        <img src="./assets/img/addPlus.svg" style="display:flex"></img>
+        <span>Add Task</span>
+    </div>
+    `;
 }
 
 
