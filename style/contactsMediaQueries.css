@@ -92,6 +92,14 @@ Media Queries for Width
     }
 }
 
+/* @media screen and (max-width: 900px), 
+    screen and (max-height: 700px){
+        .create-or-edit-contact-overlay{
+            scale: 0.9;
+        }
+    
+} */
+
 @media(max-width: 900px) {
     main.contacts {
         margin: 80px 0 80px 0;
@@ -131,6 +139,7 @@ Media Queries for Width
         transform: translateY(100vh);
         flex-direction: column;
         height: 80%;
+        scale: 0.9;
     }
 
     .create-or-edit-contact-header {
