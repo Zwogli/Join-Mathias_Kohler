@@ -28,7 +28,7 @@ function closeAddTaskOverlay() {
   setTimeout(() => {
     removeElement("addtask-create");
     removeElement("add-task-card");
-    // unfreezeBackground("overlay-fullscreen");
+    unfreezeBackground("overlay-fullscreen");
   }, 220);
   resetInputFields();
   renderBoardColumns();

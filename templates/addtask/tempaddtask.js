@@ -9,13 +9,13 @@ const buttons = [
 ];
 
 /** Catch window sice */
-// window.addEventListener('resize', media);
+window.addEventListener('resize', media);
 
 /**init onload functions */
 async function initAddTask() {
     await loadUserData();
     await initHeaderNav();
-    // media();
+    media();
     setMinDate('date');
     // dropdownValueCheck(); 
     renderCategory();
@@ -24,31 +24,31 @@ async function initAddTask() {
 }
 
 /** Manage window sice */
-// function media() {
-//     const imposter = document.getElementById("imposter");
-//     const amogus = document.getElementById("amogus");
+function media() {
+    const imposter = document.getElementById("imposter");
+    const amogus = document.getElementById("amogus");
 
-//     if (minwidth.matches) {
-//         moveContent("imposter");
-//     } else {
-//         moveContent("amogus");
-//     }
-// }
+    if (minwidth.matches) {
+        moveContent("imposter");
+    } else {
+        moveContent("amogus");
+    }
+}
 
 /** Fill selected container abot window sice
  * @param {ID} destination - container id
  */
-// function moveContent(destination) {
-//     const container = document.getElementById(destination);
+function moveContent(destination) {
+    const container = document.getElementById(destination);
 
-//     const prio = document.getElementById("addtaskFull-prio");
-//     const duedate = document.getElementById("addtaskFull-duedate");
-//     const subtasks = document.getElementById("addtaskFull-subtasks");
+    const prio = document.getElementById("addtaskFull-prio");
+    const duedate = document.getElementById("addtaskFull-duedate");
+    const subtasks = document.getElementById("addtaskFull-subtasks");
 
-//     container.appendChild(prio);
-//     container.appendChild(duedate);
-//     container.appendChild(subtasks);
-// }
+    container.appendChild(prio);
+    container.appendChild(duedate);
+    container.appendChild(subtasks);
+}
 
 /** Toggle btn 1 of 3
  * @param {ID} buttonId - select btn id
