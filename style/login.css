@@ -235,6 +235,9 @@ input[type=name] {
 Media Query 
 ---------------------------------------------------*/
 @media(max-width: 900px) {
+  form{
+    scale: 0.8;
+  }
   .fs-61 {
     font-size: 47px;
   }
