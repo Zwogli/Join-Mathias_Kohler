@@ -180,6 +180,7 @@ Media Query
 
 	.header-logo-small {
 		display: flex;
+		object-fit: contain;
 	}
 
 	.header-text {
