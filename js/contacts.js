@@ -45,7 +45,7 @@ function changeContentOnWindowSize() {
 }
 
 function checkUrl(){
-    return window.location.pathname == "/contacts.html"; ///Join-Mathias_Kohler/contacts.html
+    return window.location.pathname == "Join-Mathias_Kohler/contacts.html"; ///Join-Mathias_Kohler/contacts.html
 }
 
 window.onresize = changeContentOnWindowSize;
