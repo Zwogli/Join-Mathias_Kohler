@@ -3,7 +3,7 @@
  * Contacts are sorted alphabetically by name.
  */
 function renderContactList() {
-    sortContactsByName();
+    sortContactsByName(activeUserContacts);
     sortContactsPushingSignedUserToFront();
     clearElement('contacts-list');
 
@@ -66,8 +66,8 @@ function renderContact(contact) {
 /**
  * Sorts the `activeUserContacts` array of contacts by name, in alphabetical order.
  */
-function sortContactsByName() {
-    activeUserContacts.sort((a, b) => {
+function sortContactsByName(sortArray) {
+    sortArray.sort((a, b) => {
         if (a.name < b.name) {
             return -1;
         }

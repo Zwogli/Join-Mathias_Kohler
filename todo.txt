@@ -1,4 +1,2 @@
 Feedback:
   -Login Remember Me überprüfen
-
-  - AddTask über Contact füllt setzt den Contact

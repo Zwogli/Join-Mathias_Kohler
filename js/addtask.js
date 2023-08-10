@@ -5,11 +5,13 @@ async function initAddTask() {
     await loadUserData();
     setActiveUser();
     setCategories();
+    activeUserContacts = activeUser.contacts;
     media();
     setMinDate('date');
     renderCategory();
     await renderContacts()
     giveContactListId();
+    
 }
 
 window.addEventListener('resize', media);
@@ -289,6 +291,7 @@ function addColorCategory(id) {
 
 /**Render all contacts */
 async function renderContacts() {
+    sortContactsByName(activeUserContacts);
     let contactList = document.getElementById('apicontact-list');
     let contactsArray = activeUser.contacts;
     let addTaskContactIndex = localStorage.getItem("addTaskContactIndex");
