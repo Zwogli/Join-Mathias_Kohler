@@ -41,3 +41,25 @@ function generateHTMLSelectCategory() {
 
   `;
 }
+
+/**Generate Section Assign to with checked checkbox */
+function generateHTMLNewAssignToChecked(i, contact){
+  let contactList = document.getElementById('apicontact-list');
+
+  contactList.innerHTML += /*html*/`
+            <label for="contact-checkbox${i}" class="addtask-item contact-list paddings pos-re" onclick="checkboxSwitch(id)">${contact}
+                <input id="contact-checkbox${i}" type="checkbox" checked>
+            </label>
+            `;
+}
+
+/**Generate Section Assign to without checked checkbox */
+function generateHTMLNewAssignTo(i, contact){
+  let contactList = document.getElementById('apicontact-list');
+
+  contactList.innerHTML += /*html*/`
+        <label for="contact-checkbox${i}" class="addtask-item contact-list paddings pos-re" onclick="checkboxSwitch(id)">${contact}
+            <input id="contact-checkbox${i}" type="checkbox">
+		</label>
+        `;
+}

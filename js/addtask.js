@@ -292,7 +292,7 @@ function addColorCategory(id) {
 /**Render all contacts */
 async function renderContacts() {
     sortContactsByName(activeUserContacts);
-    let contactList = document.getElementById('apicontact-list');
+    
     let contactsArray = activeUser.contacts;
     let addTaskContactIndex = localStorage.getItem("addTaskContactIndex");
 
@@ -300,20 +300,12 @@ async function renderContacts() {
         const contact = contactsArray[i].name;
 
         if(addTaskContactIndex == i){
-            contactList.innerHTML += /*html*/`
-            <label for="contact-checkbox${i}" class="addtask-item contact-list paddings pos-re" onclick="checkboxSwitch(id)">${contact}
-                <input id="contact-checkbox${i}" type="checkbox" checked>
-            </label>
-            `;
+            generateHTMLNewAssignToChecked(i, contact);
+            localStorage.setItem("addTaskContactIndex", undefined);
         }else{
-        contactList.innerHTML += /*html*/`
-        <label for="contact-checkbox${i}" class="addtask-item contact-list paddings pos-re" onclick="checkboxSwitch(id)">${contact}
-            <input id="contact-checkbox${i}" type="checkbox">
-		</label>
-        `;
+            generateHTMLNewAssignTo(i, contact);
         }
     }
-    addTaskContactIndex = undefined;
 }
 
 /**Save checked Contacts */
