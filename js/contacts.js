@@ -27,18 +27,20 @@ Responsiveness
  * Changes content displayed based on the current window size.
  */
 function changeContentOnWindowSize() {
-    if (screenWidthIsAtMost('1200px')) {
-        if (contactInfoContainerIsActive) {
-            removeElement('contacts-list-container');
-            showElement('contacts-info-container');
-        } else {
-            showElement('contacts-list-container');
-            removeElement('contacts-info-container');
+    if(window.location.pathname == '/contacts.html'){
+        if (screenWidthIsAtMost('1200px')) {
+            if (contactInfoContainerIsActive) {
+                removeElement('contacts-list-container');
+                showElement('contacts-info-container');
+            } else {
+                showElement('contacts-list-container');
+                removeElement('contacts-info-container');
+            }
         }
-    }
-    else {
-        showElement('contacts-list-container');
-        showElement('contacts-info-container');
+        else {
+            showElement('contacts-list-container');
+            showElement('contacts-info-container');
+        }
     }
 }
 

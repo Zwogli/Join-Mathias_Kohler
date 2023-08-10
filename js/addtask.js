@@ -9,12 +9,11 @@ async function initAddTask() {
     setActiveUser();
     setCategories();
     activeUserContacts = activeUser.contacts;
-    media();
     setMinDate('date');
     renderCategory();
     await renderContacts()
     giveContactListId();
-    
+    media();
 }
 
 window.addEventListener('resize', media);

@@ -6,7 +6,7 @@ Overlays
  * @param {string} columnID - The ID of the board-column.
  */
 async function openAddTaskOverlay(columnID = "board-column-todo") {
-  freezeBackground("overlay-fullscreen");
+  // freezeBackground("overlay-fullscreen");
   //renderAddTaskCard();
   showElement("add-task-card");
   showElement("addtask-create");
@@ -18,6 +18,7 @@ async function openAddTaskOverlay(columnID = "board-column-todo") {
 
   boardColumnToAddTask = columnID;
   localStorage.setItem("boardColumnToAddTask", boardColumnToAddTask);
+
 }
 
 /** Close Add Task Overlay. */
@@ -27,7 +28,7 @@ function closeAddTaskOverlay() {
   setTimeout(() => {
     removeElement("addtask-create");
     removeElement("add-task-card");
-    unfreezeBackground("overlay-fullscreen");
+    // unfreezeBackground("overlay-fullscreen");
   }, 220);
   resetInputFields();
   renderBoardColumns();
@@ -40,8 +41,8 @@ Show / Hide
  * @param {string} id - The ID of the element to show.
  */
 function showElement(id) {
-  document.getElementById(id).classList.remove("d-none");
-  document.getElementById(id).classList.remove("hidden");
+    document.getElementById(id).classList.remove("d-none");
+    document.getElementById(id).classList.remove("hidden");
 }
 
 /** Function to hide an element with a given ID by adding the 'hidden' class.
@@ -62,7 +63,7 @@ function hideElementDisplay(id) {
  * @param {string} id - The ID of the element to remove.
  */
 function removeElement(id) {
-  document.getElementById(id).classList.add("d-none");
+    document.getElementById(id).classList.add("d-none");
 }
 
 /** Function to show an overlay with a given ID by adding the 'show-overlay' class.
