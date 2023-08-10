@@ -27,7 +27,7 @@ Responsiveness
  * Changes content displayed based on the current window size.
  */
 function changeContentOnWindowSize() {
-    if(window.location.pathname == '/contacts.html'){
+    if(window.location.pathname == '/Join-Mathias_Kohler/contacts.html'){
         if (screenWidthIsAtMost('1200px')) {
             if (contactInfoContainerIsActive) {
                 removeElement('contacts-list-container');
