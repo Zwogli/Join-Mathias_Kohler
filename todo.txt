@@ -1,13 +1,4 @@
-Refactor JS:
-  -backend.js 100%
-  -guestUSerData.js 100%
-
 Feedback:
   -Login Remember Me überprüfen
 
-  - subtask platz nach oben
   - AddTask über Contact füllt setzt den Contact
-
-  -Contact overlay fehlt die eingesetzte nummer
-  -contact contact bearbeiten formular überprüfen
-  -Telefon pflichfeld

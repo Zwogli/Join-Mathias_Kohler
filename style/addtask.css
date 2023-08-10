@@ -345,6 +345,7 @@ textarea {
 
 .addTask-selection {
     position: relative;
+    margin-bottom: 16px;
 }
 
 .selection-img {
@@ -362,6 +363,7 @@ textarea {
 .subtask-list {
     display: flex;
     flex-direction: column;
+    gap: 8px;
 }
 
 .border {
