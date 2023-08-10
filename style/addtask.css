@@ -411,10 +411,10 @@ textarea {
 
     .addtask-create {
         position: fixed !important;
-        top: 14px;
+        top: 13px;
         right: 25px;
         width: 124px;
-        height: 51px;
+        height: 55px;
         background: #2A3647;
         border-radius: 10px;
 
