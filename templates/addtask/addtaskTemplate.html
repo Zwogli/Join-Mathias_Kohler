@@ -32,9 +32,9 @@
                     <label for="new-category-input" id="color-selected"
                         class="color-cicle addtask-category-color img-20 hidden"></label>
                     <div class="selection-img">
-                        <img onclick="closeNewCategoryInput()" class="img-24 px-5" src="../../assets/img/clear.svg">
+                        <img onclick="closeNewCategoryInput()" class="img-24 px-5" src="./assets/img/clear.svg">
                         <img onclick="saveNewCategory()" class="border-left img-24 px-5"
-                            src="../../assets/img/check-black.svg">
+                            src="./assets/img/check-black.svg">
                     </div>
                 </div>
 
@@ -74,7 +74,7 @@
                     </div>
 
                     <div class="addtask-assigned-contact addtask-assigned-contact-new"
-                        onclick="linkToUrl('../../assets/contacts/contacts.html')">
+                        onclick="linkToUrl('./assets/contacts/contacts.html')">
                         Invite new contact
                     </div>
                 </div>
@@ -97,24 +97,24 @@
                     class="addtask-prio-btn addtask-prio-btn-urgent fs-21 fw-400 mobile-fs-16" type="button"
                     onclick="activatePrioButton(2, 'addtask')">
                     <span>Urgent</span>
-                    <img class="addtask-prio-image" src="../../assets/img/prio-2.svg">
-                    <img class="addtask-prio-image-active" src="../../assets/img/prio-2_white.svg">
+                    <img class="addtask-prio-image" src="./assets/img/prio-2.svg">
+                    <img class="addtask-prio-image-active" src="./assets/img/prio-2_white.svg">
                 </button>
 
                 <button id="addtask-prio-btn-medium"
                     class="addtask-prio-btn addtask-prio-btn-medium fs-21 fw-400 mobile-fs-16" type="button"
                     onclick="activatePrioButton(1, 'addtask')">
                     <span>Medium</span>
-                    <img class="addtask-prio-image" src="../../assets/img/prio-1.svg">
-                    <img class="addtask-prio-image-active" src="../../assets/img/prio-1_white.svg">
+                    <img class="addtask-prio-image" src="./assets/img/prio-1.svg">
+                    <img class="addtask-prio-image-active" src="./assets/img/prio-1_white.svg">
                 </button>
 
                 <button id="addtask-prio-btn-low"
                     class="addtask-prio-btn addtask-prio-btn-low fs-21 fw-400 mobile-fs-16" type="button"
                     onclick="activatePrioButton(0, 'addtask')">
                     <span>Low</span>
-                    <img class="addtask-prio-image" src="../../assets/img/prio-0.svg">
-                    <img class="addtask-prio-image-active" src="../../assets/img/prio-0_white.svg">
+                    <img class="addtask-prio-image" src="./assets/img/prio-0.svg">
+                    <img class="addtask-prio-image-active" src="./assets/img/prio-0_white.svg">
                 </button>
             </div>
         </div>
@@ -128,13 +128,12 @@
                     placeholder="Add new subtask" onkeydown="activateSubtaskInput()">
 
                 <div id="subtask-img-add" class="selection-img">
-                    <img src="../../assets/img/plus.svg">
+                    <img src="./assets/img/plus.svg">
                 </div>
 
                 <div id="subtask-img-active" class="selection-img d-none">
-                    <img onclick="deactivateSubtaskInput()" class="img-24 px-5" src="../../assets/img/clear.svg">
-                    <img onclick="saveNewSubtask()" class="border-left img-24 px-5"
-                        src="../../assets/img/check-black.svg">
+                    <img onclick="deactivateSubtaskInput()" class="img-24 px-5" src="./assets/img/clear.svg">
+                    <img onclick="saveNewSubtask()" class="border-left img-24 px-5" src="./assets/img/check-black.svg">
                 </div>
             </div>
 
@@ -156,7 +155,7 @@
                     Create Task
                     <!-- rendered by renderAddTaskLightButton() -->
                 </span>
-                <img id="addtask-dark-btn-symbol" src="../../assets/img/create.png">
+                <img id="addtask-dark-btn-symbol" src="./assets/img/create.png">
             </button>
         </div>
     </section>
