@@ -6,7 +6,7 @@
     overflow: hidden;
 }
 
-main {
+main.addtask {
     margin: 89px 0 0 232px;
     padding: 80px 60px 35px 70px;
     height: calc(100vh - 89px - 80px - 35px);

@@ -48,7 +48,7 @@
         display: none !important;
     }
 
-    main {
+    main.addtask {
         margin: 80px 0 80px 0;
         padding: 35px 30px;
         height: calc(100vh - 80px - 80px - 35px - 35px);
