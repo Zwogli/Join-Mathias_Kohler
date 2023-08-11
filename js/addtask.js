@@ -10,7 +10,7 @@ async function initAddTask() {
 
     await renderContactsForAddTaskDropDown();
     renderCategoriesForAddTaskDropDown();
-    setMinDate('addtask-dueDate');
+    setMinDate('addtask-dueDate-input');
     renderAddTaskLightButton();
     renderAddTaskMobileCreateButton();
 

@@ -15,7 +15,7 @@ async function openAddTaskOverlay(columnID = 'board-column-todo', presetContactI
   slideInOverlay('addtask-create-btn-mobile');
   await renderContactsForAddTaskDropDown(presetContactIndex);
   renderCategoriesForAddTaskDropDown();
-  setMinDate('addtask-dueDate');
+  setMinDate('addtask-dueDate-input');
   renderAddTaskLightButton();
   renderAddTaskMobileCreateButton();
 
