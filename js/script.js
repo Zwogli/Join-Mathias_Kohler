@@ -74,11 +74,15 @@ function screenWidthIsAtMost(screenWidth) {
 /** Open the new url into the window
  * @param {String} url - URL adress
  */
-function linkToUrl(url){
+function linkToUrl(url) {
   window.location.href = `./${url}`;
 }
 
-function manageContactToAddTask(contactIndex){
+function checkUrl(endOfPath) {
+  return window.location.pathname.endsWith(endOfPath);
+}
+
+function manageContactToAddTask(contactIndex) {
   localStorage.setItem("addTaskContactIndex", contactIndex);
   linkToUrl('addtask.html')
 }

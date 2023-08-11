@@ -70,10 +70,10 @@
     position: relative;
 }
 
-input[type=email],
-input[type=name],
-input[type=tel],
-input[type=number] {
+.form-contact-info input[type=email],
+.form-contact-info input[type=name],
+.form-contact-info input[type=tel],
+.form-contact-info input[type=number] {
     height: 51px;
     width: 100%;
     border-radius: 10px;
@@ -88,27 +88,27 @@ input[type=number] {
     background-position: 95%;
 }
 
-input[type=email] {
+.form-contact-info input[type=email] {
     background-image: url(../assets/img/emailInput.png);
 }
 
-input[type=name] {
+.form-contact-info input[type=name] {
     background-image: url(../assets/img/nameInput.png);
 }
 
-input[type=tel],
-input[type=number] {
+.form-contact-info input[type=tel],
+.form-contact-info input[type=number] {
     background-image: url(../assets/img/phoneInput.png);
 }
 
 /* Remove Arrows/Spinners for Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+.form-contact-info input::-webkit-outer-spin-button,
+.form-contact-info input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
 /* Remove Arrows/Spinners for Firefox */
-input[type=number] {
+.form-contact-info input[type=number] {
     -moz-appearance: textfield;
     appearance: textfield;
 }

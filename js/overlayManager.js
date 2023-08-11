@@ -1,38 +1,55 @@
 /*--------------------------------------------------
 Overlays
 ---------------------------------------------------*/
-/** This function currently links to the Add Task page,
- * and sets the board-column where a new task will be rendered.
+/** 
+ * Opens the add task overlay and sets the board-column where a new task will be rendered.
  * @param {string} columnID - The ID of the board-column.
+ * @param {Object} presetContactIndex - An optional contact for a pre-checked contact entry.
  */
-async function openAddTaskOverlay(columnID = "board-column-todo") {
-  freezeBackground("overlay-fullscreen");
-  // renderAddTaskCard();
-  showElement("add-task-card");
-  showElement("addtask-create");
-  slideInOverlay("add-task-card");
-  slideInOverlay("addtask-create");
-  await renderContacts();
-  renderCategory();
-  setMinDate("date");
+async function openAddTaskOverlay(columnID = 'board-column-todo', presetContactIndex = -1) {
+  freezeBackground('addtask-overlay-fullscreen');
+  //renderAddTaskCard();
+  showElement('addtask-card');
+  showElement('addtask-create-btn-mobile');
+  slideInOverlay('addtask-card');
+  slideInOverlay('addtask-create-btn-mobile');
+  await renderContactsForAddTaskDropDown(presetContactIndex);
+  renderCategoriesForAddTaskDropDown();
+  setMinDate('addtask-dueDate');
+  renderAddTaskLightButton();
+  renderAddTaskMobileCreateButton();
 
   boardColumnToAddTask = columnID;
-  localStorage.setItem("boardColumnToAddTask", boardColumnToAddTask);
-
+  localStorage.setItem('boardColumnToAddTask', boardColumnToAddTask);
 }
 
-/** Close Add Task Overlay. */
+
+/** Closes Add Task Overlay. */
 function closeAddTaskOverlay() {
-  hideOverlay("add-task-card");
-  hideOverlay("addtask-create");
+  if (addTaskOverlayIsClosed()) return;
+
+  hideOverlay('addtask-card');
+  hideOverlay('addtask-create-btn-mobile');
   setTimeout(() => {
-    removeElement("addtask-create");
-    removeElement("add-task-card");
-    unfreezeBackground("overlay-fullscreen");
+    removeElement('addtask-create-btn-mobile');
+    removeElement('addtask-card');
+    unfreezeBackground('addtask-overlay-fullscreen');
   }, 220);
   resetInputFields();
-  renderBoardColumns();
+  if (checkUrl('board.html')) {
+    renderBoardColumns();
+  }
 }
+
+
+/** 
+ * Checks if add task overlay is already closed.
+ * @returns {boolean} - true if add task overlay is closed, false otherwise.
+ */
+function addTaskOverlayIsClosed() {
+  return document.getElementById('addtask-card').classList.contains('d-none');
+}
+
 
 /*--------------------------------------------------
 Show / Hide
@@ -41,8 +58,8 @@ Show / Hide
  * @param {string} id - The ID of the element to show.
  */
 function showElement(id) {
-    document.getElementById(id).classList.remove("d-none");
-    document.getElementById(id).classList.remove("hidden");
+  document.getElementById(id).classList.remove("d-none");
+  document.getElementById(id).classList.remove("hidden");
 }
 
 /** Function to hide an element with a given ID by adding the 'hidden' class.
@@ -63,7 +80,7 @@ function hideElementDisplay(id) {
  * @param {string} id - The ID of the element to remove.
  */
 function removeElement(id) {
-    document.getElementById(id).classList.add("d-none");
+  document.getElementById(id).classList.add("d-none");
 }
 
 /** Function to show an overlay with a given ID by adding the 'show-overlay' class.
@@ -129,4 +146,12 @@ function doNotClose(event) {
  */
 function closeDropDown(id) {
   document.getElementById(id).classList.remove("collapsed");
+}
+
+/**
+* Opens a Dropdown menu.
+* @param {string} id - The ID of the menu element to open.
+*/
+function openDropDown(id) {
+  document.getElementById(id).classList.add('collapsed');
 }
