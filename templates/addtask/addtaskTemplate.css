@@ -88,6 +88,7 @@
 #new-category-input,
 #new-subtask-input {
     border: none !important;
+    padding: 13px 8px 13px 21px;
 }
 
 .addtask-category:hover {
