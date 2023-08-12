@@ -4,7 +4,7 @@
  */
 function openBoardCardOverlay(taskIndex) {
     let task = activeUser.tasks[taskIndex];
-    freezeBackground('overlay-fullscreen');
+    freezeBackground('addtask-overlay-fullscreen');
     renderBoardCardOverlay(task);
     showElement('board-card');
 }
@@ -16,7 +16,7 @@ function openBoardCardOverlay(taskIndex) {
 function closeBoardCardOverlay() {
     removeElement('board-card');
     removeElement('board-card-edit');
-    unfreezeBackground('overlay-fullscreen');
+    unfreezeBackground('addtask-overlay-fullscreen');
     renderBoardColumns();
 }
 
@@ -47,18 +47,18 @@ function renderBoardCardOverlay(task) {
  * @param {number} prioAsNumber - The priority level as a number.
  * @returns {string} - The priority level as a string.
  */
-function getPriorityAsString(prioAsNumber) {
-    switch (prioAsNumber) {
-        case 0:
-            return 'Low';
-        case 1:
-            return 'Medium';
-        case 2:
-            return 'Urgent';
-        default:
-            return 'No priority defined';
-    }
-}
+// function getPriorityAsString(prioAsNumber) {
+//     switch (prioAsNumber) {
+//         case 0:
+//             return 'Low';
+//         case 1:
+//             return 'Medium';
+//         case 2:
+//             return 'Urgent';
+//         default:
+//             return 'No priority defined';
+//     }
+// }
 
 
 /**
@@ -128,7 +128,7 @@ function renderBoardCardEditing(taskIndex) {
     document.getElementById('dueDate-edit-input').value = task.dueDate;
     setMinDate('dueDate-edit-input');
     activatePrioButton(task.prio);
-    renderContactsForDropDown(taskIndex);
+    renderContactsForEditDropDown(taskIndex);
     renderAssignedContactsForEditing(task);
 
     setEditTaskSubmitButton(taskIndex);
@@ -227,45 +227,47 @@ function deleteTask(taskIndex) {
 }
 
 
-/**
- * Activates the button of the specified priority level.
- * @param {number} prioAsNumber - The priority level as a number.
- */
-function activatePrioButton(prioAsNumber) {
-    document.getElementById('edit-prio-btn-urgent').classList.remove('active');
-    document.getElementById('edit-prio-btn-medium').classList.remove('active');
-    document.getElementById('edit-prio-btn-low').classList.remove('active');
-    document.getElementById(`edit-prio-btn-${getPriorityAsString(prioAsNumber).toLowerCase()}`).classList.add('active');
-}
+// /**
+//  * Activates the button of the specified priority level.
+//  * @param {number} prioAsNumber - The priority level as a number.
+//  */
+// function activatePrioButton(prioAsNumber) {
+//     document.getElementById('edit-prio-btn-urgent').classList.remove('active');
+//     document.getElementById('edit-prio-btn-medium').classList.remove('active');
+//     document.getElementById('edit-prio-btn-low').classList.remove('active');
+//     document.getElementById(`edit-prio-btn-${getPriorityAsString(prioAsNumber).toLowerCase()}`).classList.add('active');
+// }
 
 
-/**
- * Returns the priority level by checking which prority button is active.
- * @returns {number} prioAsNumber - The priority level as a number.
- */
-function getPrioViaActiveButton() {
-    if (document.getElementById('edit-prio-btn-urgent').classList.contains('active')) return 2;
-    if (document.getElementById('edit-prio-btn-medium').classList.contains('active')) return 1;
-    if (document.getElementById('edit-prio-btn-low').classList.contains('active')) return 0;
-}
+// /**
+//  * Returns the priority level by checking which prority button is active.
+//  * @returns {number} prioAsNumber - The priority level as a number.
+//  */
+// function getPrioViaActiveButton() {
+//     if (document.getElementById('edit-prio-btn-urgent').classList.contains('active')) return 2;
+//     if (document.getElementById('edit-prio-btn-medium').classList.contains('active')) return 1;
+//     if (document.getElementById('edit-prio-btn-low').classList.contains('active')) return 0;
+// }
 
 
-/**
- * Toggles a Dropdown menu.
- * @returns {string} id - The ID of the dropdown element.
- */
-function toggleActiveForDropDown(id) {
-    document.getElementById(id).classList.toggle("collapsed");
-}
+// /**
+//  * Toggles a Dropdown menu.
+//  * @returns {string} id - The ID of the dropdown element.
+//  */
+// function toggleActiveForDropDown(id) {
+//     document.getElementById(id).classList.toggle("collapsed");
+// }
 
 
 /**
  * Renders all contacts for the dropdown menu in the board card edit overlay.
  * @param {number} taskIndex - The index of the task object to be deleted.
- * */
-async function renderContactsForDropDown(taskIndex) {
-    let task = activeUser.tasks[taskIndex];
-    let contactList = document.getElementById('assigned-edit-contact-list');
+ */
+async function renderContactsForEditDropDown(taskIndex) {
+    const task = activeUser.tasks[taskIndex];
+    const contactScrollContainer = document.getElementById(`assigned-edit-contacts-container`);
+    const contactList = document.getElementById(`assigned-edit-contact-list`);
+    clearElement(`assigned-edit-contact-list`);
 
     for (let i = 0; i < activeUser.contacts.length; i++) {
         const contact = activeUser.contacts[i];
@@ -277,6 +279,8 @@ async function renderContactsForDropDown(taskIndex) {
             </label>
         `;
     }
+
+    contactScrollContainer.scrollTop = 0;
 }
 
 

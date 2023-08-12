@@ -52,15 +52,13 @@ function activateNavSection(sectionID) {
  * @param {string} inputID - The ID of the input field that will be checked.
  */
 function setMinDate(inputID) {
-  let dateToday = new Date();
-  let month = dateToday.getMonth() + 1;
-  let day = dateToday.getDate();
-  let year = dateToday.getFullYear();
+  const dateToday = new Date();
+  const month = (dateToday.getMonth() + 1).toString().padStart(2, '0');
+  const day = dateToday.getDate().toString().padStart(2, '0');
+  const year = dateToday.getFullYear();
+  const minDate = `${year}-${month}-${day}`;
 
-  if (month < 10) month = "0" + month.toString();
-  if (day < 10) day = "0" + day.toString();
-  let maxDate = year + "-" + month + "-" + day;
-  document.getElementById(inputID).setAttribute("min", maxDate);
+  document.getElementById(inputID).setAttribute("min", minDate);
 }
 
 /** Checks if the current screen width is at most a specified width.
@@ -74,11 +72,15 @@ function screenWidthIsAtMost(screenWidth) {
 /** Open the new url into the window
  * @param {String} url - URL adress
  */
-function linkToUrl(url){
+function linkToUrl(url) {
   window.location.href = `./${url}`;
 }
 
-function manageContactToAddTask(contactIndex){
+function checkUrl(endOfPath) {
+  return window.location.pathname.endsWith(endOfPath);
+}
+
+function manageContactToAddTask(contactIndex) {
   localStorage.setItem("addTaskContactIndex", contactIndex);
   linkToUrl('addtask.html')
 }

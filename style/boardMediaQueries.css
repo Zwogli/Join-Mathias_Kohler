@@ -34,12 +34,6 @@ Media Query
     /*--------------------------------------------------
 	Overlay <900
 	---------------------------------------------------*/
-    .overlay-fullscreen {
-        top: 80px;
-        height: calc(100vh - 80px - 80px);
-        background-color: #F5F5F5;
-    }
-
     .board-card {
         position: unset;
         /* padding: 65px 33px 8px 33px; */
@@ -82,7 +76,7 @@ Media Query
         border-radius: 10px;
     }
 
-    .add-task-card {
+    /* .addtask-card {
         height: calc(100vh - 80px - 80px);
         width: 100%;
         position: unset;
@@ -90,7 +84,7 @@ Media Query
         box-shadow: unset;
         border-radius: unset;
         border: unset;
-    }
+    } */
 
     .edit-input {
         width: 100%;

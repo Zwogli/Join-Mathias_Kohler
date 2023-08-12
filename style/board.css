@@ -13,14 +13,17 @@
 .desktop-only {
 	display: flex !important;
 }
-.overlay{
+
+.overlay {
 	height: calc(100vh - 89px - 80px);
 }
-@media (max-width: 900px){
-	.overlay{
+
+@media (max-width: 900px) {
+	.overlay {
 		height: calc(100vh - 89px - 80px - 27px);
 	}
 }
+
 /*--------------------------------------------------
 Main
 ---------------------------------------------------*/
@@ -243,20 +246,6 @@ Board
 /*--------------------------------------------------
 Overlay
 ---------------------------------------------------*/
-.overlay-fullscreen {
-	height: 100vh;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	background-color: rgba(0, 0, 0, 0.2);
-	z-index: 50;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	overflow: hidden;
-}
-
 .board-card::-webkit-scrollbar {
 	display: none;
 }
@@ -484,7 +473,7 @@ Overlay
 	background-color: #7AE229;
 }
 
-.dropdown-menu {
+/* .dropdown-menu {
 	overflow: hidden;
 	transition: all 100ms ease-in;
 	max-height: 51px;
@@ -506,9 +495,9 @@ Overlay
 	background-image: url(../assets/img/dropdown.svg);
 	background-repeat: no-repeat;
 	background-position: 95%;
-}
+} */
 
-.assigned-edit-contacts-container {
+#assigned-edit-contacts-container {
 	max-height: 153px;
 	overflow: auto;
 }

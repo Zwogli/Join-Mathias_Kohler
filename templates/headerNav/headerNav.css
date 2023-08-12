@@ -1,9 +1,10 @@
 /*--------------------------------------------------
 Header
 ---------------------------------------------------*/
-a{
+a {
 	text-decoration: none;
 }
+
 .header-headerNav {
 	padding-left: 70px;
 	padding-right: 33px;
@@ -90,13 +91,14 @@ nav {
 
 .n-nav {
 	padding-bottom: 112px;
-	height: calc(100vh - 242px - 112px);
+	height: calc(100vh - 242px);
 	width: 100%;
 	position: absolute;
 	top: 242px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	box-sizing: border-box;
 }
 
 .n-nav-ul {
