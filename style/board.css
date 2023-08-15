@@ -20,7 +20,7 @@
 
 @media (max-width: 900px) {
 	.overlay {
-		height: calc(100vh - 89px - 80px - 27px);
+		height: calc(100vh - 80px - 80px - 35px);
 	}
 }
 
