@@ -1,8 +1,8 @@
-.mobile-only {
+.addtask-mobile-only {
     display: none !important;
 }
 
-.desktop-only {
+.addtask-desktop-only {
     display: flex !important;
 }
 
@@ -40,11 +40,11 @@
 }
 
 @media(max-width: 900px) {
-    .mobile-only {
+    .addtask-mobile-only {
         display: flex !important;
     }
 
-    .desktop-only {
+    .addtask-desktop-only {
         display: none !important;
     }
 

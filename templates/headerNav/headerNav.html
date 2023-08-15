@@ -20,17 +20,19 @@
   </div>
 </header>
 
-<section id="mobile-drdo-menu" class="mobile-drdo-menu d-none">
-  <div onclick="toggleOverlays('help')" class="mobile-drdo-menu-box cursor-p mobile-only">
-    <span class="fs-16 fw-400">Help</span>
-  </div>
-  <div onclick="toggleOverlays('legal')" class="mobile-drdo-menu-box cursor-p mobile-only">
-    <span class="fs-16 fw-400">Legal notice</span>
-  </div>
-  <div onclick="logout()" class="mobile-drdo-menu-box cursor-p">
-    <span class="fs-16 fw-400">Log out</span>
-  </div>
-</section>
+<div id="mobile-slide-menu-container" class="o-flow-h">
+  <section id="mobile-slide-menu" class="mobile-slide-menu">
+    <div onclick="toggleOverlays('help')" class="mobile-slide-menu-box cursor-p mobile-only">
+      <span class="fs-16 fw-400">Help</span>
+    </div>
+    <div onclick="toggleOverlays('legal')" class="mobile-slide-menu-box cursor-p mobile-only">
+      <span class="fs-16 fw-400">Legal notice</span>
+    </div>
+    <div onclick="logout()" class="mobile-slide-menu-box cursor-p">
+      <span class="fs-16 fw-400">Log out</span>
+    </div>
+  </section>
+</div>
 
 <nav>
   <div class="n-logo">
@@ -40,7 +42,8 @@
   <div class="n-nav">
     <ul class="n-nav-ul">
 
-      <a id="nav-summary" href="./summary.html" class="n-nav-ul-li active cursor-p"> <!--onclick="location.href='./summary.html';"-->
+      <a id="nav-summary" href="./summary.html" class="n-nav-ul-li active cursor-p">
+        <!--onclick="location.href='./summary.html';"-->
         <img class="img-30" src="./assets/img/summaryNav.png" alt="summary icon">
         <p class="c-w fs-16 fw-400">Summary</p>
       </a>

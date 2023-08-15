@@ -69,18 +69,18 @@ function hideElement(id) {
   document.getElementById(id).classList.add("hidden");
 }
 
-/** Function to hide an element with a given ID by adding the 'd-none' class.
- * @param {string} id - The ID of the element to hide.
- */
-function hideElementDisplay(id) {
-  document.getElementById(id).classList.add("d-none");
-}
-
 /** Function to remove an element with a given ID by adding the 'd-none' class.
  * @param {string} id - The ID of the element to remove.
  */
 function removeElement(id) {
   document.getElementById(id).classList.add("d-none");
+}
+
+/** Function to toggle an element with a given ID by toggling the 'd-none' class.
+ * @param {string} id - The ID of the element to toggle.
+ */
+function toggleElement(id) {
+  document.getElementById(id).classList.toggle("d-none");
 }
 
 /** Function to show an overlay with a given ID by adding the 'show-overlay' class.
@@ -95,6 +95,13 @@ function showOverlay(id) {
  */
 function hideOverlay(id) {
   document.getElementById(id).classList.remove("show-overlay");
+}
+
+/** Function to toggle an overlay with a given ID by toggling the 'show-overlay' class.
+ * @param {string} id - The ID of the overlay to toggle.
+ */
+function toggleOverlay(id) {
+  document.getElementById(id).classList.toggle("show-overlay");
 }
 
 /** Function to show an overlay with a given ID for a short time and then hide it.

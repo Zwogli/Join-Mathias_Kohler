@@ -13,10 +13,12 @@ async function initContacts() {
     setCategories();
 
     activateNavSection('nav-contacts');
-    changeContentOnWindowSize();
+
+    removeElement('contacts-info-container');
 
     activeUserContacts = activeUser.contacts;
-    renderContactList();
+    await renderContactList();
+    changeContentOnWindowSize();
 }
 
 

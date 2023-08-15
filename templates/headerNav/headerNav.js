@@ -1,4 +1,4 @@
-checkMenu = false;
+menuIsOpen = false;
 
 /**load async w3-school template loader */
 async function initHeaderNav() {
@@ -23,61 +23,52 @@ async function includeHTML() {
     }
 }
 
-/**Toggle Menu overlay */
+/** Toggles slide menu overlay. */
 function toggleMenu() {
-    let headerMenu = document.getElementById('mobile-drdo-menu');
-    let body = document.getElementById('body');
-
-    body.classList.toggle('of-hidden');
-    headerMenu.classList.toggle('d-none');
-    headerMenu.classList.add('animation');
-    checkMenu = !checkMenu;
+    if (menuIsOpen) closeMenu();
+    else openMenu();
 }
 
-/**Close menu outside overlay*/
+/** Opens slide menu overlay. */
+function openMenu() {
+    showElement('mobile-slide-menu-container');
+    showOverlay('mobile-slide-menu');
+    menuIsOpen = true;
+}
+
+/** Closes slide menu overlay. */
 function closeMenu() {
-    let headerMenu = document.getElementById('mobile-drdo-menu');
-    let body = document.getElementById('body');
-
-    body.classList.remove('of-hidden');
-    headerMenu.classList.add('d-none');
-    headerMenu.classList.remove('animation');
-    checkMenu = !checkMenu;
+    hideOverlay('mobile-slide-menu');
+    setTimeout(() => {
+        removeElement('mobile-slide-menu-container');
+    }, 220);
+    menuIsOpen = false;
 }
 
 /**
- * Toggle following Overlays legal, help, menu 
- * 
+ * Toggles following Overlays legal, help, menu 
  * @param {string} className - fill id legal, help
-*/
+ */
 function toggleOverlays(className) {
-    let callDocument = document.getElementById(`${className}`);
-    let headerMenu = document.getElementById('mobile-drdo-menu');
-
-    document.getElementById('body').classList.toggle('o-flow-h');
-    callDocument.classList.toggle('d-none')
-    checkOverlays(className, headerMenu);
+    toggleElement(className);
+    checkOverlays(className);
 }
 
 /**
- * Check overlays for closing or opening
- * 
+ * Check overlays for closing or opening.
  * @param {string} className - id legal, help
  * @param {string} headerMenu - call id
  */
-function checkOverlays(className, headerMenu) {
+function checkOverlays(className) {
     if (className == 'help') {
-        document.getElementById('header-help-icon').classList.toggle('d-none');
-        document.getElementById(`legal`).classList.add('d-none');
+        toggleElement('header-help-icon');
+        removeElement(`legal`);
     }
     if (className == 'legal') {
-        document.getElementById('header-help-icon').classList.remove('d-none');
-        document.getElementById(`help`).classList.add('d-none');
+        showElement('header-help-icon');
+        removeElement(`help`);
     }
-    if (checkMenu == true) {
-        body.classList.remove('of-hidden');
-        headerMenu.classList.remove('d-none');
-        headerMenu.classList.remove('animation');
-        checkMenu = !checkMenu;
+    if (menuIsOpen) {
+        closeMenu();
     }
 }

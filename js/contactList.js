@@ -2,7 +2,7 @@
  * Renders the list of contacts on the page, grouped by initial letter.
  * Contacts are sorted alphabetically by name.
  */
-function renderContactList() {
+async function renderContactList() {
     sortContactsByName(activeUserContacts);
     sortContactsPushingSignedUserToFront();
     clearElement('contacts-list');
