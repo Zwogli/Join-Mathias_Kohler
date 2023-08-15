@@ -13,7 +13,7 @@ function showContactDetails(contactIndex, justEdited = false) {
             showElement('contacts-info-container');
             removeElement('contacts-list-container');
         }
-        renderContactDetails(contact, contactIndex);
+        renderContactDetails(contact);
         showOverlay('contact-details-overlay');
     }, 220);
 }
@@ -75,7 +75,8 @@ function getActiveContact() {
  * Renders the details of the given contact in the contact details container.
  * @param {Object} contact - The contact to render details for.
  */
-function renderContactDetails(contact, contactIndex) {
+function renderContactDetails(contact) {
+    const contactIndex = activeUserContacts.indexOf(contact);
     renderContactDetailsIcon(contact);
     renderContactDetailsName(contact);
     renderContactsAddTask(contactIndex);
@@ -104,10 +105,10 @@ function renderContactDetailsName(contact) {
     nameElement.innerHTML = contact.name;
 }
 
-function renderContactsAddTask(contactIndex){
+function renderContactsAddTask(contactIndex) {
     const linkElement = document.getElementById('link-addTask');
     linkElement.innerHTML = `
-    <div class="contact-addTask fs-16 fw-400" onclick="manageContactToAddTask(${contactIndex})">
+    <div class="contact-addTask fs-16 fw-400" onclick="openAddTaskOverlay('board-column-todo', ${contactIndex})">
         <img src="./assets/img/addPlus.svg" style="display:flex"></img>
         <span>Add Task</span>
     </div>
