@@ -105,13 +105,18 @@ function renderContactDetailsName(contact) {
     nameElement.innerHTML = contact.name;
 }
 
+
+/**
+ * Renders the add task "button" in the contact details container.
+ * @param {Object} contactIndex - The index of the contact to render the button for.
+ */
 function renderContactsAddTask(contactIndex) {
-    const linkElement = document.getElementById('link-addTask');
-    linkElement.innerHTML = `
-    <div class="contact-addTask fs-16 fw-400" onclick="openAddTaskOverlay('board-column-todo', ${contactIndex})">
-        <img src="./assets/img/addPlus.svg" style="display:flex"></img>
-        <span>Add Task</span>
-    </div>
+    const element = document.getElementById('contact-addTask-container');
+    element.innerHTML = `
+        <div class="contact-addTask fs-16 fw-400" onclick="openAddTaskOverlay('board-column-todo', ${contactIndex})">
+            <img src="./assets/img/addPlus.svg" style="display:flex"></img>
+            <span>Add Task</span>
+        </div>
     `;
 }
 
