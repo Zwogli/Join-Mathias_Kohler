@@ -11,25 +11,15 @@ let categoryColorPick;
 let selectCategory;
 let subtasks = [];
 
-/** Overwrite backend server with empty Array */
+
+/** Overwrites data on backend server with empty Array. */
 async function pushEmptyArray() {
   users = [];
   await setItem("users", JSON.stringify(users));
 }
 
-/** Saves the currentUser data to local storage. */
-function saveCurrentUserToLocalStorage(currentUser) {
-  let currentUserAsText = JSON.stringify(currentUser);
-  localStorage.setItem("currentUser", currentUserAsText);
-}
 
-/** Loads the currentUser data from local storage. */
-function loadCurrentUserFromLocalStorage() {
-  let currentUserAsText = localStorage.getItem("currentUser");
-  currentUser = JSON.parse(currentUserAsText);
-}
-
-/** Onload Array user */
+/** Loads the users array and the currentUser from local storage. */
 async function loadUsers() {
   try {
     users = JSON.parse(await getItem("users"));
@@ -39,21 +29,25 @@ async function loadUsers() {
   }
 }
 
-/** Onload Array addTask */
-async function loadSupportArraysAddTask() {
-  try {
-    category = JSON.parse(await getItem("category"));
-    assignedTo = JSON.parse(await getItem("assignedTo"));
-    subtasks = JSON.parse(await getItem("subtasks"));
-  } catch (e) {
-    console.error("Loading error:", e);
-  }
+
+/** Loads the currentUser data from local storage. */
+function loadCurrentUserFromLocalStorage() {
+  let currentUserAsText = localStorage.getItem("currentUser");
+  currentUser = JSON.parse(currentUserAsText);
 }
 
-/**Save param into backend
- *
- * @param {string} key
- * @param {*} value
+
+/** Saves the currentUser data to local storage. */
+function saveCurrentUserToLocalStorage(currentUser) {
+  let currentUserAsText = JSON.stringify(currentUser);
+  localStorage.setItem("currentUser", currentUserAsText);
+}
+
+
+/**
+ * Saves parameter into backend.
+ * @param {string} key - The key of the parameter to save.
+ * @param {*} value - The value of the parameter to save.
  */
 async function setItem(key, value) {
   const payload = { key, value, token: STORAGE_TOKEN };
@@ -63,17 +57,17 @@ async function setItem(key, value) {
   }).then((res) => res.json());
 }
 
-/**Load value from backend
- *
- * @param {string} key
- * @returns
+
+/**
+ * Loads value from backend.
+ * @param {string} key - The key of the parameter to load.
+ * @returns {*} the value of the parameter to load.
  */
 async function getItem(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
   return fetch(url)
     .then((res) => res.json())
     .then((res) => {
-      // Verbesserter code
       if (res.data) {
         return res.data.value;
       }

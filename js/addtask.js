@@ -1,5 +1,5 @@
 /**
- * Initializes the addTask site by loading user data, initializing header navigation and setting up the input form.
+ * Initializes the add task site by loading user data, initializing header navigation and setting up the input form.
  */
 async function initAddTask() {
     await loadUserData();
