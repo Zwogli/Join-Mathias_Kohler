@@ -8,8 +8,9 @@ Global Elements
   justify-content: center;
   align-items: center;
 }
+
 /*--------------------------------------------------
-local Elements
+Local Elements
 ---------------------------------------------------*/
 .btn-px {
   padding: 0 16px;
@@ -222,22 +223,14 @@ input[type=name] {
   transform: translateY(25vh);
 }
 
-.show-overlay {
-  transform: translate(0);
-}
-
-/* #label-confirm{
-    font-size: 12px;
-    font-weight: 400;
-    color: #FF8190;
-  } */
 /*--------------------------------------------------
 Media Query 
 ---------------------------------------------------*/
 @media(max-width: 900px) {
-  form{
+  form {
     scale: 0.8;
   }
+
   .fs-61 {
     font-size: 47px;
   }

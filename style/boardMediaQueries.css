@@ -34,9 +34,12 @@ Media Query
     /*--------------------------------------------------
 	Overlay <900
 	---------------------------------------------------*/
+    .overlay {
+        height: calc(100vh - 80px - 80px - 35px);
+    }
+
     .board-card {
         position: unset;
-        /* padding: 65px 33px 8px 33px; */
         padding: 50px 30px;
         height: calc(100% - 50px);
         max-height: unset;
@@ -75,16 +78,6 @@ Media Query
         height: 50px;
         border-radius: 10px;
     }
-
-    /* .addtask-card {
-        height: calc(100vh - 80px - 80px);
-        width: 100%;
-        position: unset;
-        background: #F5F5F5;
-        box-shadow: unset;
-        border-radius: unset;
-        border: unset;
-    } */
 
     .edit-input {
         width: 100%;

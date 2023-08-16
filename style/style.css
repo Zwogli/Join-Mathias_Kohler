@@ -5,7 +5,7 @@ body {
 }
 
 /*--------------------------------------------------
-Global Variable
+Global Variables
 ---------------------------------------------------*/
 .bg-c-db {
 	background-color: #2A3647;
@@ -43,11 +43,11 @@ Global Variable
 	color: #FFFFFF;
 }
 
-.d-flex{
+.d-flex {
 	display: flex;
 }
 
-/* ===font-size=== */
+/* font-size */
 .fs-12 {
 	font-size: 12px;
 }
@@ -80,7 +80,7 @@ Global Variable
 	font-size: 64px;
 }
 
-/* ===font-weight=== */
+/* font-weight */
 .fw-400 {
 	font-weight: 400;
 }
@@ -96,12 +96,15 @@ Global Variable
 .fw-700 {
 	font-weight: 700;
 }
-.gap-10{
+
+.gap-10 {
 	gap: 10px;
 }
-.height-46{
+
+.height-46 {
 	height: 46px;
 }
+
 .img-15 {
 	width: 15px;
 	height: 15px;
@@ -248,7 +251,7 @@ Global Variable
 /*--------------------------------------------------
 Global Elements
 ---------------------------------------------------*/
-/* ===scrollbar=== */
+/* scrollbar */
 ::-webkit-scrollbar {
 	width: 7px;
 }
@@ -262,7 +265,7 @@ Global Elements
 	border-radius: 10px;
 }
 
-/* ===buttons=== */
+/* buttons */
 button {
 	cursor: pointer;
 }
@@ -276,7 +279,6 @@ button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	/* padding: 18px 15px; */
 	padding: 15px 10px;
 	gap: 10px;
 	white-space: nowrap;
@@ -335,7 +337,7 @@ button {
 	background-image: url(../assets/img/cancelActive.png);
 }
 
-/* ===icons=== */
+/* icons */
 .contact-icon {
 	color: white;
 	border-radius: 100%;

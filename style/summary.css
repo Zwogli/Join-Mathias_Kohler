@@ -3,7 +3,7 @@
 }
 
 /*--------------------------------------------------
-hover effekt
+Hover effekt
 ---------------------------------------------------*/
 .hover {
   transition: 220ms ease-in-out;
@@ -107,7 +107,6 @@ Summary info body
 }
 
 .summary-infos-tasks-card {
-  /* max-width: calc(170px - 50px); */
   min-height: calc(110px - 50px);
   padding: 25px;
   border-radius: 30px;
@@ -313,10 +312,6 @@ Media Query width
 }
 
 @media (max-width: 400px) {
-  /* .summary {
-    padding: 100px 20px 0 20px;
-  } */
-
   .summary-header-headline {
     font-size: 37px;
   }

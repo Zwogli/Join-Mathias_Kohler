@@ -108,7 +108,7 @@ function renderContactDetailsName(contact) {
 
 /**
  * Renders the add task "button" in the contact details container.
- * @param {Object} contactIndex - The index of the contact to render the button for.
+ * @param {number} contactIndex - The index of the contact to render the button for.
  */
 function renderContactsAddTask(contactIndex) {
     const element = document.getElementById('contact-addTask-container');
