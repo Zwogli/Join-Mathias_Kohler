@@ -6,15 +6,13 @@ async function initBoard() {
     await loadUserData();
     setActiveUser();
     setCategories();
-    // media();
     activateNavSection('nav-board');
     renderBoardColumns();
     enableMobileDragAndDrop();
 }
 
 /**
- * This function renders the four board-columns. 
- * It calls the function {@link renderColumn} for each column.
+ * Renders the four board-columns by calling the function {@link renderColumn} for each column.
  */
 function renderBoardColumns() {
     renderColumn('board-column-todo');
@@ -26,7 +24,7 @@ function renderBoardColumns() {
 
 
 /**
- * This function renders a board-column given as a parameter.
+ * Renders a board-column given as a parameter.
  * @param {string} boardColumn - The ID of the board-column to be rendered.
  */
 function renderColumn(boardColumn) {
@@ -43,7 +41,7 @@ function renderColumn(boardColumn) {
 
 
 /**
- * This function renders the cards for all task objects in the given array.
+ * Renders the cards for all task objects in the given array.
  * @param {array} arrayOfTasks - The array of task JSONs to render.
  */
 function renderCards(arrayOfTasks) {
@@ -56,16 +54,14 @@ function renderCards(arrayOfTasks) {
 }
 
 
-/**
- * This function renders an empty board-column.
- */
+/** Renders an empty board-column. */
 function renderEmptyColumn() {
     return `<div class="empty-column cursor-d fs-16 fw-400 ta-c">No tasks here</div>`;
 }
 
 
 /**
- * This function renders the card for a task object.
+ * Renders the card for a task object.
  * @param {json} task - The task to render.
  */
 function renderCard(task) {
@@ -88,7 +84,7 @@ function renderCard(task) {
 
 
 /**
- * This function renders the progress bar regarding the subtasks of a task object.
+ * Renders the progress bar regarding the subtasks of a task object.
  * @param {json} task - The task object with the corresponding subtasks.
  */
 function renderProgressBar(task) {
@@ -109,7 +105,7 @@ function renderProgressBar(task) {
 
 
 /**
- * This function calculates the progress regarding the subtasks of a task object.
+ * Calculates the progress regarding the subtasks of a task object.
  * @param {json} task - The task object with the corresponding subtasks.
  * @returns {number} The progress in percentage.
  */
@@ -121,7 +117,7 @@ function getProgressOfSubtasks(task) {
 
 
 /**
- * This function gives the number of done subtasks of a task object.
+ * Gives the number of done subtasks of a task object.
  * @param {json} task - The task object with the corresponding subtasks.
  * @returns {number} The number of done subtasks.
  */
@@ -132,33 +128,52 @@ function getNumberOfDoneSubtasks(task) {
 
 
 /**
- * This function renders the assigned contacts of a task object within the cards of the board-columns.
+ * Renders the assigned contacts of a task object within the cards of the board-columns.
  * @param {json} task - The corresponding task object.
  */
 function renderAssignedContacts(task) {
+    return (task.assignedTo.length <= 3) ?
+        renderUpToThreeAssignedContacts(task) :
+        renderMoreThanThreeAssignedContacts(task);
+}
+
+
+/**
+ * Renders the assigned contacts of a task object within the cards of the board-columns, 
+ * if there are at most three contacts assigned.
+ * @param {json} task - The corresponding task object.
+ */
+function renderUpToThreeAssignedContacts(task) {
     let html = '';
-    if (task.assignedTo.length <= 3) {
-        for (let i = 0; i < task.assignedTo.length; i++) {
-            const contact = task.assignedTo[i];
-            html += `
+
+    for (let i = 0; i < task.assignedTo.length; i++) {
+        const contact = task.assignedTo[i];
+        html += `
                 <div class="contact-icon contact-icon-board fs-12 fw-400 ${contact.color}">
                     ${getInitials(contact)}
                 </div>
             `;
-        }
     }
-    else {
-        html += `
-            <div class="contact-icon contact-icon-board fs-12 fw-400 ${task.assignedTo[0].color}">
-                ${getInitials(task.assignedTo[0])}
-            </div>
-            <div class="contact-icon contact-icon-board fs-12 fw-400 ${task.assignedTo[1].color}">
-                ${getInitials(task.assignedTo[1])}
-            </div>
-            <div class="contact-icon contact-icon-board fs-12 fw-400 bg-theme">
-                +${task.assignedTo.length - 2}
-            </div>
-        `;
-    }
+
     return html;
+}
+
+
+/**
+ * Renders the assigned contacts of a task object within the cards of the board-columns, 
+ * if there are more than three contacts assigned.
+ * @param {json} task - The corresponding task object.
+ */
+function renderMoreThanThreeAssignedContacts(task) {
+    return `
+        <div class="contact-icon contact-icon-board fs-12 fw-400 ${task.assignedTo[0].color}">
+            ${getInitials(task.assignedTo[0])}
+        </div>
+        <div class="contact-icon contact-icon-board fs-12 fw-400 ${task.assignedTo[1].color}">
+            ${getInitials(task.assignedTo[1])}
+        </div>
+        <div class="contact-icon contact-icon-board fs-12 fw-400 bg-theme">
+            +${task.assignedTo.length - 2}
+        </div>
+    `;
 }
