@@ -43,25 +43,6 @@ function renderBoardCardOverlay(task) {
 
 
 /**
- * Returns the name of the specified priority level.
- * @param {number} prioAsNumber - The priority level as a number.
- * @returns {string} - The priority level as a string.
- */
-// function getPriorityAsString(prioAsNumber) {
-//     switch (prioAsNumber) {
-//         case 0:
-//             return 'Low';
-//         case 1:
-//             return 'Medium';
-//         case 2:
-//             return 'Urgent';
-//         default:
-//             return 'No priority defined';
-//     }
-// }
-
-
-/**
  * Renders the assigned contacts for the board card overlay.
  * @param {Object} task - The task object to render the contacts for.
  * @returns {string} - The HTML string for the assigned contacts section of the overlay.
@@ -176,9 +157,9 @@ function renderSubtaskCheckboxes(task) {
 
 
 /**
- * Sets checked Subtasks as "done" 
+ * Sets checked Subtasks as "done". 
  * @param {number} taskIndex - The index of the task containing the subtasks.
- * */
+ */
 async function setStatusOfSubtasks(taskIndex) {
     let task = activeUser.tasks[taskIndex];
     for (let i = 0; i < task.subtasks.length; i++) {
@@ -227,38 +208,6 @@ function deleteTask(taskIndex) {
 }
 
 
-// /**
-//  * Activates the button of the specified priority level.
-//  * @param {number} prioAsNumber - The priority level as a number.
-//  */
-// function activatePrioButton(prioAsNumber) {
-//     document.getElementById('edit-prio-btn-urgent').classList.remove('active');
-//     document.getElementById('edit-prio-btn-medium').classList.remove('active');
-//     document.getElementById('edit-prio-btn-low').classList.remove('active');
-//     document.getElementById(`edit-prio-btn-${getPriorityAsString(prioAsNumber).toLowerCase()}`).classList.add('active');
-// }
-
-
-// /**
-//  * Returns the priority level by checking which prority button is active.
-//  * @returns {number} prioAsNumber - The priority level as a number.
-//  */
-// function getPrioViaActiveButton() {
-//     if (document.getElementById('edit-prio-btn-urgent').classList.contains('active')) return 2;
-//     if (document.getElementById('edit-prio-btn-medium').classList.contains('active')) return 1;
-//     if (document.getElementById('edit-prio-btn-low').classList.contains('active')) return 0;
-// }
-
-
-// /**
-//  * Toggles a Dropdown menu.
-//  * @returns {string} id - The ID of the dropdown element.
-//  */
-// function toggleActiveForDropDown(id) {
-//     document.getElementById(id).classList.toggle("collapsed");
-// }
-
-
 /**
  * Renders all contacts for the dropdown menu in the board card edit overlay.
  * @param {number} taskIndex - The index of the task object to be deleted.
@@ -297,20 +246,4 @@ function saveAssignedContacts(task) {
             task.assignedTo.push(contact);
         }
     }
-}
-
-/**
- * Checks whether a given array contains a given object.
- * @param {Array} array - The array to be checked.
- * @param {Object} object - The object to be contained.
- * @returns {Boolean} True if array contains object.
- */
-function arrayIncludesObject(array, object) {
-    for (let i = 0; i < array.length; i++) {
-        const element = array[i];
-        if (JSON.stringify(element) === JSON.stringify(object)) {
-            return true;
-        }
-    }
-    return false;
 }

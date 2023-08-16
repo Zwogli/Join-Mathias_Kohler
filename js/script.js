@@ -37,6 +37,22 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
+/**
+ * Checks whether a given array contains a given object.
+ * @param {Array} array - The array to be checked.
+ * @param {Object} object - The object to be contained.
+ * @returns {Boolean} True if array contains object.
+ */
+function arrayIncludesObject(array, object) {
+  for (let i = 0; i < array.length; i++) {
+    const element = array[i];
+    if (JSON.stringify(element) === JSON.stringify(object)) {
+      return true;
+    }
+  }
+  return false;
+}
+
 /** Function to highlight the current section in the Navbar.
  * @param {string} sectionID - The ID of the section to be highlighted.
  */
