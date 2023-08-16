@@ -26,7 +26,7 @@ async function initContacts() {
 Responsiveness
 ---------------------------------------------------*/
 /**
- * Changes content displayed based on the current window size.
+ * Changes displayed content based on the current window size.
  */
 function changeContentOnWindowSize() {
     if (checkUrl('contacts.html')) {

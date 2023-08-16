@@ -201,6 +201,24 @@ function closeCreateOrEditContactOverlay() {
  * Adds a new contact to the user's list of contacts.
  */
 async function addNewContact() {
+    const newContact = getNewContactObjectFromInput();
+    activeUserContacts.push(newContact);
+    const contactIndex = activeUserContacts.indexOf(newContact);
+
+    closeCreateOrEditContactOverlay();
+    renderContactList();
+    showContactDetails(contactIndex);
+    scrollToContact(contactIndex);
+    showThenHideOverlay('contact-successfully-created');
+    saveUserData();
+}
+
+
+/** 
+ * Creates new contact object from input values of the new contact form.
+ * @returns {Object} - The new contact object. 
+ */
+function getNewContactObjectFromInput() {
     const newContact = {
         "name": document.getElementById('new-contact-name').value,
         "email": document.getElementById('new-contact-email').value,
@@ -208,16 +226,7 @@ async function addNewContact() {
         "color": getRandomColorClass(),
         "tasks": []
     };
-    activeUserContacts.push(newContact);
-
-    closeCreateOrEditContactOverlay();
-    renderContactList();
-    const contactIndex = activeUserContacts.indexOf(newContact);
-    showContactDetails(contactIndex);
-    scrollToContact(contactIndex);
-    showThenHideOverlay('contact-successfully-created');
-
-    saveUserData();
+    return newContact;
 }
 
 

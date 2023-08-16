@@ -56,7 +56,7 @@ function getNewTaskObjectFromInput() {
         "category": category[selectCategory],
         "assignedTo": contacts,
         "subtasks": subtasks,
-        "boardColumn": localStorage.getItem('boardColumnToAddTask'),
+        "boardColumn": localStorage.getItem('boardColumnToAddTask')
     };
     return newTask;
 }
