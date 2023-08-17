@@ -32,11 +32,11 @@ function animationLogin() {
 async function userLogin() {
   let userEmail = document.getElementById('loginEmail');
   let userPassword = document.getElementById('loginPassword');
-  let i = 0;
+  let userIndex = 0;
 
   let user = users.find(users => users.email.toLowerCase() == userEmail.value.toLowerCase() && users.password == userPassword.value);
 
-  checkUserInput(user, userEmail, userPassword, i);
+  checkUserInput(user, userEmail, userPassword, userIndex);
 }
 
 
@@ -55,7 +55,7 @@ async function checkUserInput(user, userEmail, userPassword, userIndex) {
   if (user) {
     checkRemember(userEmail, userPassword);
     while (user != users[userIndex]) {
-      i++;
+      userIndex++;
     }
     saveCurrentUserToLocalStorage(userIndex);
     linkToUrl('summary.html');

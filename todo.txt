@@ -1,2 +1,7 @@
 Feedback:
-  -Login Remember Me überprüfen
+  - sign in: pfeil größer bei mobile ansicht
+  - log in: fehler
+  - contacts: fehler
+  - contacts: scrollen auf ganzem container, font-size anpassen
+  - addtask: Kontaktauswahl mit tab 
+  - addtask: subtask input größe ändert sich beim reinklicken 
