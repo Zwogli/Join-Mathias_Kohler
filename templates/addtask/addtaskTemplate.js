@@ -39,7 +39,7 @@ function getHTMLForDropDownContact(contactIndex, checked) {
     return /*html*/`
         <label for="addtask-assigned-contact-checkbox-${contactIndex}" class="addtask-assigned-contact">
             <span>${contact.name}</span>
-            <input id="addtask-assigned-contact-checkbox-${contactIndex}" type="checkbox" ${checkedOrEmpty}>
+            <input id="addtask-assigned-contact-checkbox-${contactIndex}" type="checkbox" ${checkedOrEmpty} onfocus="openDropDown('addtask-assigned-dropdown')">
         </label>
     `;
 }
