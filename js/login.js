@@ -5,7 +5,7 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
 let msg = params.msg;
 
 
-/**initiated login*/
+/** Initializes Login. */
 function initLogin() { /**@alias module:initLogin */
   loadUsers();
   animationLogin();
@@ -13,12 +13,13 @@ function initLogin() { /**@alias module:initLogin */
   displayMessage();
 }
 
-/**Start, stop animation */
+
+/** Starts/stops animation. */
 function animationLogin() {
   let animationLogin = document.getElementById('animation-join');
   let joinLogo = document.getElementById('join-logo');
 
-  setTimeout(function () {
+  setTimeout(() => {
     animationLogin.classList.add('d-none');
     document.getElementById('screen-animation').classList.add('d-none');
     document.getElementById('logo-animation').classList.add('d-none');
@@ -26,35 +27,37 @@ function animationLogin() {
   }, 900);
 }
 
-/**Check user input for login*/
+
+/** Checks user input for login. */
 async function userLogin() {
   let userEmail = document.getElementById('loginEmail');
   let userPassword = document.getElementById('loginPassword');
   let i = 0;
 
-  let user = users.find(users => users.email.toLowerCase() == userEmail.value.toLowerCase() && users.password == userPassword.value); //tolowerCase = checks case-insensitive
+  let user = users.find(users => users.email.toLowerCase() == userEmail.value.toLowerCase() && users.password == userPassword.value);
 
   checkUserInput(user, userEmail, userPassword, i);
 }
 
-/**Check user input and call back
- * 
- * @param {string} user activ usser
+
+/** 
+ * Checks user input and call back.
+ * @param {string} user activ user
  * @param {string} userEmail user login email
  * @param {string} userPassword user login password
- * @param {number} i array position
+ * @param {number} userIndex array position
  */
-async function checkUserInput(user, userEmail, userPassword, i) {
+async function checkUserInput(user, userEmail, userPassword, userIndex) {
   let msgBox = document.getElementById('msg-box');
 
   msgBox.innerHTML = '';
 
   if (user) {
     checkRemember(userEmail, userPassword);
-    while (user != users[i]) {
+    while (user != users[userIndex]) {
       i++;
     }
-    saveCurrentUserToLocalStorage(i);
+    saveCurrentUserToLocalStorage(userIndex);
     linkToUrl('summary.html');
   } else {
     await errorBox('loginEmail', 'loginEmail-label')
@@ -62,14 +65,16 @@ async function checkUserInput(user, userEmail, userPassword, i) {
   }
 }
 
-/**Guest log in*/
+
+/** Guest log in */
 async function userGuest() {
   saveCurrentUserToLocalStorage('');
   linkToUrl('summary.html');
 }
 
-/**this function check the remember checkbox and save in the local storage
- * 
+
+/** 
+ * Checks the remember checkbox and saves in the local storage.
  * @param {string} userEmail - login email value
  * @param {string} userPassword - login password value
  */
@@ -86,7 +91,8 @@ function checkRemember(userEmail, userPassword) {
   }
 }
 
-/**this function check onload if remember checkbox in the local storage set*/
+
+/** Checks onload if remember checkbox is set in the local storage. */
 function remember() {
   let remember = localStorage.getItem('remember')
   if (remember == 'true') {
@@ -100,13 +106,15 @@ function remember() {
   }
 }
 
-/**this function clear array "currentUser" and navigate to index.html*/
+
+/** Clears array "currentUser" and navigates to index.html */
 async function logout() {
   saveCurrentUserToLocalStorage('');
   linkToUrl('index.html');
 }
 
-/**Show hide message */
+
+/** Shows message from 'msg-box' for 2 seconds. */
 function displayMessage() {
   let msgBox = document.getElementById('msg-box');
   if (msg) {
@@ -118,8 +126,9 @@ function displayMessage() {
   }, 2000);
 }
 
-/**Set error box */
-async function errorBox(inputID, labelID){
+
+/** Sets error-box. */
+async function errorBox(inputID, labelID) {
   let errorBoxInput = document.getElementById(inputID);
   let errorBoxLabel = document.getElementById(labelID);
   errorBoxInput.classList.add('error-box');
@@ -127,8 +136,9 @@ async function errorBox(inputID, labelID){
   errorBoxLabel.classList.remove('d-none');
 }
 
-/**Reset error box */
-async function resetErrorBox(inputID, labelID){
+
+/** Resets error-box */
+async function resetErrorBox(inputID, labelID) {
   let resetErrorBoxInput = document.getElementById(inputID);
   let resetErrorBoxLabel = document.getElementById(labelID);
   resetErrorBoxInput.classList.remove('error-box');

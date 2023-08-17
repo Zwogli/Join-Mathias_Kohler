@@ -5,7 +5,7 @@ let currentDraggedElement;
 
 
 /**
- * This function determines the Task element that is currently dragged.
+ * Determines the task element that is currently dragged.
  * @param {number} index - The index of the dragged task.
  */
 function startDragging(index) {
@@ -14,7 +14,7 @@ function startDragging(index) {
 
 
 /**
- * This function enables dropping of an element to the board-column over which it is dragged.
+ * Enables dropping of an element to the board-column over which it is dragged.
  */
 function allowDrop(event) {
     event.preventDefault();
@@ -22,7 +22,7 @@ function allowDrop(event) {
 
 
 /**
- * This function changes the board-column of a task element and [updates the column containers]{@link renderBoardColumns}.
+ * Changes the board-column of a task element and [updates the column containers]{@link renderBoardColumns}.
  * @param {string} boardColumn - The target column.
  */
 async function moveTo(boardColumn) {
@@ -34,7 +34,7 @@ async function moveTo(boardColumn) {
 
 
 /**
- * This function highlights a board-column container when an element is dragged over, if the dragged element is not contained.
+ * Highlights a board-column container when an element is dragged over, if the dragged element is not contained.
  * @param {string} boardColumn - The column to be highlighted.
  */
 function highlight(boardColumn) {
@@ -44,7 +44,7 @@ function highlight(boardColumn) {
 
 
 /**
- * This function removes the highlight effect of a board-column container.
+ * Removes the highlight effect of a board-column container.
  * @param {string} boardColumn - The column to be unhighlighted.
  */
 function removeHighlight(boardColumn) {
@@ -60,17 +60,17 @@ Drag and Drop Mobile
  */
 function enableMobileDragAndDrop() {
     activeUser.tasks.forEach(task => {
-        let taskIndex = activeUser.tasks.indexOf(task);
+        const taskIndex = activeUser.tasks.indexOf(task);
 
         // find the element that you want to drag.
-        let taskElement = document.getElementById(`task-${taskIndex}`);
+        const taskElement = document.getElementById(`task-${taskIndex}`);
         let isDragging = false;
-        let drag;
+        let dragTimeout;
 
         /* listen to the touchstart event,
         and mark the taskElement as being dragged. */
         taskElement.addEventListener('touchstart', function (e) {
-            drag = setTimeout(() => {
+            dragTimeout = setTimeout(() => {
                 isDragging = true;
                 startDragging(taskIndex)
                 taskElement.classList.add('task-ondrag');
@@ -118,7 +118,7 @@ function enableMobileDragAndDrop() {
                 }
             }
             else {
-                clearTimeout(drag);
+                clearTimeout(dragTimeout);
             }
         }, { passive: false });
 
@@ -151,7 +151,7 @@ function enableMobileDragAndDrop() {
                 }
             }
             else {
-                clearTimeout(drag);
+                clearTimeout(dragTimeout);
             }
         });
     });
