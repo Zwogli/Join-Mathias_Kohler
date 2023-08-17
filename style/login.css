@@ -123,13 +123,6 @@ form {
   max-width: 652px;
 }
 
-.return-black {
-  position: absolute;
-  top: 27px;
-  left: 33px;
-  display: none;
-}
-
 .return-blue {
   position: absolute;
   top: 41px;
@@ -259,12 +252,9 @@ Media Query
     bottom: 4%;
   }
 
-  .return-black {
-    display: flex;
-  }
-
   .return-blue {
-    display: none;
+    top: 27px;
+    left: 33px;
   }
 
   .form-verification input:last-child {
