@@ -32,6 +32,10 @@ function getInitialLetter(contact) {
 function getInitials(contact) {
   let fullName = contact.name;
 
+  if (fullName.includes("(You)")) {
+    fullName = fullName.substring(0, fullName.length - 6);
+  }
+
   if (fullName.includes(" ")) {
     let firstName = fullName.substring(0, fullName.indexOf(" "));
     let lastName = fullName.substring(fullName.indexOf(" ") + 1);
