@@ -8,7 +8,6 @@ Overlays
  */
 async function openAddTaskOverlay(columnID = 'board-column-todo', presetContactIndex = -1) {
   freezeBackground('addtask-overlay-fullscreen');
-  //renderAddTaskCard();
   showElement('addtask-card');
   showElement('addtask-create-btn-mobile');
   slideInOverlay('addtask-card');
@@ -24,7 +23,7 @@ async function openAddTaskOverlay(columnID = 'board-column-todo', presetContactI
 }
 
 
-/** Closes Add Task Overlay. */
+/** Closes add task overlay. */
 function closeAddTaskOverlay() {
   if (addTaskOverlayIsClosed()) return;
 
@@ -54,7 +53,8 @@ function addTaskOverlayIsClosed() {
 /*--------------------------------------------------
 Show / Hide
 ---------------------------------------------------*/
-/** Function to show an element with a given ID by removing the 'd-none' and 'hidden' classes.
+/** 
+ * Shows an element with a given ID by removing the 'd-none' and 'hidden' classes.
  * @param {string} id - The ID of the element to show.
  */
 function showElement(id) {
@@ -62,49 +62,63 @@ function showElement(id) {
   document.getElementById(id).classList.remove("hidden");
 }
 
-/** Function to hide an element with a given ID by adding the 'hidden' class.
+
+/** 
+ * Hides an element with a given ID by adding the 'hidden' class.
  * @param {string} id - The ID of the element to hide.
  */
 function hideElement(id) {
   document.getElementById(id).classList.add("hidden");
 }
 
-/** Function to remove an element with a given ID by adding the 'd-none' class.
+
+/** 
+ * Removes an element with a given ID by adding the 'd-none' class.
  * @param {string} id - The ID of the element to remove.
  */
 function removeElement(id) {
   document.getElementById(id).classList.add("d-none");
 }
 
-/** Function to toggle an element with a given ID by toggling the 'd-none' class.
+
+/** 
+ * Toggles an element with a given ID by toggling the 'd-none' class.
  * @param {string} id - The ID of the element to toggle.
  */
 function toggleElement(id) {
   document.getElementById(id).classList.toggle("d-none");
 }
 
-/** Function to show an overlay with a given ID by adding the 'show-overlay' class.
+
+/** 
+ * Shows an overlay with a given ID by adding the 'show-overlay' class.
  *  @param {string} id - The ID of the overlay to show.
  */
 function showOverlay(id) {
   document.getElementById(id).classList.add("show-overlay");
 }
 
-/** Function to hide an overlay with a given ID by removing the 'show-overlay' class.
+
+/** 
+ * Hides an overlay with a given ID by removing the 'show-overlay' class.
  * @param {string} id - The ID of the overlay to hide.
  */
 function hideOverlay(id) {
   document.getElementById(id).classList.remove("show-overlay");
 }
 
-/** Function to toggle an overlay with a given ID by toggling the 'show-overlay' class.
+
+/** 
+ * Toggles an overlay with a given ID by toggling the 'show-overlay' class.
  * @param {string} id - The ID of the overlay to toggle.
  */
 function toggleOverlay(id) {
   document.getElementById(id).classList.toggle("show-overlay");
 }
 
-/** Function to show an overlay with a given ID for a short time and then hide it.
+
+/** 
+ * Shows an overlay with a given ID for a short time and then hides it.
  * @param {string} id - The ID of the overlay to show and hide.
  */
 function showThenHideOverlay(id) {
@@ -116,7 +130,9 @@ function showThenHideOverlay(id) {
   }, 2500);
 }
 
-/** Slides in an overlay element with the specified ID.
+
+/** 
+ * Slides in an overlay element with the specified ID.
  * @param {string} id - The ID of the overlay element to slide in.
  */
 function slideInOverlay(id) {
@@ -125,7 +141,9 @@ function slideInOverlay(id) {
   }, 100);
 }
 
-/** Freezes the background scrolling and shows an overlay element with the specified ID.
+
+/** 
+ * Freezes the background scrolling and shows an overlay element with the specified ID.
  * @param {string} id - The ID of the overlay element to show.
  */
 function freezeBackground(id) {
@@ -133,7 +151,9 @@ function freezeBackground(id) {
   document.getElementById("body").classList.add("no-scrolling");
 }
 
-/** Unfreezes the background scrolling and hides an overlay element with the specified ID.
+
+/** 
+ * Unfreezes the background scrolling and hides an overlay element with the specified ID.
  * @param {string} id - The ID of the overlay element to hide.
  */
 function unfreezeBackground(id) {
@@ -141,19 +161,24 @@ function unfreezeBackground(id) {
   document.getElementById("body").classList.remove("no-scrolling");
 }
 
-/** Stops the propagation of an event to its parent elements.
+
+/** 
+ * Stops the propagation of an event to its parent elements.
  * @param {Event} event The event object.
  */
 function doNotClose(event) {
   event.stopPropagation();
 }
 
-/** Closes a Dropdown menu.
+
+/** 
+ * Closes a Dropdown menu.
  * @param {string} id - The ID of the menu element to close.
  */
 function closeDropDown(id) {
   document.getElementById(id).classList.remove("collapsed");
 }
+
 
 /**
 * Opens a Dropdown menu.
