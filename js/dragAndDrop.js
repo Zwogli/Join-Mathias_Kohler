@@ -80,7 +80,7 @@ function enableMobileDragAndDrop() {
                 // assign taskElement new coordinates based on the touch.
                 taskElement.style.left = touchLocation.pageX - 0.5 * getTaskWidthOnDrag() + 'px';
                 taskElement.style.top = touchLocation.pageY - 100 + 'px';
-            }, 250);
+            }, 100);
 
         });
 
