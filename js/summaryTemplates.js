@@ -1,9 +1,8 @@
-/**Render greeting for guests and time of day
- * 
+/**
+ * Renders greeting for guests and time of day.
  * @param {HTMLAnchorElement} greetings 
  * @param {HTMLAnchorElement} mobileGreeting 
  * @param {string} timeOfDay 
- * @returns 
  */
 function generateHTMLGreetingGuest(greetings, mobileGreeting, timeOfDay) {
   greetings.innerHTML = /*html*/`
@@ -14,13 +13,13 @@ function generateHTMLGreetingGuest(greetings, mobileGreeting, timeOfDay) {
 `;
 }
 
-/**Render greeting for user and time of day
- * 
+
+/** 
+ * Renders greeting for user and time of day.
  * @param {HTMLAnchorElement} greetings 
  * @param {HTMLAnchorElement} mobileGreeting 
  * @param {string} userIndex 
  * @param {string} timeOfDay 
- * @returns 
  */
 function generateHTMLGreetingUser(greetings, mobileGreeting, userIndex, timeOfDay) {
   greetings.innerHTML = /*html*/`

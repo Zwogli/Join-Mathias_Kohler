@@ -1,24 +1,25 @@
-/**Save email into localStorage*/
+/** Saves email into localStorage. */
 function saveRequesterLocal() {
   let requestEmail = document.getElementById('requesterEmail');
   localStorage.setItem('requestEmail', '');
   localStorage.setItem('requestEmail', requestEmail.value);
 }
 
-/**Checks the email if it is registered*/
+
+/** Checks the email if it is registered. */
 function initNewPassword() {
   let requestEmail = localStorage.getItem('requestEmail');
-  let checkedUser = users.find(users => users.email.toLowerCase() == requestEmail.toLowerCase()); //tolowerCase = checks case-insensitive
+  let checkedUser = users.find(users => users.email.toLowerCase() == requestEmail.toLowerCase());
 
   if (checkedUser) {
-    // console.log(requestEmail);
     confirmPassword();
   } else {
     linkToUrl('index.html?msg=Email does not exist');
   }
 }
 
-/**Checks the password input*/
+
+/** Checks the password input. */
 async function confirmPassword() {
   let newPassword = document.getElementById('new-password');
   let confirmPassword = document.getElementById('confirm-password');
@@ -41,12 +42,13 @@ async function confirmPassword() {
   }
 }
 
-/**Generate message */
+
+/** Generates message. */
 function confirmMsg() {
   linkToUrl('index.html?msg=You reset your password');
 }
 
-/**generate Feedback succes password change*/
+/** Generates Feedback succes password change. */
 function msgSuccesfullPasswordChange() {
   let overlayMsgBox = document.getElementById('overlay-msg-password');
   let msgBox = document.getElementById('msg-box-password');

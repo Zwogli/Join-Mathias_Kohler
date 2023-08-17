@@ -1,5 +1,9 @@
 let timeOfDay;
 
+
+/**
+ * Initializes the summary site by loading user data, initializing header navigation and render greeting and task stats.
+ */
 async function initSummary() {
   await initHeaderNav();
   await loadUserData();
@@ -10,7 +14,8 @@ async function initSummary() {
   renderNumbers();
 }
 
-/**Generate time of Day*/
+
+/** Generates time of day. */
 function renderTimeOfDay() {
   let date = new Date;
   let hours = date.getHours();
@@ -26,7 +31,8 @@ function renderTimeOfDay() {
   }
 }
 
-/**Generate greetings for user*/
+
+/** Generates greetings for user. */
 async function renderGreeting() {
   let greetings = document.getElementById('summary-infos-greeting');
   let mobileGreeting = document.getElementById('mobile-overlay');
@@ -42,7 +48,8 @@ async function renderGreeting() {
   }
 }
 
-/**Fill summary counter and deadline*/
+
+/** Fills summary stats. */
 function renderNumbers() {
   document.getElementById('summary-infos-tasks-card-board').innerHTML = activeUser.tasks.length;
   document.getElementById('summary-infos-tasks-card-progress').innerHTML = getNumberOfTasksInBoardColumn('board-column-progress');
@@ -54,10 +61,10 @@ function renderNumbers() {
   renderUpcomingDeadline()
 }
 
-/**Counts all tasks in columns
- * 
+
+/**
+ * Counts all tasks in columns.
  * @param {string} columnID 
- * @returns 
  */
 function getNumberOfTasksInBoardColumn(columnID) {
   let tasksInProgress = activeUser.tasks.filter(task =>
@@ -66,7 +73,8 @@ function getNumberOfTasksInBoardColumn(columnID) {
   return tasksInProgress.length;
 }
 
-/**Count all urgent tasks  */
+
+/** Counts all urgent tasks. */
 function getNumberOfUrgentTasks() {
   let urgentTasks = activeUser.tasks.filter(task =>
     task.prio === 2
@@ -74,7 +82,8 @@ function getNumberOfUrgentTasks() {
   return urgentTasks.length;
 }
 
-/**Render upcoming deadline date */
+
+/** Renders upcoming deadline date. */
 function renderUpcomingDeadline() {
   let urgentTasks = activeUser.tasks.filter(task =>
     task.prio === 2

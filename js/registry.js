@@ -5,8 +5,9 @@ function initSignUp() {
 	displayMessage();
 }
 
-/**this function registry new User or checke Array users for existing email
-  *
+
+/**
+ * Registers new user or checks users array for existing email.
   *@param {Array} users - backend Array
   *@param {string} name - Name of the new user
   *@param {string} email - email of the new user
@@ -30,11 +31,12 @@ async function userSignUp() {
 	password.value = '';
 }
 
-/**this function checked registerd User email and set boolean true or false
-  *
-  *@param {string} name - Name of the new user
-  *@param {string} email - email of the new user
-  *@param {string} password - password of the new user
+
+/**
+ * Checks registerd user email and sets boolean true or false.
+ * @param {string} name - Name of the new user
+ * @param {string} email - email of the new user
+ * @param {string} password - password of the new user
  */
 function checkEmailSignUp(name, email, password) {
 	for (let i = 0; i < users.length; i++) {
@@ -49,21 +51,23 @@ function checkEmailSignUp(name, email, password) {
 	checkEmailAvailable(name, email, password);
 }
 
-/**this function verify email
-  * 
-  *@param {string} email - email of the new user
-  *@param {string} userEmailSignedUp - registered user email
+
+/**
+ * Verifies email.
+ * @param {string} email - email of the new user
+ * @param {string} userEmailSignedUp - registered user email
  */
 function EmailCheckAvailable(userEmailSignedUp, email) {
 	return userEmailSignedUp === email.value;
 }
 
-/**this function look for exsited email
-  *
-  *@param {string} name - Name of the new user
-  *@param {string} email - email of the new user
-  *@param {string} password - password of the new user
-  *@param {boolean} EmailIsAvailable - toggle true or false if email exist
+
+/**
+ * Checks for existing email.
+ * @param {string} name - Name of the new user
+ * @param {string} email - email of the new user
+ * @param {string} password - password of the new user
+ * @param {boolean} EmailIsAvailable - toggle true or false if email exist
  */
 async function checkEmailAvailable(name, email, password) {
 	if (EmailIsAvailable === true) {
@@ -76,11 +80,13 @@ async function checkEmailAvailable(name, email, password) {
 	}
 }
 
-/**this function push array into backend
- *
-*@param {Array} users - backend Array
-*@param {*} backend - mini_backend.js variable
-*/
+
+/**
+ * Pushes array into backend.
+ * @param {Array} users - backend Array
+ * @param {*} backend - mini_backend.js variable
+ * @param {string} password - password of the new user
+ */
 async function pushUserArray(name, email, password) {
 	let loadDate = renderDate();
 
@@ -116,6 +122,7 @@ async function pushUserArray(name, email, password) {
 	linkToUrl('index.html?msg=You have successfully registered.');
 }
 
+
 function renderDate() {
 	let dateToday = new Date();
 	let month = dateToday.getMonth() + 1;
@@ -130,6 +137,7 @@ function renderDate() {
 	let renderDate = year + '-' + month + '-' + day;
 	return renderDate;
 }
+
 
 function setSignedUpUserAsFirstContact(name, email) {
 	contacts = [{ name: `${name.value} (You)`, email: email.value, phone: '', color: 'bg-theme', tasks: [] }];

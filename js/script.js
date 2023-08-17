@@ -8,34 +8,42 @@ let boardColumnToAddTask = "board-column-todo";
 /*--------------------------------------------------
 Support Functions
 ---------------------------------------------------*/
-/** Function to clear the inner HTML content of an element with a given ID.
+/** 
+ * Clears the inner HTML content of an element with a given ID.
  * @param {string} id - The ID of the element to clear.
  */
 function clearElement(id) {
   document.getElementById(id).innerHTML = "";
 }
 
-/** Function to scroll to an element with a given ID.
+
+/** 
+ * Scrolls to an element with a given ID.
  * @param {string} id - The ID of the element to scroll to.
  */
 function scrollToID(id) {
   location.hash = `#${id}`;
 }
 
-/** Function to get a random background-color class out of NUMBER_OF_BG_COLORS classes (defined in bgColors.css).
+
+/** 
+ * Gets a random background-color class out of NUMBER_OF_BG_COLORS classes (defined in bgColors.css).
  * @returns {string} A string representing the background-color class.
  */
 function getRandomColorClass() {
   return `bg-${getRandomInt(NUMBER_OF_BG_COLORS)}`;
 }
 
-/** Function to get a random integer between 0 and a given maximum value.
+
+/** 
+ * Gets a random integer between 0 and a given maximum value.
  * @param {number} max - The maximum value for the random integer.
  * @returns {number} A random integer between 0 and the given maximum value.
  */
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
+
 
 /**
  * Checks whether a given array contains a given object.
@@ -53,7 +61,9 @@ function arrayIncludesObject(array, object) {
   return false;
 }
 
-/** Function to highlight the current section in the Navbar.
+
+/** 
+ * Highlights the current section in the Navbar.
  * @param {string} sectionID - The ID of the section to be highlighted.
  */
 function activateNavSection(sectionID) {
@@ -64,7 +74,9 @@ function activateNavSection(sectionID) {
   document.getElementById(sectionID).classList.add("active");
 }
 
-/** This Function restricts the date so you can't pick dates in the past
+
+/** 
+ * Restricts the date so you can't pick dates in the past.
  * @param {string} inputID - The ID of the input field that will be checked.
  */
 function setMinDate(inputID) {
@@ -77,7 +89,9 @@ function setMinDate(inputID) {
   document.getElementById(inputID).setAttribute("min", minDate);
 }
 
-/** Checks if the current screen width is at most a specified width.
+
+/** 
+ * Checks if the current screen width is at most a specified width.
  * @param {string} screenWidth - The maximum screen width to check against.
  * @returns {boolean} Whether or not the current screen width is at most the specified width.
  */
@@ -85,18 +99,21 @@ function screenWidthIsAtMost(screenWidth) {
   return window.matchMedia(`(max-width: ${screenWidth})`).matches;
 }
 
-/** Open the new url into the window
+
+/** 
+ * Opens a given url.
  * @param {String} url - URL adress
  */
 function linkToUrl(url) {
   window.location.href = `./${url}`;
 }
 
+
+/** 
+ * Checks the current url.
+ * @param {String} endOfPath - string that may match with the end of current url.
+ * @returns {Boolean} true if the end of the current url matches the given string, false otherwise.
+ */
 function checkUrl(endOfPath) {
   return window.location.pathname.endsWith(endOfPath);
-}
-
-function manageContactToAddTask(contactIndex) {
-  localStorage.setItem("addTaskContactIndex", contactIndex);
-  linkToUrl('addtask.html')
 }

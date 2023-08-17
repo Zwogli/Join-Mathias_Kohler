@@ -65,7 +65,7 @@ async function renderCategoriesForAddTaskDropDown() {
 /** 
  * Renders a single category with onclick selection for the add task dropdown menu.
  * @param {number} categoryIndex - The category index in the 'activeUser.categories' array.
-*/
+ */
 function getHTMLForDropDownCategory(categoryIndex) {
     const category = activeUser.categories[categoryIndex];
     return /*html*/`
@@ -80,7 +80,7 @@ function getHTMLForDropDownCategory(categoryIndex) {
 /** 
  * Selects a category from the add task dropdown menu and closes the menu.
  * @param {number} categoryIndex - The category index in the 'activeUser.categories' array.
-*/
+ */
 function selectTaskCategory(categoryIndex) {
     // const category = activeUser.categories[categoryIndex];
     document.getElementById('select-task-category').innerHTML = `

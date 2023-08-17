@@ -1,11 +1,12 @@
 menuIsOpen = false;
 
-/**load async w3-school template loader */
+/** Loads async w3-school template loader. */
 async function initHeaderNav() {
     await includeHTML();
 }
 
-/**Load HTML-templates */
+
+/** Load HTML-templates. */
 async function includeHTML() {
     // select all Elements with the same name "w3-include-html, [] = query ger.: abfrage"
     let includeElements = document.querySelectorAll('[w3-include-html]');
@@ -23,11 +24,13 @@ async function includeHTML() {
     }
 }
 
+
 /** Toggles slide menu overlay. */
 function toggleMenu() {
     if (menuIsOpen) closeMenu();
     else openMenu();
 }
+
 
 /** Opens slide menu overlay. */
 function openMenu() {
@@ -35,6 +38,7 @@ function openMenu() {
     showOverlay('mobile-slide-menu');
     menuIsOpen = true;
 }
+
 
 /** Closes slide menu overlay. */
 function closeMenu() {
@@ -45,6 +49,7 @@ function closeMenu() {
     menuIsOpen = false;
 }
 
+
 /**
  * Toggles following Overlays legal, help, menu 
  * @param {string} className - fill id legal, help
@@ -53,6 +58,7 @@ function toggleOverlays(className) {
     toggleElement(className);
     checkOverlays(className);
 }
+
 
 /**
  * Check overlays for closing or opening.
