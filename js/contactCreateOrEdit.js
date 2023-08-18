@@ -203,12 +203,13 @@ function closeCreateOrEditContactOverlay() {
 async function addNewContact() {
     const newContact = getNewContactObjectFromInput();
     activeUserContacts.push(newContact);
-    const contactIndex = activeUserContacts.indexOf(newContact);
 
     closeCreateOrEditContactOverlay();
     renderContactList();
-    showContactDetails(contactIndex);
+    const contactIndex = activeUserContacts.indexOf(newContact);
     scrollToContact(contactIndex);
+    showContactDetails(contactIndex);
+    document.getElementById('contacts-info-container').scrollTop = 0;
     showThenHideOverlay('contact-successfully-created');
     saveUserData();
 }

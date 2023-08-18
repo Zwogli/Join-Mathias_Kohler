@@ -142,7 +142,7 @@ Media Queries for Width
     .create-or-edit-contact-overlay {
         transform: translateY(100vh);
         flex-direction: column;
-        height: 80%;
+        height: 100%;
         scale: 0.9;
     }
 
@@ -158,7 +158,7 @@ Media Queries for Width
     }
 
     #create-or-edit-contact-icon-container {
-        top: -80px;
+        top: -64px;
         left: 0;
     }
 
@@ -256,7 +256,7 @@ Media Queries for Height
     }
 
     .create-or-edit-contact-overlay {
-        height: 95%;
+        height: 100%;
     }
 
     #create-or-edit-contact-icon-container img,

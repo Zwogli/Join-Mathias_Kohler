@@ -262,7 +262,9 @@ Contact Details
 .contact-created {
     position: absolute;
     bottom: 150px;
-    width: fit-content;
+    left: calc(50% - 132px);
+    width: 264px;
+    text-align: center;
     color: white;
     background-color: #2A3647;
     border-radius: 10px;
