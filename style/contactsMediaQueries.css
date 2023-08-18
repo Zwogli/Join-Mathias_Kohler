@@ -48,7 +48,7 @@ Media Queries for Width
     }
 
     #contact-details-name {
-        font-size: 36px;
+        font-size: 24px;
         font-weight: 400;
     }
 
@@ -132,7 +132,11 @@ Media Queries for Width
     }
 
     .contacts-info-container {
-        padding: 35px 30px 80px 30px;
+        padding: 35px 30px;
+    }
+
+    .contact-icon-and-name {
+        gap: 32px;
     }
 
     .create-or-edit-contact-overlay {
@@ -216,7 +220,7 @@ Media Queries for Height
 ---------------------------------------------------*/
 @media(max-height: 700px) {
     .contacts-info-container {
-        padding: 34px 34px 80px 34px;
+        padding: 34px;
     }
 
     .header-headline {
@@ -243,7 +247,7 @@ Media Queries for Height
     }
 
     #contact-details-name {
-        font-size: 36px;
+        font-size: 24px;
         font-weight: 400;
     }
 

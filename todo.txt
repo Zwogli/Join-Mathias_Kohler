@@ -3,7 +3,8 @@ Erledigt  - sign in: pfeil größer bei mobile ansicht
 Erledigt  - log in: fehler
 Erledigt  - board: mobile drag
 ???       - contacts: fehler
-          - contacts: scrollen auf ganzem container, font-size anpassen
+Erledigt  - contacts: scrollen auf ganzem container, font-size anpassen
+          - contacts: overlay icon mobile
 Erledigt  - addtask: Kontaktauswahl mit tab 
           - addtask: subtask input größe ändert sich beim reinklicken 
 xxx       - addtask: nach create aufs board 
