@@ -115,8 +115,11 @@
 }
 
 .selection-img img {
-    cursor: pointer;
     padding: 0 8px;
+}
+
+#subtask-img-active img {
+    cursor: pointer;
 }
 
 .color-cicle {
