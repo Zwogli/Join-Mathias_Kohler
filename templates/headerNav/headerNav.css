@@ -187,7 +187,7 @@ Media Query
 		display: none;
 	}
 
-	.mobile-slide-menu-container {
+	#mobile-slide-menu-container {
 		top: 80px;
 		right: 25px;
 	}

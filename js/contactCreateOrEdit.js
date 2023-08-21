@@ -156,10 +156,7 @@ function deleteContact(contact) {
     hideOverlay('contact-details-overlay');
 
     if (screenWidthIsAtMost('1200px')) {
-        setTimeout(() => {
-            showElement('contacts-list-container');
-            removeElement('contacts-info-container');
-        }, 220);
+        setTimeout(() => closeContactInfo(), 220);
     }
 
     saveUserData();
@@ -179,7 +176,7 @@ function editContact(contact) {
 
     const contactIndex = activeUserContacts.indexOf(contact);
     showContactDetails(contactIndex, true);
-    scrollToContact(contactIndex);
+    scrollToContact(contact);
 
     saveUserData();
 }
@@ -190,9 +187,7 @@ function editContact(contact) {
  */
 function closeCreateOrEditContactOverlay() {
     hideOverlay('create-or-edit-contact-overlay');
-    setTimeout(() => {
-        unfreezeBackground('create-or-edit-contact-screen');
-    }, 220);
+    setTimeout(() => unfreezeBackground('create-or-edit-contact-screen'), 220);
     document.getElementById('form-contact-info').reset();
 }
 
@@ -207,10 +202,12 @@ async function addNewContact() {
     closeCreateOrEditContactOverlay();
     renderContactList();
     const contactIndex = activeUserContacts.indexOf(newContact);
-    scrollToContact(contactIndex);
+    scrollToContact(newContact);
     showContactDetails(contactIndex);
     document.getElementById('contacts-info-container').scrollTop = 0;
+    showElement('contact-created-container');
     showThenHideOverlay('contact-successfully-created');
+    setTimeout(() => removeElement('contact-created-container'), 3500);
     saveUserData();
 }
 
@@ -233,8 +230,15 @@ function getNewContactObjectFromInput() {
 
 /**
  * Scrolls the contacts list to the specified contact.
- * @param {number} contactIndex - The index of the contact to scroll to.
+ * @param {number} contact - The contact to scroll to.
  */
-function scrollToContact(contactIndex) {
-    scrollToID(`contact-${contactIndex}`);
+function scrollToContact(contact) {
+    const contactScrollContainer = document.getElementById(`contacts-list`);
+    const numberOfLetterHeadersAboveContact = getInitialLetters().indexOf(getInitialLetter(contact));
+    const heightOfLetterHeader = 79;
+    const numberOfContactsAboveContact = activeUserContacts.indexOf(contact);
+    const heightOfContact = 89;
+    const totalHeightAboveContact = numberOfLetterHeadersAboveContact * heightOfLetterHeader + numberOfContactsAboveContact * heightOfContact;
+
+    contactScrollContainer.scrollTop = totalHeightAboveContact;
 }
