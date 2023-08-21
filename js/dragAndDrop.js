@@ -55,134 +55,122 @@ function removeHighlight(boardColumn) {
 /*--------------------------------------------------
 Drag and Drop Mobile
 ---------------------------------------------------*/
+let initialTouchY = 0;
+let isDragging = false;
+let dragTimeout;
+
+
 /**
  * Sets up EventListeners to enable drag and drop on mobile devices via touch.
  */
-let scrollAtTop = false;
-let scrollAtBottom = false;
-
-let initialTouchY = 0;
-
 function enableMobileDragAndDrop() {
     activeUser.tasks.forEach(task => {
         const taskIndex = activeUser.tasks.indexOf(task);
-
-        // find the element that you want to drag.
         const taskElement = document.getElementById(`task-${taskIndex}`);
-        let isDragging = false;
-        let dragTimeout;
 
-
-        const scrollContainer = document.getElementById('main');
-        let initialTouchY = 0;
-
-        /* listen to the touchstart event,
-        and mark the taskElement as being dragged. */
-        taskElement.addEventListener('touchstart', function (e) {
-            dragTimeout = setTimeout(() => {
-                isDragging = true;
-                startDragging(taskIndex)
-                taskElement.classList.add('task-ondrag');
-
-                // grab the location of touch
-                let touchLocation = e.targetTouches[0];
-                // assign taskElement new coordinates based on the touch.
-                taskElement.style.left = touchLocation.pageX - 0.5 * getTaskWidthOnDrag() + 'px';
-                taskElement.style.top = touchLocation.pageY - 100 + 'px';
-            }, 100);
-
-        });
-
-        /* listen to the touchmove event,
-        every time it fires, grab the location
-        of touch and assign it to taskElement */
-        taskElement.addEventListener('touchmove', function (e) {
-            if (isDragging) {
-                taskElement.classList.add('task-ondrag');
-
-                // prevent scrolling on the page while dragging
-                e.preventDefault();
-
-                // grab the location of touch
-                let touchLocation = e.targetTouches[0];
-
-                let currentTouchY = touchLocation.pageY;
-                const containerElement = document.getElementById('main');
-                // Calculate the container's position and dimensions
-                const containerTop = containerElement.getBoundingClientRect().top;
-                const containerHeight = containerElement.clientHeight;
-                const scrollThreshold = 100;
-                const scrollAmount = 5;
-
-                if (currentTouchY < containerTop + scrollThreshold && currentTouchY < initialTouchY) {
-                    containerElement.scrollTop -= scrollAmount; // Scroll up
-                } else if (currentTouchY > containerTop + containerHeight - scrollThreshold && currentTouchY > initialTouchY) {
-                    containerElement.scrollTop += scrollAmount; // Scroll down
-                }
-
-                initialTouchY = currentTouchY;
-
-
-
-                // assign taskElement new coordinates based on the touch.
-                taskElement.style.left = touchLocation.pageX - 0.5 * getTaskWidthOnDrag() + 'px';
-                taskElement.style.top = touchLocation.pageY - 100 + 'px';
-
-                let left = parseInt(taskElement.style.left) + 0.5 * getTaskWidthOnDrag();
-                let top = parseInt(taskElement.style.top) + 100;
-
-                let dropTarget = findDropTarget(left, top);
-                if (dropTarget) {
-                    let boardColumn = dropTarget.id;
-                    highlight(boardColumn);
-                    taskElement.classList.add('task-ondrag-over-droptarget');
-                }
-                else {
-                    removeHighlight('board-column-todo');
-                    removeHighlight('board-column-progress');
-                    removeHighlight('board-column-feedback');
-                    removeHighlight('board-column-done');
-                    taskElement.classList.remove('task-ondrag-over-droptarget');
-                }
-            }
-            else {
-                clearTimeout(dragTimeout);
-            }
-        }, { passive: false });
-
-        /* record the position of the touch
-        when released using touchend event.
-        This will be the drop position. */
-
-        taskElement.addEventListener('touchend', async function (e) {
-            // console.log('touchend');
-            if (isDragging) {
-                isDragging = false;
-
-                // current taskElement position.
-                let left = parseInt(taskElement.style.left) + 0.5 * getTaskWidthOnDrag();
-                let top = parseInt(taskElement.style.top) + 100;
-
-                // check if taskElement is over a drop target
-                let dropTarget = findDropTarget(left, top);
-
-                if (dropTarget) {
-                    // drop element on boardColumn
-                    let boardColumn = dropTarget.id;
-                    await moveTo(boardColumn);
-                    // console.log('Dropped on ' + boardColumn);
-                }
-                else {
-                    // taskElement.classList.remove('task-ondragstart');
-                    taskElement.classList.remove('task-ondrag');
-                    taskElement.classList.remove('task-ondrag-over-droptarget'); // in if-case above: this reset is done automatically
-                }
-            }
-            else {
-                clearTimeout(dragTimeout);
-            }
-        });
+        taskElement.addEventListener('touchstart', event => handleTouchStart(task, event));
+        taskElement.addEventListener('touchmove', event => handleTouchMove(task, event), { passive: false });
+        taskElement.addEventListener('touchend', event => handleTouchEnd(task, event));
     });
+}
+
+
+/** 
+ * Helper function to handle the touchstart event and mark the taskElement as being dragged.
+ * @param {object} task - The task whose element is dragged.
+ * @param {Event} event - The touchstart event.
+ */
+function handleTouchStart(task, event) {
+    const taskIndex = activeUser.tasks.indexOf(task);
+    const taskElement = document.getElementById(`task-${taskIndex}`);
+
+    dragTimeout = setTimeout(() => {
+        taskElement.classList.add('task-ondrag');
+        setCoordinatesBasedOnTouch(taskElement, event);
+        startDragging(taskIndex)
+        isDragging = true;
+    }, 100);
+}
+
+
+/** 
+ * Helper function to assign new coordinates to a taskElement based on a touch event.
+ * @param {HTMLElement} taskElement - The touched task element.
+ * @param {Event} event - The touch event.
+ */
+function setCoordinatesBasedOnTouch(taskElement, event) {
+    let touchLocation = event.targetTouches[0];
+    taskElement.style.left = touchLocation.pageX - 0.5 * getTaskWidthOnDrag() + 'px';
+    taskElement.style.top = touchLocation.pageY - 100 + 'px';
+}
+
+
+/** 
+ * Helper function to handle the touchmove event and mark the taskElement as being dragged.
+ * @param {object} task - The task whose element is dragged.
+ * @param {Event} event - The touchmove event.
+ */
+function handleTouchMove(task, event) {
+    const taskIndex = activeUser.tasks.indexOf(task);
+    const taskElement = document.getElementById(`task-${taskIndex}`);
+
+    if (isDragging) {
+        event.preventDefault(); // prevent scrolling on the page while dragging
+        taskElement.classList.add('task-ondrag');
+        handleScrolling(event);
+        setCoordinatesBasedOnTouch(taskElement, event);
+        setAndHighlightDropTarget(taskElement);
+    }
+    else {
+        clearTimeout(dragTimeout);
+    }
+}
+
+
+/** 
+ * Helper function to higlight a possible drop target (a board-column) under the current drag position.
+ * @param {HTMLElement} taskElement - The dragged task element.
+ */
+function setAndHighlightDropTarget(taskElement) {
+    let left = parseInt(taskElement.style.left) + 0.5 * getTaskWidthOnDrag();
+    let top = parseInt(taskElement.style.top) + 100;
+    let dropTarget = findDropTarget(left, top);
+
+    if (dropTarget) {
+        let boardColumn = dropTarget.id;
+        highlight(boardColumn);
+        taskElement.classList.add('task-ondrag-over-droptarget');
+    }
+    else {
+        removeHighlight('board-column-todo');
+        removeHighlight('board-column-progress');
+        removeHighlight('board-column-feedback');
+        removeHighlight('board-column-done');
+        taskElement.classList.remove('task-ondrag-over-droptarget');
+    }
+}
+
+
+/** 
+ * Helper function to evoke scrolling when a dragged element reaches the top or bottom of the 'main'-container.
+ * @param {Event} event - The touch event.
+ */
+function handleScrolling(event) {
+    const scrollAmount = 5;
+    const scrollContainer = document.getElementById('main');
+    let touchLocation = event.targetTouches[0];
+    let currentTouchY = touchLocation.pageY;
+    const containerTop = scrollContainer.getBoundingClientRect().top;
+    const containerHeight = scrollContainer.clientHeight;
+    const scrollThreshold = 100;
+
+    if (currentTouchY < containerTop + scrollThreshold && currentTouchY < initialTouchY) {
+        scrollContainer.scrollTop -= scrollAmount; // Scroll up
+    } else if (currentTouchY > containerTop + containerHeight - scrollThreshold && currentTouchY > initialTouchY) {
+        scrollContainer.scrollTop += scrollAmount; // Scroll down
+    }
+
+    initialTouchY = currentTouchY;
 }
 
 
@@ -216,4 +204,35 @@ function getTaskWidthOnDrag() {
         widthInPercent = 45;
     }
     return Math.round(window.innerWidth * widthInPercent / 100);
+}
+
+
+/**
+ * Helper function to handle the touchend event and drop the corresponding taskElement. 
+ * It records the position of the touch when released (this will be the drop position).
+ * @param {object} task - The task whose element is dropped.
+ * @param {Event} event - The touchend event.
+ */
+async function handleTouchEnd(task, event) {
+    const taskIndex = activeUser.tasks.indexOf(task);
+    const taskElement = document.getElementById(`task-${taskIndex}`);
+
+    if (isDragging) {
+        isDragging = false;
+        let left = parseInt(taskElement.style.left) + 0.5 * getTaskWidthOnDrag();
+        let top = parseInt(taskElement.style.top) + 100;
+        let dropTarget = findDropTarget(left, top);
+
+        if (dropTarget) {
+            let boardColumn = dropTarget.id;
+            await moveTo(boardColumn);
+        }
+        else {
+            taskElement.classList.remove('task-ondrag');
+            taskElement.classList.remove('task-ondrag-over-droptarget'); // in if-case above: this reset is done automatically
+        }
+    }
+    else {
+        clearTimeout(dragTimeout);
+    }
 }
