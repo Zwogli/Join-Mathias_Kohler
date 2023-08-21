@@ -9,3 +9,5 @@ Erledigt  - addtask: Kontaktauswahl mit tab
           - addtask: subtask input größe ändert sich beim reinklicken 
 xxx       - addtask: nach create aufs board 
 Erledigt  - contacts: success msg animation (scrollToContact() ändern)
+
+Erledigt  - mobile drag and drop: scrollbar machen

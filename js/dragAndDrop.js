@@ -58,6 +58,11 @@ Drag and Drop Mobile
 /**
  * Sets up EventListeners to enable drag and drop on mobile devices via touch.
  */
+let scrollAtTop = false;
+let scrollAtBottom = false;
+
+let initialTouchY = 0;
+
 function enableMobileDragAndDrop() {
     activeUser.tasks.forEach(task => {
         const taskIndex = activeUser.tasks.indexOf(task);
@@ -66,6 +71,10 @@ function enableMobileDragAndDrop() {
         const taskElement = document.getElementById(`task-${taskIndex}`);
         let isDragging = false;
         let dragTimeout;
+
+
+        const scrollContainer = document.getElementById('main');
+        let initialTouchY = 0;
 
         /* listen to the touchstart event,
         and mark the taskElement as being dragged. */
@@ -96,6 +105,25 @@ function enableMobileDragAndDrop() {
 
                 // grab the location of touch
                 let touchLocation = e.targetTouches[0];
+
+                let currentTouchY = touchLocation.pageY;
+                const containerElement = document.getElementById('main');
+                // Calculate the container's position and dimensions
+                const containerTop = containerElement.getBoundingClientRect().top;
+                const containerHeight = containerElement.clientHeight;
+                const scrollThreshold = 100;
+                const scrollAmount = 5;
+
+                if (currentTouchY < containerTop + scrollThreshold && currentTouchY < initialTouchY) {
+                    containerElement.scrollTop -= scrollAmount; // Scroll up
+                } else if (currentTouchY > containerTop + containerHeight - scrollThreshold && currentTouchY > initialTouchY) {
+                    containerElement.scrollTop += scrollAmount; // Scroll down
+                }
+
+                initialTouchY = currentTouchY;
+
+
+
                 // assign taskElement new coordinates based on the touch.
                 taskElement.style.left = touchLocation.pageX - 0.5 * getTaskWidthOnDrag() + 'px';
                 taskElement.style.top = touchLocation.pageY - 100 + 'px';
