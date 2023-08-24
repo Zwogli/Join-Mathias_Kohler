@@ -6,8 +6,10 @@ Erledigt  - board: mobile drag
 Erledigt  - contacts: scrollen auf ganzem container, font-size anpassen
 Erledigt  - contacts: overlay icon mobile
 Erledigt  - addtask: Kontaktauswahl mit tab 
-          - addtask: subtask input größe ändert sich beim reinklicken 
+Erledigt  - addtask: subtask input größe ändert sich beim reinklicken 
+
 xxx       - addtask: nach create aufs board 
 Erledigt  - contacts: success msg animation (scrollToContact() ändern)
 
 Erledigt  - mobile drag and drop: scrollbar machen
+          - addtask: new category input größe ändert sich beim reinklicken 

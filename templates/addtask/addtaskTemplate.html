@@ -127,13 +127,16 @@
                 <input id="new-subtask-input" class="fs-21 fw-400 mobile-fs-16" type="name"
                     placeholder="Add new subtask" onkeydown="activateSubtaskInput()">
 
-                <div id="subtask-img-add" class="selection-img">
-                    <img src="./assets/img/plus.svg">
-                </div>
+                <div class="selection-img-container">
+                    <div id="subtask-img-add" class="selection-img">
+                        <img src="./assets/img/plus.svg">
+                    </div>
 
-                <div id="subtask-img-active" class="selection-img d-none">
-                    <img onclick="deactivateSubtaskInput()" class="img-24 px-5" src="./assets/img/clear.svg">
-                    <img onclick="saveNewSubtask()" class="border-left img-24 px-5" src="./assets/img/check-black.svg">
+                    <div id="subtask-img-active" class="selection-img d-none">
+                        <img onclick="deactivateSubtaskInput()" class="img-24 px-5" src="./assets/img/clear.svg">
+                        <img onclick="saveNewSubtask()" class="border-left img-24 px-5"
+                            src="./assets/img/check-black.svg">
+                    </div>
                 </div>
             </div>
 
