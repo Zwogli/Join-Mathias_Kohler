@@ -13,3 +13,15 @@ Erledigt  - contacts: success msg animation (scrollToContact() ändern)
 
 Erledigt  - mobile drag and drop: scrollbar machen
           - addtask: new category input größe ändert sich beim reinklicken 
+
+
+Sonstiges:
+-             handy: addtask overlay: subtask input feld height zu groß
+- ERLEDIGT    handy: create contact overlay button steht über
+-             login blink
+-             Datenschutz
+- ERLEDIGT    cleaning, JSDoc, responsiveness
+-             Wann temporäre Arrays (contacts, category, tasks, subtasks) statt activeUser.xx?
+-             refactoring enableMobileDragAndDrop()
+-             enableMobileDragAndDrop(): drag nach rechts vergrößert container
+-             refactoring registry.js (JSDoc, pushUserArray())
