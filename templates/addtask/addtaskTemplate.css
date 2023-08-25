@@ -73,11 +73,14 @@
     background-image: url(../../assets/img/dropdown.svg);
     background-repeat: no-repeat;
     background-position: 95%;
+    min-height: 24px;
+    display: flex;
+    align-items: center;
 }
 
 #select-task-category {
-    display: flex;
-    align-items: center;
+    /* display: flex;
+    align-items: center; */
     gap: 10px;
 }
 
@@ -107,6 +110,7 @@
     align-items: center;
     padding: 13px 21px;
     gap: 10px;
+    min-height: 24px;
 }
 
 .selection-img {
@@ -161,6 +165,8 @@
     align-items: center;
     padding: 13px 21px;
     cursor: pointer;
+    min-height: 24px;
+
 }
 
 .addtask-assigned-contact:hover,
