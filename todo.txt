@@ -1,22 +1,22 @@
 Feedback:
-Erledigt  - sign in: pfeil größer bei mobile ansicht
-Erledigt  - log in: fehler
-Erledigt  - board: mobile drag
+ERLEDIGT  - sign in: pfeil größer bei mobile ansicht
+ERLEDIGT  - log in: fehler
+ERLEDIGT  - board: mobile drag
 ???       - contacts: fehler
-Erledigt  - contacts: scrollen auf ganzem container, font-size anpassen
-Erledigt  - contacts: overlay icon mobile
-Erledigt  - addtask: Kontaktauswahl mit tab 
-Erledigt  - addtask: subtask input größe ändert sich beim reinklicken 
+ERLEDIGT  - contacts: scrollen auf ganzem container, font-size anpassen
+ERLEDIGT  - contacts: overlay icon mobile
+ERLEDIGT  - addtask: Kontaktauswahl mit tab 
+ERLEDIGT  - addtask: subtask input größe ändert sich beim reinklicken 
 
 xxx       - addtask: nach create aufs board 
-Erledigt  - contacts: success msg animation (scrollToContact() ändern)
+ERLEDIGT  - contacts: success msg animation (scrollToContact() ändern)
 
-Erledigt  - mobile drag and drop: scrollbar machen
-          - addtask: new category input größe ändert sich beim reinklicken 
+ERLEDIGT  - mobile drag and drop: scrollbar machen
+ERLEDIGT  - addtask: new category input größe ändert sich beim reinklicken 
 
 
 Sonstiges:
--             handy: addtask overlay: subtask input feld height zu groß
+- ???         handy: addtask overlay: subtask input feld height zu groß
 - ERLEDIGT    handy: create contact overlay button steht über
 -             login blink
 -             Datenschutz

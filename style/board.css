@@ -24,11 +24,11 @@ Main
 main {
 	margin: 89px 0 0 232px;
 	padding: 80px 60px 0 70px;
-	height: calc(100vh - 89px - 82px);
+	height: calc(100vh - 89px - 80px);
 	display: flex;
 	flex-direction: column;
 	background-color: #F5F5F5;
-	overflow: auto;
+	overflow-y: auto;
 }
 
 /*--------------------------------------------------

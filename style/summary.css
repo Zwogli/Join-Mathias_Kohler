@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+#body {
+  overflow: hidden;
+}
+
 /*--------------------------------------------------
 Hover effekt
 ---------------------------------------------------*/
@@ -26,11 +30,13 @@ Hover effekt
 /*--------------------------------------------------
 Summary header
 ---------------------------------------------------*/
-.summary {
+main.summary {
   background-color: #F5F5F5;
   min-height: calc(100vh - 89px);
+  height: calc(100vh - 89px);
   margin: 89px 0 0 232px;
   padding: 80px 60px 0 70px;
+  overflow-y: auto;
 }
 
 .summary-header {
@@ -198,16 +204,17 @@ Media Query width
 }
 
 @media (max-height: 950px) and (max-width: 900px) {
-  .summary {
+  main.summary {
     padding: 114px 35px 35px 35px;
   }
 }
 
 @media(max-width: 900px) {
-  .summary {
+  main.summary {
     margin: 80px 0;
     padding: 35px 30px 0px 30px;
     min-height: calc(100vh - 160px);
+    height: calc(100vh - 160px);
   }
 }
 
