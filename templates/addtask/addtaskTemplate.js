@@ -94,8 +94,8 @@ function selectTaskCategory(categoryIndex) {
 
 /** Opens an input field and a color picker for defining a new category. */
 function openNewCategoryInput() {
-    removeElement('select-task-category');
-    showElement('define-task-category');
+    document.getElementById('select-task-category').style.backgroundImage = 'unset';
+    document.getElementById('define-task-category').style.zIndex = '0';
     showElement('color-pick');
     closeDropDown('addtask-category-dropdown');
 }
@@ -109,9 +109,9 @@ function closeNewCategoryInput() {
     selectedColor.classList.remove(`bg-${categoryColorPick}`);
     categoryColorPick = undefined;
     hideElement('color-selected');
-    removeElement('define-task-category');
+    document.getElementById('define-task-category').style.zIndex = '-1';
     removeElement('color-pick');
-    showElement('select-task-category');
+    document.getElementById('select-task-category').style.backgroundImage = 'url(../../assets/img/dropdown.svg)';
 }
 
 

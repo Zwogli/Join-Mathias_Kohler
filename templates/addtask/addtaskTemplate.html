@@ -24,17 +24,20 @@
             <div id="addtask-category-dropdown" class="dropdown-menu fs-21 fw-400 mobile-fs-16"
                 onclick="doNotClose(event)">
                 <div id="select-task-category" onclick="toggleActiveForDropDown('addtask-category-dropdown');">
-                    Select task category
+                    Select category
                 </div>
-                <div id="define-task-category" class="d-none">
+                <div id="define-task-category">
                     <input id="new-category-input" class="fs-21 fw-400 mobile-fs-16" type="name"
                         placeholder="New category name">
-                    <label for="new-category-input" id="color-selected"
-                        class="color-cicle addtask-category-color img-20 hidden"></label>
-                    <div class="selection-img">
-                        <img onclick="closeNewCategoryInput()" class="img-24 px-5" src="./assets/img/clear.svg">
-                        <img onclick="saveNewCategory()" class="border-left img-24 px-5"
-                            src="./assets/img/check-black.svg">
+                    <div class="selection-img-container">
+                        <label for="new-category-input" id="color-selected"
+                            class="color-cicle addtask-category-color img-20 hidden"></label>
+                        <div class="selection-img">
+                            <img onclick="closeNewCategoryInput()" class="cursor-p img-24 px-5"
+                                src="./assets/img/clear.svg">
+                            <img onclick="saveNewCategory()" class="cursor-p border-left img-24 px-5"
+                                src="./assets/img/check-black.svg">
+                        </div>
                     </div>
                 </div>
 
@@ -65,7 +68,7 @@
             <div id="addtask-assigned-dropdown" class="dropdown-menu fs-21 fw-400 mobile-fs-16"
                 onclick="doNotClose(event)">
                 <div class="select-task-contacts" onclick="toggleActiveForDropDown('addtask-assigned-dropdown');">
-                    Select contacts to assign
+                    Select contacts
                 </div>
                 <div id="addtask-assigned-contacts-container">
 
