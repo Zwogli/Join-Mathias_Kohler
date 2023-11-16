@@ -114,6 +114,8 @@ Summary info body
 
 .summary-infos-tasks-card {
   min-height: calc(110px - 50px);
+  height: clamp(60px, 22vh, 300px);
+  width: clamp(60px, 15vw, 500px);
   padding: 25px;
   border-radius: 30px;
   background-color: white;
@@ -127,6 +129,7 @@ Summary info body
 
 .summary-infos-tasks-deadline {
   min-height: calc(110px - 50px);
+  height: clamp(60px, 20vh, 260px);
   border-radius: 30px;
   background-color: white;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
@@ -147,6 +150,7 @@ Summary info body
 }
 
 .summary-infos-tasks-progress-card {
+  height: clamp(60px, 20vh, 260px);
   border-radius: 30px;
   background-color: white;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
@@ -215,6 +219,13 @@ Media Query width
     padding: 35px 30px 0px 30px;
     min-height: calc(100vh - 160px);
     height: calc(100vh - 160px);
+  }
+
+  .summary-infos-tasks-card,
+  .summary-infos-tasks-deadline,
+  .summary-infos-tasks-progress-card {
+    height: unset;
+    width: unset;
   }
 }
 
@@ -334,11 +345,11 @@ Media Query width
   }
 
   .summary-infos-tasks {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
     gap: 10px;
-    grid-auto-rows: minmax(110px, auto);
     font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 
   .summary-infos-tasks-card {
