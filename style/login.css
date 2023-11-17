@@ -108,6 +108,7 @@ Main
 Formular
 ---------------------------------------------------*/
 form {
+  min-width: 40%;
   margin: 0 4%;
   padding: 35px 4%;
   position: relative;
@@ -150,6 +151,9 @@ form {
 
 .form-verification {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .form-verification:last-child {
@@ -163,7 +167,7 @@ input:focus {
 input[type=email],
 input[type=name],
 input[type=password] {
-  margin-bottom: 49px;
+  /* margin-bottom: 49px; */
   padding: 13px 21px;
   width: calc(100% - 42px - 2px);
   border: 1px solid #D1D1D1;
@@ -186,6 +190,10 @@ input[type=name] {
   background-image: url(../assets/img/lock.png);
 }
 
+.login-error-msg {
+  margin-bottom: 30px;
+}
+
 .form-valuable {
   margin-bottom: 35px;
   width: 100%;
@@ -196,7 +204,7 @@ input[type=name] {
 
 .checkbox {
   display: flex;
-  gap: 20px;
+  gap: 10px;
 }
 
 .form-submit {
@@ -221,6 +229,7 @@ Media Query
 ---------------------------------------------------*/
 @media(max-width: 900px) {
   form {
+    min-width: 60%;
     scale: 0.8;
   }
 

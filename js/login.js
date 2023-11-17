@@ -60,8 +60,8 @@ async function checkUserInput(user, userEmail, userPassword, userIndex) {
     saveCurrentUserToLocalStorage(userIndex);
     linkToUrl('summary.html');
   } else {
-    await errorBox('loginEmail', 'loginEmail-label')
-    await errorBox('loginPassword', 'loginPassword-label')
+    await errorBox('loginEmail', 'loginEmail-error-msg')
+    await errorBox('loginPassword', 'loginPassword-error-msg')
   }
 }
 
@@ -118,29 +118,27 @@ async function logout() {
 function displayMessage() {
   let msgBox = document.getElementById('msg-box');
   if (msg) {
-    msgBox.classList.add('show-overlay');
+    showOverlay('msg-box');
     msgBox.innerHTML = msg;
   }
   setTimeout(() => {
-    msgBox.classList.remove('show-overlay');
+    hideOverlay('msg-box');
   }, 2000);
 }
 
 
 /** Sets error-box. */
-async function errorBox(inputID, labelID) {
+async function errorBox(inputID, msgID) {
   let errorBoxInput = document.getElementById(inputID);
-  let errorBoxLabel = document.getElementById(labelID);
   errorBoxInput.classList.add('error-box');
   errorBoxInput.value = '';
-  errorBoxLabel.classList.remove('d-none');
+  showElement(msgID);
 }
 
 
-/** Resets error-box */
-async function resetErrorBox(inputID, labelID) {
+/** Resets error-box. */
+async function resetErrorBox(inputID, msgID) {
   let resetErrorBoxInput = document.getElementById(inputID);
-  let resetErrorBoxLabel = document.getElementById(labelID);
   resetErrorBoxInput.classList.remove('error-box');
-  resetErrorBoxLabel.classList.add('d-none');
+  hideElement(msgID);
 }
