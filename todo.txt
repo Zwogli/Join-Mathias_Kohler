@@ -25,3 +25,5 @@ Sonstiges:
 -             refactoring enableMobileDragAndDrop()
 -             enableMobileDragAndDrop(): drag nach rechts vergrößert container
 -             refactoring registry.js (JSDoc, pushUserArray())
+- ERLEDIGT    issue: incorrect use of 'for' with 'label' on login screen
+- !!!         reset password: error with msg-url and requesterMail (in saveRequesterLocal())
