@@ -16,14 +16,11 @@ function initLogin() { /**@alias module:initLogin */
 
 /** Starts/stops animation. */
 function animationLogin() {
-  let animationLogin = document.getElementById('animation-join');
-  let joinLogo = document.getElementById('join-logo');
-
   setTimeout(() => {
-    animationLogin.classList.add('d-none');
-    document.getElementById('screen-animation').classList.add('d-none');
-    document.getElementById('logo-animation').classList.add('d-none');
-    joinLogo.classList.remove('d-none');
+    removeElement('animation-join');
+    removeElement('screen-animation');
+    removeElement('logo-animation');
+    showElement('join-logo');
   }, 900);
 }
 
