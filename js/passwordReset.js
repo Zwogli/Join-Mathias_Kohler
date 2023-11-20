@@ -1,68 +1,44 @@
-/** Saves email into localStorage. */
-function saveRequesterLocal() {
-  let requestEmail = document.getElementById('requesterEmail');
-  localStorage.setItem('requestEmail', '');
-  localStorage.setItem('requestEmail', requestEmail.value);
+/** Initializes password reset. */
+function initPasswordReset() {
+  loadUsers();
+  displayMessageFromURL();
 }
 
 
-/** Checks the email if it is registered. */
-function initNewPassword() {
-  let requestEmail = localStorage.getItem('requestEmail');
-  let checkedUser = users.find(users => users.email.toLowerCase() == requestEmail.toLowerCase());
+/** Saves email of the password requester into localStorage. */
+function saveRequesterLocal() {
+  const requestEmail = document.getElementById('requesterEmail').value;
+  localStorage.setItem('requestEmail', requestEmail);
+}
+
+
+/** Sets and saves the new password if the email of the password requester is registered. */
+function setNewPasswordIfEmailExists() {
+  const requestEmail = localStorage.getItem('requestEmail');
+  const checkedUser = users.find(user => user.email.toLowerCase() == requestEmail.toLowerCase());
 
   if (checkedUser) {
-    confirmPassword();
+    updatePassword(checkedUser);
   } else {
     navigateToURL('index.html?msg=Email does not exist');
   }
 }
 
 
-/** Checks the password input. */
-async function confirmPassword() {
-  let newPassword = document.getElementById('new-password');
-  let confirmPassword = document.getElementById('confirm-password');
-  let resetEmail = localStorage.getItem('requestEmail');
+/** Sets and saves the new password for the given user. 
+ * @param {User} checkedUser - The given user.
+ */
+async function updatePassword(checkedUser) {
+  const newPassword = document.getElementById('new-password').value;
+  const confirmPassword = document.getElementById('confirm-password').value;
 
-  if (newPassword.value == confirmPassword.value) {
-    for (let i = 0; i < users.length; i++) {
-      let user = users[i];
-      if (resetEmail == user['email']) {
-        user.password = newPassword.value;
-        users[i] = user;
-        await setItem('users', JSON.stringify(users));
-        resetEmail = localStorage.setItem('requestEmail', '');
-        confirmMsg();
-      }
-    }
-  } else {
-    showErrorBoxAndMessage('confirm-password', 'confirm-password-label')
-    // wrongPasswordInput();
+  if (newPassword != confirmPassword) {
+    showErrorBoxAndMessage('confirm-password', 'confirm-password-error-msg');
+    return;
   }
-}
 
-
-/** Generates message. */
-function confirmMsg() {
+  checkedUser.password = newPassword;
+  await setItem('users', JSON.stringify(users));
+  localStorage.setItem('requestEmail', '');
   navigateToURL('index.html?msg=You reset your password');
-}
-
-/** Generates Feedback succes password change. */
-function msgSuccesfullPasswordChange() {
-  let overlayMsgBox = document.getElementById('overlay-msg-password');
-  let msgBox = document.getElementById('msg-box-password');
-  let body = document.getElementById('body-password');
-
-  msgBox.classList.remove('d-none')
-  overlayMsgBox.classList.add('overlay-msg');
-  msgBox.classList.add('animate-msg');
-  body.classList.add('o-flow-h');
-
-  setTimeout(() => {
-    overlayMsgBox.classList.remove('overlay-msg');
-    body.classList.remove('o-flow-h');
-    msgBox.classList.add('d-none')
-  }, 2000);
-  // todo link to index.html
 }
