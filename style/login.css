@@ -167,7 +167,7 @@ input:focus {
 input[type=email],
 input[type=name],
 input[type=password] {
-  /* margin-bottom: 49px; */
+  margin-bottom: 45px;
   padding: 13px 21px;
   width: calc(100% - 42px - 2px);
   border: 1px solid #D1D1D1;
@@ -190,8 +190,14 @@ input[type=name] {
   background-image: url(../assets/img/lock.png);
 }
 
-.login-error-msg {
-  margin-bottom: 30px;
+.input-container {
+  position: relative;
+}
+
+.input-error-msg {
+  position: absolute;
+  left: 0;
+  bottom: 24px;
 }
 
 .form-valuable {

@@ -48,17 +48,22 @@
       <div class="border"></div>
 
       <section class="form-verification">
-        <input id="loginEmail" onclick="resetErrorBox('loginEmail', 'loginEmail-error-msg')" type="email"
-          placeholder="Email" autocomplete="current-password" title="" required>
-        <span id="loginEmail-error-msg" class="login-error-msg hidden c-red fs-12">
-          Incorrect email or password.
-        </span>
+        <div class="input-container">
+          <input id="loginEmail" onclick="resetErrorBoxAndMessage('loginEmail', 'loginEmail-error-msg')" type="email"
+            placeholder="Email" autocomplete="current-password" title="" required>
+          <span id="loginEmail-error-msg" class="input-error-msg hidden c-red fs-12">
+            Incorrect email or password.
+          </span>
+        </div>
 
-        <input id="loginPassword" onclick="resetErrorBox('loginPassword', 'loginPassword-error-msg')"
-          class="img-password" type="password" placeholder="Password" autocomplete="current-password" title="" required>
-        <span id="loginPassword-error-msg" class="login-error-msg hidden c-red fs-12">
-          Incorrect email or password.
-        </span>
+        <div class="input-container">
+          <input id="loginPassword" onclick="resetErrorBoxAndMessage('loginPassword', 'loginPassword-error-msg')"
+            class="img-password" type="password" placeholder="Password" autocomplete="current-password" title=""
+            required>
+          <span id="loginPassword-error-msg" class="input-error-msg hidden c-red fs-12">
+            Incorrect email or password.
+          </span>
+        </div>
       </section>
 
       <section class="form-valuable">
@@ -71,14 +76,14 @@
 
       <section class="form-submit">
         <button type="submit" class="btn btn-py btn-w-145 btn-dark cursor-p fs-21 fw-700">Log in</button>
-        <button onclick="userGuest(); return false" class="btn btn-py btn-w-145 btn-bright cursor-p fs-21 fw-700">Guest
+        <button onclick="guestLogin(); return false" class="btn btn-py btn-w-145 btn-bright cursor-p fs-21 fw-700">Guest
           Log in</button>
       </section>
     </form>
 
     <section class="sign-up">
       <p class="cursor-d fs-21 fw-400">Not a Join user?</p>
-      <button onclick="linkToUrl('signUp.html')" class="btn btn-px btn-dark cursor-p fs-21 fw-700">Sign
+      <button onclick="navigateToURL('signUp.html')" class="btn btn-px btn-dark cursor-p fs-21 fw-700">Sign
         up</button>
     </section>
 

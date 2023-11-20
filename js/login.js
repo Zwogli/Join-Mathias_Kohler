@@ -9,8 +9,8 @@ let msg = params.msg;
 function initLogin() { /**@alias module:initLogin */
   loadUsers();
   animationLogin();
-  remember();
-  displayMessage();
+  enterInputDataIfRemembered();
+  displayMessageFromURL();
 }
 
 
@@ -25,59 +25,39 @@ function animationLogin() {
 }
 
 
-/** Checks user input for login. */
+/** Logs user in and saves data, if input is valid (shows error otherwise). */
 async function userLogin() {
   let userEmail = document.getElementById('loginEmail');
   let userPassword = document.getElementById('loginPassword');
-  let userIndex = 0;
-
   let user = users.find(users => users.email.toLowerCase() == userEmail.value.toLowerCase() && users.password == userPassword.value);
 
-  checkUserInput(user, userEmail, userPassword, userIndex);
-}
-
-
-/** 
- * Checks user input and call back.
- * @param {string} user activ user
- * @param {string} userEmail user login email
- * @param {string} userPassword user login password
- * @param {number} userIndex array position
- */
-async function checkUserInput(user, userEmail, userPassword, userIndex) {
-  let msgBox = document.getElementById('msg-box');
-
-  msgBox.innerHTML = '';
-
   if (user) {
-    checkRemember(userEmail, userPassword);
-    while (user != users[userIndex]) {
-      userIndex++;
-    }
-    saveCurrentUserToLocalStorage(userIndex);
-    linkToUrl('summary.html');
+    saveInputDataIfRememberMeIsChecked(userEmail, userPassword);
+    saveCurrentUserToLocalStorage(users.indexOf(user));
+    navigateToURL('summary.html');
   } else {
-    await errorBox('loginEmail', 'loginEmail-error-msg')
-    await errorBox('loginPassword', 'loginPassword-error-msg')
+    await showErrorBoxAndMessage('loginEmail', 'loginEmail-error-msg')
+    await showErrorBoxAndMessage('loginPassword', 'loginPassword-error-msg')
   }
+  document.getElementById('msg-box').innerHTML = '';
 }
 
 
-/** Guest log in */
-async function userGuest() {
+/** Logs user in as guest and saves to local storage. */
+async function guestLogin() {
   saveCurrentUserToLocalStorage('');
-  linkToUrl('summary.html');
+  navigateToURL('summary.html');
 }
 
 
 /** 
- * Checks the remember checkbox and saves in the local storage.
+ * Checks the remember checkbox and saves input data in the local storage.
  * @param {string} userEmail - login email value
  * @param {string} userPassword - login password value
  */
-function checkRemember(userEmail, userPassword) {
-  let remember = document.getElementById('remember-me');
-  if (remember.checked == true) {
+function saveInputDataIfRememberMeIsChecked(userEmail, userPassword) {
+  let rememberCheckbox = document.getElementById('remember-me');
+  if (rememberCheckbox.checked) {
     localStorage.setItem('user', userEmail.value);
     localStorage.setItem('pw', userPassword.value);
     localStorage.setItem('remember', true);
@@ -89,9 +69,11 @@ function checkRemember(userEmail, userPassword) {
 }
 
 
-/** Checks onload if remember checkbox is set in the local storage. */
-function remember() {
-  let remember = localStorage.getItem('remember')
+/** Checks onload if remember checkbox is set in the local storage 
+ * and enters the data in the input fields if this is the case. 
+ */
+function enterInputDataIfRemembered() {
+  let remember = localStorage.getItem('remember');
   if (remember == 'true') {
     document.getElementById('loginEmail').value = localStorage.getItem('user');
     document.getElementById('loginPassword').value = localStorage.getItem('pw');
@@ -107,12 +89,12 @@ function remember() {
 /** Clears array "currentUser" and navigates to index.html */
 async function logout() {
   saveCurrentUserToLocalStorage('');
-  linkToUrl('index.html');
+  navigateToURL('index.html');
 }
 
 
 /** Shows message from 'msg-box' for 2 seconds. */
-function displayMessage() {
+function displayMessageFromURL() {
   let msgBox = document.getElementById('msg-box');
   if (msg) {
     showOverlay('msg-box');
@@ -124,8 +106,12 @@ function displayMessage() {
 }
 
 
-/** Sets error-box. */
-async function errorBox(inputID, msgID) {
+/** 
+ * Draws a red error-box around a given input field and writes a corresponding message below. 
+ * @param {String} inputID The ID of the input field.
+ * @param {String} msgID The ID of the error message.
+*/
+async function showErrorBoxAndMessage(inputID, msgID) {
   let errorBoxInput = document.getElementById(inputID);
   errorBoxInput.classList.add('error-box');
   errorBoxInput.value = '';
@@ -133,8 +119,11 @@ async function errorBox(inputID, msgID) {
 }
 
 
-/** Resets error-box. */
-async function resetErrorBox(inputID, msgID) {
+/** Removes a red error-box from a given input field and the corresponding message. 
+ * @param {String} inputID The ID of the input field.
+ * @param {String} msgID The ID of the error message.
+ */
+async function resetErrorBoxAndMessage(inputID, msgID) {
   let resetErrorBoxInput = document.getElementById(inputID);
   resetErrorBoxInput.classList.remove('error-box');
   hideElement(msgID);

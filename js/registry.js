@@ -1,29 +1,22 @@
-let EmailIsAvailable = false;
-
+/** Initializes SignUp. */
 function initSignUp() {
 	loadUsers();
-	displayMessage();
+	displayMessageFromURL();
 }
 
 
-/**
- * Registers new user or checks users array for existing email.
-  *@param {Array} users - backend Array
-  *@param {string} name - Name of the new user
-  *@param {string} email - email of the new user
-  *@param {string} password - password of the new user
- */
+/** Registers new user or checks users array for existing email. */
 async function userSignUp() {
 	let name = document.getElementById('signUpName');
 	let email = document.getElementById('signUpEmail');
 	let password = document.getElementById('signUpPassword');
 
-	if (users.length === 0) {
-		setSignedUpUserAsFirstContact(name, email);
-		pushUserArray(name, email, password);
-		linkToUrl('index.html?msg=You have successfully registered.');
+	if (emailAlreadyExists(email.value)) {
+		showErrorBoxAndMessage('signUpEmail', 'signUpEmail-error-msg')
 	} else {
-		checkEmailSignUp(name, email, password);
+		setSignedUpUserAsFirstContact(name.value, email.value);
+		await updateAndSaveUserArray(name.value, email.value, password.value);
+		navigateToURL('index.html?msg=You have successfully registered.');
 	}
 
 	name.value = '';
@@ -33,77 +26,36 @@ async function userSignUp() {
 
 
 /**
- * Checks registerd user email and sets boolean true or false.
- * @param {string} name - Name of the new user
- * @param {string} email - email of the new user
- * @param {string} password - password of the new user
+ * Checks whether email already exists in user array.
+ * @param {string} email - email of the new user.
+ * @returns {boolean} true or false.
  */
-function checkEmailSignUp(name, email, password) {
-	for (let i = 0; i < users.length; i++) {
-		let userEmailSignedUp = users[i].email;
-		if (EmailCheckAvailable(userEmailSignedUp, email)) {
-			EmailIsAvailable = true;
-		}
-		if (EmailIsAvailable == true) {
-			break;
-		}
-	}
-	checkEmailAvailable(name, email, password);
+function emailAlreadyExists(email) {
+	return users.some(user => user.email === email);
 }
 
 
 /**
- * Verifies email.
- * @param {string} email - email of the new user
- * @param {string} userEmailSignedUp - registered user email
+ * Pushes new user object into users array and saves the array in the backend.
+ * @param {string} newUserName - name of the new user.
+ * @param {string} newUserEmail - email of the new user.
+ * @param {string} newUserPassword - password of the new user.
  */
-function EmailCheckAvailable(userEmailSignedUp, email) {
-	return userEmailSignedUp === email.value;
-}
-
-
-/**
- * Checks for existing email.
- * @param {string} name - Name of the new user
- * @param {string} email - email of the new user
- * @param {string} password - password of the new user
- * @param {boolean} EmailIsAvailable - toggle true or false if email exist
- */
-async function checkEmailAvailable(name, email, password) {
-	if (EmailIsAvailable === true) {
-		errorBox('signUpEmail', 'signUpEmail-label')
-		EmailIsAvailable = false;
-	} else {
-		EmailIsAvailable = false;
-		setSignedUpUserAsFirstContact(name, email);
-		await pushUserArray(name, email, password);
-	}
-}
-
-
-/**
- * Pushes array into backend.
- * @param {Array} users - backend Array
- * @param {*} backend - mini_backend.js variable
- * @param {string} password - password of the new user
- */
-async function pushUserArray(name, email, password) {
-	let loadDate = renderDate();
-
+async function updateAndSaveUserArray(newUserName, newUserEmail, newUserPassword) {
 	users.push({
-		name: name.value,
-		email: email.value,
-		password: password.value,
+		name: newUserName,
+		email: newUserEmail,
+		password: newUserPassword,
 		contacts,
 		tasks: [{
 			"title": "Start with Join",
 			"description": "For new tasks click on add task.",
-			"dueDate": loadDate,
+			"dueDate": getCurrentDateAsString(),
 			"prio": 0,
 			"category": { name: "Test", color: 0 },
 			"assignedTo": [{
-				name: `${name.value} (You)`,
-				email: email.value,
+				name: `${newUserName} (You)`,
+				email: newUserEmail,
 				phone: '',
 				color: 'bg-theme',
 				tasks: []
@@ -119,26 +71,14 @@ async function pushUserArray(name, email, password) {
 		]
 	});
 	await setItem('users', JSON.stringify(users));
-	linkToUrl('index.html?msg=You have successfully registered.');
 }
 
 
-function renderDate() {
-	let dateToday = new Date();
-	let month = dateToday.getMonth() + 1;
-	let day = dateToday.getDate() + 5;
-	let year = dateToday.getFullYear();
-
-	if (month < 10)
-		month = '0' + month.toString();
-	if (day < 10)
-		day = '0' + day.toString();
-
-	let renderDate = year + '-' + month + '-' + day;
-	return renderDate;
-}
-
-
-function setSignedUpUserAsFirstContact(name, email) {
-	contacts = [{ name: `${name.value} (You)`, email: email.value, phone: '', color: 'bg-theme', tasks: [] }];
+/**
+ * Sets new user as first entry in its own contacts array.
+ * @param {string} newUserName - name of the new user.
+ * @param {string} newUserEmail - email of the new user.
+ */
+function setSignedUpUserAsFirstContact(newUserName, newUserEmail) {
+	contacts = [{ name: `${newUserName} (You)`, email: newUserEmail, phone: '', color: 'bg-theme', tasks: [] }];
 }

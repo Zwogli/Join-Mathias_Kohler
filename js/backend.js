@@ -19,7 +19,7 @@ async function pushEmptyArray() {
 }
 
 
-/** Loads the users array and the currentUser from local storage. */
+/** Loads the users array from backend and the currentUser from local storage. */
 async function loadUsers() {
   try {
     users = JSON.parse(await getItem("users"));

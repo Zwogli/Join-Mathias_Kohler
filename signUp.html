@@ -23,6 +23,7 @@
   <!-- javascript -->
   <script src="./js/backend.js"></script>
   <script src="./js/script.js"></script>
+  <script src="./js/overlayManager.js"></script>
   <script src="./js/login.js"></script>
   <script src="./js/registry.js"></script>
 </head>
@@ -34,17 +35,19 @@
 
     <!-- return false =>  prevents the page from reloading-->
     <form onsubmit="userSignUp(); return false" class="form form-SignIn">
-      <img onclick="linkToUrl('index.html')" class="return-blue cursor-p img-32" src="./assets/img/arrow_left_blue.png"
-        alt="arrow left blue">
+      <img onclick="navigateToURL('index.html')" class="return-blue cursor-p img-32"
+        src="./assets/img/arrow_left_blue.png" alt="arrow left blue">
       <h1 class="form-headline cursor-d ta-c fs-61 fw-700">Sign in</h1>
       <div class="border"></div>
 
       <section class="form-verification">
         <input id="signUpName" type="name" placeholder="Name" autocomplete="current-password" title="" required>
 
-        <label for="signUpEmail" id="signUpEmail-label" class="d-none c-red fs-12">Email already exists.</label>
-        <input id="signUpEmail" onclick="resetErrorBox('signUpEmail', 'signUpEmail-label')" type="email"
-          placeholder="Email" autocomplete="current-password" title="" required>
+        <div class="input-container">
+          <input id="signUpEmail" onclick="resetErrorBoxAndMessage('signUpEmail', 'signUpEmail-error-msg')" type="email"
+            placeholder="Email" autocomplete="current-password" title="" required>
+          <span id="signUpEmail-error-msg" class="input-error-msg hidden c-red fs-12">Email already exists.</span>
+        </div>
 
         <input id="signUpPassword" class="img-password" type="password" placeholder="Password"
           autocomplete="current-password" title="" required>

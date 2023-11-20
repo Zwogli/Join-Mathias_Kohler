@@ -14,7 +14,7 @@ function initNewPassword() {
   if (checkedUser) {
     confirmPassword();
   } else {
-    linkToUrl('index.html?msg=Email does not exist');
+    navigateToURL('index.html?msg=Email does not exist');
   }
 }
 
@@ -37,7 +37,7 @@ async function confirmPassword() {
       }
     }
   } else {
-    errorBox('confirm-password', 'confirm-password-label')
+    showErrorBoxAndMessage('confirm-password', 'confirm-password-label')
     // wrongPasswordInput();
   }
 }
@@ -45,7 +45,7 @@ async function confirmPassword() {
 
 /** Generates message. */
 function confirmMsg() {
-  linkToUrl('index.html?msg=You reset your password');
+  navigateToURL('index.html?msg=You reset your password');
 }
 
 /** Generates Feedback succes password change. */

@@ -80,13 +80,22 @@ function activateNavSection(sectionID) {
  * @param {string} inputID - The ID of the input field that will be checked.
  */
 function setMinDate(inputID) {
+  const minDate = getCurrentDateAsString();
+  document.getElementById(inputID).setAttribute("min", minDate);
+}
+
+
+/** 
+ * Gets the current date.
+ * @returns {string} current date as 'YYYY-MM-DD'.
+ */
+function getCurrentDateAsString() {
   const dateToday = new Date();
   const month = (dateToday.getMonth() + 1).toString().padStart(2, '0');
   const day = dateToday.getDate().toString().padStart(2, '0');
   const year = dateToday.getFullYear();
-  const minDate = `${year}-${month}-${day}`;
 
-  document.getElementById(inputID).setAttribute("min", minDate);
+  return `${year}-${month}-${day}`;
 }
 
 
@@ -104,7 +113,7 @@ function screenWidthIsAtMost(screenWidth) {
  * Opens a given url.
  * @param {String} url - URL adress
  */
-function linkToUrl(url) {
+function navigateToURL(url) {
   window.location.href = `./${url}`;
 }
 

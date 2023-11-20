@@ -24,6 +24,6 @@ Sonstiges:
 -             Wann temporäre Arrays (contacts, category, tasks, subtasks) statt activeUser.xx?
 -             refactoring enableMobileDragAndDrop()
 -             enableMobileDragAndDrop(): drag nach rechts vergrößert container
--             refactoring registry.js (JSDoc, pushUserArray())
+-             refactoring registry.js (JSDoc, updateAndSaveUserArray())
 - ERLEDIGT    issue: incorrect use of 'for' with 'label' on login screen
 - !!!         reset password: error with msg-url and requesterMail (in saveRequesterLocal())
