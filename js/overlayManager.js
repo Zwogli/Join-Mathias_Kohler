@@ -27,6 +27,7 @@ async function openAddTaskOverlay(columnID = 'board-column-todo', presetContactI
 function closeAddTaskOverlay() {
   if (addTaskOverlayIsClosed()) return;
 
+  clearElement('assignedTo-selection');
   hideOverlay('addtask-card');
   hideOverlay('addtask-create-btn-mobile');
   setTimeout(() => {

@@ -69,6 +69,7 @@
 .select-task-contacts,
 #select-task-category {
     padding: 13px 21px;
+    min-height: 50px;
     cursor: pointer;
     background-image: url(../../assets/img/dropdown.svg);
     background-repeat: no-repeat;

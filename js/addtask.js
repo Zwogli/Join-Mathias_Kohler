@@ -8,6 +8,7 @@ async function initAddTask() {
     await initHeaderNav();
     activateNavSection('nav-addtask');
 
+    clearElement('assignedTo-selection');
     await renderContactsForAddTaskDropDown();
     renderCategoriesForAddTaskDropDown();
     setMinDate('addtask-dueDate-input');

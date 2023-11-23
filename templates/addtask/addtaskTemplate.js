@@ -24,6 +24,7 @@ async function renderContactsForAddTaskDropDown(presetContactIndex = -1) {
         contactList.innerHTML += getHTMLForDropDownContact(i, checkedIfPresetContact);
     }
 
+    renderAssignedContactIconsOnCheck();
     contactScrollContainer.scrollTop = 0;
 }
 
@@ -36,12 +37,34 @@ async function renderContactsForAddTaskDropDown(presetContactIndex = -1) {
 function getHTMLForDropDownContact(contactIndex, checked) {
     const contact = activeUser.contacts[contactIndex];
     const checkedOrEmpty = checked ? 'checked' : '';
+
     return /*html*/`
         <label for="addtask-assigned-contact-checkbox-${contactIndex}" class="addtask-assigned-contact">
             <span>${contact.name}</span>
             <input id="addtask-assigned-contact-checkbox-${contactIndex}" type="checkbox" ${checkedOrEmpty} onfocus="openDropDown('addtask-assigned-dropdown')">
         </label>
     `;
+}
+
+
+/**
+ * Renders the assigned contact icons when the contact are checked in the dropdown menu.
+ */
+function renderAssignedContactIconsOnCheck() {
+    const container = document.getElementById('assignedTo-selection');
+    container.innerHTML = '';
+    for (let i = 0; i < activeUser.contacts.length; i++) {
+        const contact = activeUser.contacts[i];
+        const contactChecked = document.getElementById(`addtask-assigned-contact-checkbox-${i}`).checked;
+
+        if (contactChecked) {
+            container.innerHTML += `
+                <div class="contact-icon contact-icon-assigned fs-12 fw-400 ${contact.color}">
+                    ${getInitials(contact)}
+                </div>
+            `;
+        }
+    }
 }
 
 

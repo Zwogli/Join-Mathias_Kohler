@@ -345,3 +345,19 @@ button {
 	align-items: center;
 	justify-content: center;
 }
+
+.contact-icon-assigned {
+	min-width: 35px;
+	height: 35px;
+	border: 1px solid white;
+}
+
+.contact-icon-assigned:not(:first-child) {
+	margin-left: -6px;
+}
+
+.assigned-contacts {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}

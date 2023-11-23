@@ -126,7 +126,7 @@ function renderAssignedContactsForEditing(task) {
     for (let i = 0; i < task.assignedTo.length; i++) {
         const contact = task.assignedTo[i];
         container.innerHTML += `
-            <div class="contact-icon contact-icon-board fs-12 fw-400 ${contact.color}">
+            <div class="contact-icon contact-icon-assigned fs-12 fw-400 ${contact.color}">
                 ${getInitials(contact)}
             </div>
         `;

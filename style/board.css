@@ -199,22 +199,6 @@ Board
 	align-items: center;
 }
 
-.assigned-contacts {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-}
-
-.contact-icon-board {
-	min-width: 35px;
-	height: 35px;
-	border: 1px solid white;
-}
-
-.contact-icon-board:not(:first-child) {
-	margin-left: -6px;
-}
-
 .contact-overlay-icon-board {
 	min-width: 45px;
 	height: 45px;

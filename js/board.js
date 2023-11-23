@@ -149,7 +149,7 @@ function renderUpToThreeAssignedContacts(task) {
     for (let i = 0; i < task.assignedTo.length; i++) {
         const contact = task.assignedTo[i];
         html += `
-                <div class="contact-icon contact-icon-board fs-12 fw-400 ${contact.color}">
+                <div class="contact-icon contact-icon-assigned fs-12 fw-400 ${contact.color}">
                     ${getInitials(contact)}
                 </div>
             `;
@@ -166,13 +166,13 @@ function renderUpToThreeAssignedContacts(task) {
  */
 function renderMoreThanThreeAssignedContacts(task) {
     return `
-        <div class="contact-icon contact-icon-board fs-12 fw-400 ${task.assignedTo[0].color}">
+        <div class="contact-icon contact-icon-assigned fs-12 fw-400 ${task.assignedTo[0].color}">
             ${getInitials(task.assignedTo[0])}
         </div>
-        <div class="contact-icon contact-icon-board fs-12 fw-400 ${task.assignedTo[1].color}">
+        <div class="contact-icon contact-icon-assigned fs-12 fw-400 ${task.assignedTo[1].color}">
             ${getInitials(task.assignedTo[1])}
         </div>
-        <div class="contact-icon contact-icon-board fs-12 fw-400 bg-theme">
+        <div class="contact-icon contact-icon-assigned fs-12 fw-400 bg-theme">
             +${task.assignedTo.length - 2}
         </div>
     `;

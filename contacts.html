@@ -53,10 +53,10 @@
     <div w3-include-html="./templates/headerNav/headerNav.html" style="height:0"></div>
 
     <section id="addtask-overlay-fullscreen" class="addtask-overlay-fullscreen d-none"
-        onclick="closeAddTaskOverlay(); closeDropDown('addtask-assigned-dropdown'); closeDropDown('addtask-category-dropdown');">
+        onclick="closeAddTaskOverlay(); closeDropDown('addtask-assigned-dropdown'); renderAssignedContactIconsOnCheck(); closeDropDown('addtask-category-dropdown');">
 
         <article id="addtask-card" class="addtask-card d-none"
-            onclick="doNotClose(event); closeDropDown('addtask-assigned-dropdown'); closeDropDown('addtask-category-dropdown');">
+            onclick="doNotClose(event); closeDropDown('addtask-assigned-dropdown'); renderAssignedContactIconsOnCheck(); closeDropDown('addtask-category-dropdown');">
             <div class="addtask-template-container" w3-include-html="./templates/addtask/addtaskTemplate.html"></div>
             <div class="close-addtask-card" onclick="closeAddTaskOverlay()">
                 <img src="./assets/img/close.png">
